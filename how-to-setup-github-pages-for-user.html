@@ -158,6 +158,10 @@ git subtree push --prefix=html/ origin master
 <li>commit and push changes to 'test'</li>
 <li>push subtree <pre><code>
 git subtree push --prefix=html/ origin update
+<samp>
+git push using:  origin update
+cache for 0be1785234bc21ac2b6f7dc8865fd8181ca00555 already exists!
+</samp>
 </code></pre></li>
 <li>open a pull request for 'update' comparing with 'master'</li>
 <li>merge pull request</li>
@@ -180,8 +184,7 @@ git status
 
 <pre><code>
 git add .   
-git commit  
-git push # optional #
+git commit -m "fast track $( date +s )"
 git subtree push --prefix=html/ origin update
 </code></pre>
 
