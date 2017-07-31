@@ -26,13 +26,12 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-card-4 w3-margin w3-white">
 <div class="w3-container">
 <h1>how to setup github pages for user</h1>
+<p>how-to-setup-github-pages-for-user</p>
+
 <!--
 how-to-setup-github-pages-for-user
 [how to setup github pages for user](how-to-setup-github-pages-for-user.html)
 -->
-
-<p>work in progress
-since 3 Jul 2017</p>
 
 <hr />
 
@@ -41,7 +40,7 @@ GitHub Pages </p>
 
 <hr />
 
-<p>Skip to <a href="#fast-track">fast track</a></p>
+<p>Skip to <u><a href="#fast-track">fast track</a></u>; or if you just need to push your html files into a subtree before merging into your master branch, skip to <u><a href="#super-fast-track">super fast track</a></u>;</p>
 
 <hr />
 
@@ -187,6 +186,14 @@ git subtree push --prefix=html/ origin update
 <h3>call it a day</h3>
 
 <p>Check your user page</p>
+
+<h2 id="super-fast-track">super fast track</h2>
+
+<h3>push html files to origin subtree branch update</h3>
+
+<pre><code>
+git subtree push --prefix=html/ origin update
+</code></pre>
 
 <hr />
 <!--.w3-container--></div>
