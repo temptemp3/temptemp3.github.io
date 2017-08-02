@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="US-ASCII">
+<meta charset="Shift_JIS">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
-<title>index | temptemp3.github.io</title>
+<title>css w3 modals | temptemp3.github.io</title>
 </head>
 <body class="w3-light-grey">
 <div class="w3-content" style="max-width:1400px">
@@ -25,18 +25,56 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-col l8 s12">
 <div class="w3-card-4 w3-margin w3-white">
 <div class="w3-container">
-<h1>index</h1>
-<p>As no introduction to programming is complete without discourse into <em>The Hello World Problem</em>, no blog should be without a <em>Hello World Page</em>. Can you make something happen on the screen? Yes, I can. </p>
-
+<h1>css w3 modals</h1>
 <!--
-[index](index.html)
+[css w3 modals](css-w3-modals.html)
 -->
+
+<p>A modal is a container that may occupy the screen of your browser in the event of a dialog or popup. Here we will cover how the modal class provided by w3 css is used in this blog.</p>
 
 <hr />
 
-<p>Hello World</p>
+<p>This page was initially created to see w3 css modals in action displaying code. Other use cases may be added in the future.</p>
 
-<p>since 30 Jun 2017</p>
+<h2>using w3 css modals</h2>
+
+<p>use modals to accomplish a task</p>
+
+<h2>to display code</h2>
+
+<p>display code on screen in user friendly format</p>
+
+<h3>without using modals</h3>
+
+<p>code display using pre code tags</p>
+
+<h3>using modals</h3>
+
+<!-- Trigger/Open the Modal -->
+<button onclick="document.getElementById('id01').style.display='block'"
+class="w3-button">Open Modal</button> 
+<!-- The Modal -->
+
+<div id="id01" class="w3-modal">
+  <div class="w3-modal-content">
+    <div class="w3-container">
+      <span onclick="document.getElementById('id01').style.display='none'"
+      class="w3-button w3-display-topright">&times;</span>
+      <p>
+&lt;div class="box-strong"&gt;<br>
+&lt;img class="rphoto" src="aaaaaaaaaaaaaaaaaaaaa" alt="bbbbbbbbbbbbbbbbbbbbbbb"&gt;<br>
+&lt;p class="boldt"&gt;&lt;a href="${the_hp}" target="_blank" rel="nofollow"&gt;${the_name}&lt;/a&gt;&lt;/p&gt;<br>
+$( if_name_value "TEL" ${the_tel} )<br>
+$( if_name_value "éûä‘" ${the_time} )<br>
+$( if_name_value "èZèä" ${the_place} )<br>
+$( if_value "" ${the_opt} )<br>
+&lt;/div&gt;<br>
+</p>
+    </div>
+  </div>
+</div> 
+
+<p>based on <a href="https://www.w3schools.com/w3css/w3css_modal.asp">W3.CSS Modal</a></p>
 
 <hr />
 <!--.w3-container--></div>
