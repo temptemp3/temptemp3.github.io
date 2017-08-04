@@ -132,6 +132,37 @@ declare -a VARIABLE
 declare -A VARIABLE 
 </code></pre>
 
+<h3>associative arrays in the wild</h3>
+
+<pre><code>
+declare -A document
+...
+get-document-meta() {
+ local document_meta
+ local document_meta_name
+ local document_meta_value
+ document_meta=$(
+  cat ${file} \
+  | grep \
+  -e '<[!]--\s\+[a-z-]\+:[a-z,]\+\s\+-->' --only-matching \
+  | sed -e 's/\(.*\)/\1/' \
+  -e 's/<!--\s\+//g' \
+  -e 's/\s\+-->//g' 
+ )
+ test ! "${document_meta}" || {
+  document_meta_name=$( 
+   echo "${document_meta}" | cut -f1 -d:
+  )
+  document_meta_value=$(
+   echo "${document_meta}" | cut -f2 -d:
+  )
+  document["${document_meta_name}"]="${document_meta_value}" 
+ }
+}
+</code></pre>
+
+<p>source: <a href="https://github.com/temptemp3/sh2-u2-theme-default/blob/master/include.sh">sh2-u2-theme-default/include.sh</a></p>
+
 <h2>to declare a readonly variable</h2>
 
 <pre><code>
@@ -189,10 +220,10 @@ declare -n VARIABLE
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
 <a href="aws-autoscaling-enable-metrics-collection-for-asg.html" class="w3-bar-item w3-button w3-mobile">aws-autoscaling-enable-metrics-collection-for-asg</a>
 <a href="bash-script-coding-style-guide.html" class="w3-bar-item w3-button w3-mobile">bash-script-coding-style-guide</a>
-<a href="css-w3-modals.html" class="w3-bar-item w3-button w3-mobile">css-w3-modals</a>
 <a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
-<a href="hello-world.html" class="w3-bar-item w3-button w3-mobile">hello-world</a>
+<a href="css-w3-modals.html" class="w3-bar-item w3-button w3-mobile">css-w3-modals</a>
 <a href="git-how-to-migrate-standalone-bash-program-to-package-based-program.html" class="w3-bar-item w3-button w3-mobile">git-how-to-migrate-standalone-bash-program-to-package-based-program</a>
+<a href="hello-world.html" class="w3-bar-item w3-button w3-mobile">hello-world</a>
 <a href="how-to-setup-github-pages-for-user.html" class="w3-bar-item w3-button w3-mobile">how-to-setup-github-pages-for-user</a>
 <a href="links.html" class="w3-bar-item w3-button w3-mobile">links</a>
 <a href="seo-optimal-intro-length.html" class="w3-bar-item w3-button w3-mobile">seo-optimal-intro-length</a>
