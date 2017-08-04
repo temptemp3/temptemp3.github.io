@@ -32,9 +32,13 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 [bash using declare](bash-using-declare.html)
 -->
 
+<p>Learn how to use declare to accomplish more than merely variable assignment: accessing arrays; functions; and much more.</p>
+
 <hr />
 
-<p>The <a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html">bash builtin</a> command <u>declare</u> provides access to variable attributes within the scope of a bash program. </p>
+<p>The <u>bash builtin</u> command <u>declare</u> provides access to variable attributes within the scope of a bash program. </p>
+
+<p>Here is a list of ways declare may be used. </p>
 
 <h2>to dump variables</h2>
 
@@ -49,17 +53,26 @@ declare
 <p>The declare command may be used to test if a function has been declared and is usable within the scope of the bash program.</p>
 
 <pre><code>
-declare -f ${function_name} # return name and definition of function if declared
+#
+# return name and definition of function if declared
+#
+declare -f ${function_name} 
 </code></pre>
 
 <pre><code>
-declare -F ${function_name} # returns name only of function if declared
+#
+# returns name only of function if declared
+#
+declare -F ${function_name} 
 </code></pre>
 
 <h2>to give a variable attributes</h2>
 
 <pre><code>
-declare -X VARIABLE # give variable attribute x
+#
+# give variable attribute x
+#
+declare -X VARIABLE 
 </code></pre>
 
 <h2>to remove variable attributes</h2>
@@ -67,7 +80,10 @@ declare -X VARIABLE # give variable attribute x
 <p>Use '+' instead of '-'.</p>
 
 <pre><code>
-declare +X VARIABLE # remove attribute x from variable
+#
+# remove attribute x from variable
+#
+declare +X VARIABLE 
 </code></pre>
 
 <p>Attribute removal behavior may vary of array and readonly variables.</p>
@@ -81,13 +97,19 @@ declare -p
 <h2>to declare a variable without attributes</h2>
 
 <pre><code>
-declare VARIABLE[=VALUE] # declare variable without attribute
+#
+# declare variable without attribute
+#
+declare VARIABLE[=VALUE] 
 </code></pre>
 
 <p>equvalent to</p>
 
 <pre><code>
-VARIABLE=[VALUE] # declare variable 
+#
+# declare variable 
+#
+VARIABLE=[VALUE] 
 </code></pre>
 
 <h2>to declare an array</h2>
@@ -95,43 +117,64 @@ VARIABLE=[VALUE] # declare variable
 <h3>indexed arrays</h3>
 
 <pre><code>
-declare -a VARIABLE # declare an array
+#
+# declare an array
+#
+declare -a VARIABLE 
 </code></pre>
 
 <h3>associative arrays, hashes, map, dictionary, or collection of (key,value) pairs</h3>
 
 <pre><code>
-declare -A VARIABLE # declare an associative arrays
+#
+# declare an associative arrays
+#
+declare -A VARIABLE 
 </code></pre>
 
 <h2>to declare a readonly variable</h2>
 
 <pre><code>
-declare -r VARIABLE # declare readonly
+#
+# declare readonly
+#
+declare -r VARIABLE 
 </code></pre>
 
 <h2>to declare a variable to be treated as an integer</h2>
 
 <pre><code>
-declare -i VARIABLE # declare integer
+#
+# declare integer
+#
+declare -i VARIABLE 
 </code></pre>
 
 <h2>to declare a variable to be case-insensitive, or lowercase</h2>
 
 <pre><code>
-declare -l VARIABLE # declare lower
+#
+# declare lower
+#
+declare -l VARIABLE 
 </code></pre>
 
 <h2>to declare a variable to be uppercase</h2>
 
 <pre><code>
-declare -u VARIABLE # declare upper
+#
+# declare upper
+#
+declare -u VARIABLE 
 </code></pre>
 
 <h2>to declare a variable to be a reference to another variable</h2>
 
 <pre><code>
-declare -n VARIABLE # declare nameref
+#
+# declare nameref
+#
+declare -n VARIABLE 
 </code></pre>
 
 <hr />
@@ -145,6 +188,7 @@ declare -n VARIABLE # declare nameref
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
 <a href="aws-autoscaling-enable-metrics-collection-for-asg.html" class="w3-bar-item w3-button w3-mobile">aws-autoscaling-enable-metrics-collection-for-asg</a>
+<a href="bash-script-coding-style-guide.html" class="w3-bar-item w3-button w3-mobile">bash-script-coding-style-guide</a>
 <a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
 <a href="css-w3-modals.html" class="w3-bar-item w3-button w3-mobile">css-w3-modals</a>
 <a href="git-how-to-migrate-standalone-bash-program-to-package-based-program.html" class="w3-bar-item w3-button w3-mobile">git-how-to-migrate-standalone-bash-program-to-package-based-program</a>
@@ -152,8 +196,8 @@ declare -n VARIABLE # declare nameref
 <a href="how-to-setup-github-pages-for-user.html" class="w3-bar-item w3-button w3-mobile">how-to-setup-github-pages-for-user</a>
 <a href="links.html" class="w3-bar-item w3-button w3-mobile">links</a>
 <a href="seo-optimal-intro-length.html" class="w3-bar-item w3-button w3-mobile">seo-optimal-intro-length</a>
-<a href="seo-optimal-title-length.html" class="w3-bar-item w3-button w3-mobile">seo-optimal-title-length</a>
 <a href="seo-pinging-crawlers.html" class="w3-bar-item w3-button w3-mobile">seo-pinging-crawlers</a>
+<a href="seo-optimal-title-length.html" class="w3-bar-item w3-button w3-mobile">seo-optimal-title-length</a>
 <a href="the-little-vimmer.html" class="w3-bar-item w3-button w3-mobile">the-little-vimmer</a>
 </div> 
 <!--.w3-container--></div>
