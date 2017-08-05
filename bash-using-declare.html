@@ -47,23 +47,20 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <p>Using declare by itself may be used to dump variable names and functions along with their value and definitions, respectfully.</p>
 
-<pre><code>
-declare
+<pre><code>declare
 </code></pre>
 
 <h2>to test a function</h2>
 
 <p>The declare command may be used to test if a function has been declared and is usable within the scope of the bash program.</p>
 
-<pre><code>
-#
+<pre><code>#
 # return name and definition of function if declared
 #
 declare -f ${function_name} 
 </code></pre>
 
-<pre><code>
-#
+<pre><code>#
 # returns name only of function if declared
 #
 declare -F ${function_name} 
@@ -71,8 +68,7 @@ declare -F ${function_name}
 
 <h2>to give a variable attributes</h2>
 
-<pre><code>
-#
+<pre><code>#
 # give variable attribute x
 #
 declare -X VARIABLE 
@@ -82,8 +78,7 @@ declare -X VARIABLE
 
 <p>Use '+' instead of '-'.</p>
 
-<pre><code>
-#
+<pre><code>#
 # remove attribute x from variable
 #
 declare +X VARIABLE 
@@ -93,14 +88,12 @@ declare +X VARIABLE
 
 <h2>to list attributes</h2>
 
-<pre><code>
-declare -p 
+<pre><code>declare -p 
 </code></pre>
 
 <h2>to declare a variable without attributes</h2>
 
-<pre><code>
-#
+<pre><code>#
 # declare variable without attribute
 #
 declare VARIABLE[=VALUE] 
@@ -108,8 +101,7 @@ declare VARIABLE[=VALUE]
 
 <p>equvalent to</p>
 
-<pre><code>
-#
+<pre><code>#
 # declare variable 
 #
 VARIABLE=[VALUE] 
@@ -119,8 +111,7 @@ VARIABLE=[VALUE]
 
 <h3>indexed arrays</h3>
 
-<pre><code>
-#
+<pre><code>#
 # declare an array
 #
 declare -a VARIABLE 
@@ -128,8 +119,7 @@ declare -a VARIABLE
 
 <h3>associative arrays, hashes, map, dictionary, or collection of (key,value) pairs</h3>
 
-<pre><code>
-#
+<pre><code>#
 # declare an associative arrays
 #
 declare -A VARIABLE 
@@ -137,8 +127,7 @@ declare -A VARIABLE
 
 <h3>associative arrays in the wild</h3>
 
-<pre><code>
-declare -A document
+<pre><code>declare -A document
 ...
 get-document-meta() {
  local document_meta
@@ -168,8 +157,7 @@ get-document-meta() {
 
 <h2>to declare a readonly variable</h2>
 
-<pre><code>
-#
+<pre><code>#
 # declare readonly
 #
 declare -r VARIABLE 
@@ -177,8 +165,7 @@ declare -r VARIABLE
 
 <h2>to declare a variable to be treated as an integer</h2>
 
-<pre><code>
-#
+<pre><code>#
 # declare integer
 #
 declare -i VARIABLE 
@@ -186,8 +173,7 @@ declare -i VARIABLE
 
 <h2>to declare a variable to be case-insensitive, or lowercase</h2>
 
-<pre><code>
-#
+<pre><code>#
 # declare lower
 #
 declare -l VARIABLE 
@@ -195,8 +181,7 @@ declare -l VARIABLE
 
 <h2>to declare a variable to be uppercase</h2>
 
-<pre><code>
-#
+<pre><code>#
 # declare upper
 #
 declare -u VARIABLE 
@@ -204,8 +189,7 @@ declare -u VARIABLE
 
 <h2>to declare a variable to be a reference to another variable</h2>
 
-<pre><code>
-#
+<pre><code>#
 # declare nameref
 #
 declare -n VARIABLE 
@@ -221,19 +205,7 @@ declare -n VARIABLE
 <div class="w3-container">
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
-<a href="aws-autoscaling-enable-metrics-collection-for-asg.html" class="w3-bar-item w3-button w3-mobile">aws-autoscaling-enable-metrics-collection-for-asg</a>
-<a href="bash-script-coding-style-guide.html" class="w3-bar-item w3-button w3-mobile">bash-script-coding-style-guide</a>
 <a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
-<a href="css-w3-modals.html" class="w3-bar-item w3-button w3-mobile">css-w3-modals</a>
-<a href="git-how-to-migrate-standalone-bash-program-to-package-based-program.html" class="w3-bar-item w3-button w3-mobile">git-how-to-migrate-standalone-bash-program-to-package-based-program</a>
-<a href="hello-world.html" class="w3-bar-item w3-button w3-mobile">hello-world</a>
-<a href="how-to-setup-github-pages-for-user.html" class="w3-bar-item w3-button w3-mobile">how-to-setup-github-pages-for-user</a>
-<a href="links.html" class="w3-bar-item w3-button w3-mobile">links</a>
-<a href="seo-optimal-intro-length.html" class="w3-bar-item w3-button w3-mobile">seo-optimal-intro-length</a>
-<a href="seo-optimal-title-length.html" class="w3-bar-item w3-button w3-mobile">seo-optimal-title-length</a>
-<a href="seo-pinging-crawlers.html" class="w3-bar-item w3-button w3-mobile">seo-pinging-crawlers</a>
-<a href="the-little-vimmer.html" class="w3-bar-item w3-button w3-mobile">the-little-vimmer</a>
-<a href="www-protocol-relative-url.html" class="w3-bar-item w3-button w3-mobile">www-protocol-relative-url</a>
 </div> 
 <!--.w3-container--></div>
 <!--.w3-card--></div>
