@@ -30,7 +30,6 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <h1>how to setup github pages for user</h1>
 
 <!--
-how-to-setup-github-pages-for-user
 [how to setup github pages for user](how-to-setup-github-pages-for-user.html)
 -->
 
@@ -110,8 +109,7 @@ Dynamic, static, or straight up vim, how you choose to populate your 'html' dire
 
 <ol>
 <li>update 'html' files</li>
-<li>commit and push changes to 'test' <pre><code>
-git add .   # add everything
+<li>commit and push changes to 'test' <pre><code>git add .   # add everything
 git commit  # commit changes
 git push    # push new commits
 </code></pre></li>
@@ -128,9 +126,7 @@ git push    # push new commits
 <h3>workflow</h3>
 
 <ol>
-<li>push subtree <pre><code>
-git subtree push --prefix=html/ origin master
-</code></pre></li>
+<li>push subtree <pre><code>git subtree push --prefix=html/ origin master</code></pre></li>
 <li>update default branch to 'master' (optional)
 <ul>
 <li>You'll see why you may want to do this later.</li>
@@ -148,17 +144,15 @@ git subtree push --prefix=html/ origin master
 <ol>
 <li>update 'html' files</li>
 <li>commit and push changes to 'test'</li>
-<li>push subtree <pre><code>
-git subtree push --prefix=html/ origin update
-<samp>
-git push using:  origin update
-cache for 0be1785234bc21ac2b6f7dc8865fd8181ca00555 already exists!
-</samp>
-</code></pre></li>
-<li>open a pull request for 'update' comparing with 'master'</li>
-<li>merge pull request</li>
-<li>delete 'update' (optional)</li>
+<li>push subtree <pre><code>git subtree push --prefix=html/ origin update
+<samp>git push using:  origin update
+cache for 0be1785234bc21ac2b6f7dc8865fd8181ca00555 already exists!</samp></li>
 </ol>
+
+<p></code></pre>
+1. open a pull request for 'update' comparing with 'master'
+1. merge pull request
+1. delete 'update' (optional)</p>
 
 <hr />
 
@@ -168,14 +162,12 @@ cache for 0be1785234bc21ac2b6f7dc8865fd8181ca00555 already exists!
 
 <h3>see what you're working with</h3>
 
-<pre><code>
-git status 
+<pre><code>git status 
 </code></pre>
 
 <h3>clean up your desk</h3>
 
-<pre><code>
-git add .   
+<pre><code>git add .   
 git commit -m "fast track $( date +%s )"
 git subtree push --prefix=html/ origin update
 </code></pre>
@@ -192,8 +184,7 @@ git subtree push --prefix=html/ origin update
 
 <h3>push html files to origin subtree branch update</h3>
 
-<pre><code>
-git subtree push --prefix=html/ origin update
+<pre><code>git subtree push --prefix=html/ origin update
 </code></pre>
 
 <hr />
@@ -205,20 +196,8 @@ git subtree push --prefix=html/ origin update
 <div class="w3-container">
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
-<a href="aws-autoscaling-enable-metrics-collection-for-asg.html" class="w3-bar-item w3-button w3-mobile">aws-autoscaling-enable-metrics-collection-for-asg</a>
-<a href="bash-one-liners.html" class="w3-bar-item w3-button w3-mobile">bash-one-liners</a>
-<a href="bash-script-coding-style-guide.html" class="w3-bar-item w3-button w3-mobile">bash-script-coding-style-guide</a>
-<a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
-<a href="css-w3-modals.html" class="w3-bar-item w3-button w3-mobile">css-w3-modals</a>
-<a href="git-how-to-migrate-standalone-bash-program-to-package-based-program.html" class="w3-bar-item w3-button w3-mobile">git-how-to-migrate-standalone-bash-program-to-package-based-program</a>
-<a href="hello-world.html" class="w3-bar-item w3-button w3-mobile">hello-world</a>
+<a href="github-pages-tips.html" class="w3-bar-item w3-button w3-mobile">github-pages-tips</a>
 <a href="how-to-setup-github-pages-for-user.html" class="w3-bar-item w3-button w3-mobile">how-to-setup-github-pages-for-user</a>
-<a href="links.html" class="w3-bar-item w3-button w3-mobile">links</a>
-<a href="seo-optimal-intro-length.html" class="w3-bar-item w3-button w3-mobile">seo-optimal-intro-length</a>
-<a href="seo-optimal-title-length.html" class="w3-bar-item w3-button w3-mobile">seo-optimal-title-length</a>
-<a href="seo-pinging-crawlers.html" class="w3-bar-item w3-button w3-mobile">seo-pinging-crawlers</a>
-<a href="the-little-vimmer.html" class="w3-bar-item w3-button w3-mobile">the-little-vimmer</a>
-<a href="www-protocol-relative-url.html" class="w3-bar-item w3-button w3-mobile">www-protocol-relative-url</a>
 </div> 
 <!--.w3-container--></div>
 <!--.w3-card--></div>

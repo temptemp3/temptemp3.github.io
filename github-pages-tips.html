@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="US-ASCII">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>github pages tips | temptemp3.github.io</title>
+
+<link rel="canonical" href="https://temptemp3.github.io/github-pages-tips.html" />
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="w3-light-grey">
+<div class="w3-content" style="max-width:1400px">
+<!-- Header -->
+<header class="w3-container w3-center w3-padding-32"> 
+<h1><b><a style="text-decoration:none;" href="https://temptemp3.github.io/">tempt2<sup>3</sup></a></b></h1>
+<p>Welcome to the blog of <span class="w3-tag"><a style="text-decoration:none;" href="https://github.com/temptemp3">temptemp3</a></span></p>
+</header>
+<!-- begin Grid -->
+<div class="w3-row">
+<div class="w3-col l8 s12">
+<div class="w3-card-4 w3-margin w3-white">
+<div class="w3-container">
+<h1>github pages tips</h1>
+<p>The kitchen and sink of tips for getting set up with GitHub Pages from deployment strategies to html markup considerations.</p>
+<!--
+[github pages tips](github-pages-tips.html)
+-->
+
+<!-- document-intro: The kitchen and sink of tips for getting set up with GitHub Pages from deployment strategies to html markup considerations. -->
+
+<hr />
+
+<h2>list of GitHub Pages tips</h2>
+
+<h3>1. make sure your content is utf-8</h3>
+
+<p>Whether you like it or not, the http HEAD response for all of your GitHub Pages will conveniently let the user agent, in most cases your browser, that your content charset is utf-8, which it may not correct.</p>
+
+<p>Here is an example HEAD response.</p>
+
+<pre><code>
+curl -Ik https://temptemp3.github.io/bash-script-coding-style-guide -s
+HTTP/2 200
+date: Sat, 05 Aug 2017 15:46:07 GMT
+server: GitHub.com
+content-type: text/html; charset=utf-8
+strict-transport-security: max-age=31557600
+last-modified: Sat, 05 Aug 2017 15:43:15 GMT
+access-control-allow-origin: *
+expires: Sat, 05 Aug 2017 15:55:03 GMT
+cache-control: max-age=600
+x-github-request-id: 7FDA:1C4EF:2E8056:31F5D1:5985E7FF
+accept-ranges: bytes
+via: 1.1 varnish
+age: 64
+x-served-by: cache-nrt6121-NRT
+x-cache: HIT
+x-cache-hits: 1
+x-timer: S1501947968.737226,VS0,VE1
+vary: Accept-Encoding
+x-fastly-request-id: 59420d208e085246c39ebb9b5f36c5cd30912c5e
+content-length: 7874
+</code></pre>
+
+<p>Even if you've devised an experimental scheme to set the charset dynamically, the charset indicated indicated in the HEAD response may supercied the markup of your document depending on browser behavior.</p>
+
+<p>Make sure your content is utf-8 to avoid unwanted scrambled characters in your content as you may have already seen in <a href="css-w3-modals.html">css w3 modals</a>.</p>
+
+<h3>2. deploy subtree updates to master branch</h3>
+
+<p>Deploy only files required by your GitHubs Pages page, i.e. html files, css, ect. To accomplish this you may want to push required files to a subtree to be merged to your master branch. I have laid out the <a href="how-to-setup-github-pages-for-user.html">procedure to deploy subtree updates to master branch</a> in another post.</p>
+
+<hr />
+<!--.w3-container--></div>
+<!--.w3-card--></div>
+<!--.w3-col--></div>
+<div class="w3-col l4">
+<div class="w3-card-2 w3-margin w3-margin-top w3-white">
+<div class="w3-container">
+<div class="w3-bar w3-white">
+<a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
+<a href="github-pages-tips.html" class="w3-bar-item w3-button w3-mobile">github-pages-tips</a>
+<a href="how-to-setup-github-pages-for-user.html" class="w3-bar-item w3-button w3-mobile">how-to-setup-github-pages-for-user</a>
+</div> 
+<!--.w3-container--></div>
+<!--.w3-card--></div>
+<!--.w3-col--></div>
+<!--.w3-row--></div>
+<!-- Grid end -->
+<!-- .w3-content --></div>
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+<p>&copy; 2017 <a href="https://temptemp3.github.io/">temptemp3.github.io</a></p>
+<!--button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
+<button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next</button-->
+</footer>
+</body>
+</html>
