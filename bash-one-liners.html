@@ -28,12 +28,12 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-card-4 w3-margin w3-white">
 <div class="w3-container">
 <h1>bash one liners</h1>
-<p>List of bash one-liners to simplify repetitive Unix shell scripting tasks expanded to multi-line for improved readability.</p>
+<p>You need one-liners or simple shell programs to simplify all those repetitive tasks without having to write bash script.</p>
+<!-- document-intro: You need one-liners or simple shell programs to simplify all those repetitive tasks without having to write bash script. -->
+
 <!--
 [bash one liners](bash-one-liners.html)
 -->
-
-<!-- document-intro:List of bash one-liners to simplify repetitive Unix shell scripting tasks expanded to multi-line for improved readability. -->
 
 <hr />
 
@@ -59,13 +59,41 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </ul></li>
 </ul>
 
+<hr />
+
 <h2>bash one-liners list</h2>
 
-<p>flush changes in git repository</p>
+<p>List of bash one-liners to simplify repetitive Unix shell scripting tasks expanded to multi-line for improved readability. </p>
 
-<pre><code>{ git status ; read ; git add . ; git commit -m "flush" ; }</code></pre>
+<h3>for git</h3>
 
-<p>note that the command may be canceled by pressing C-Z or C-C at the read stage else press any key</p>
+<h4>flush changes in git repository</h4>
+
+<h5>one-liner</h5>
+
+<pre><code>{ _() { { local message ; } ; git status ; echo "ok?" ; read ; echo "enter message:" ; read message ; git add . ; git commit -m "${message} $( date +%s )" ; } ; _ ; }</code></pre>
+
+<h5>expanded</h5>
+
+<pre><code>{ 
+ _() { 
+  { 
+   local message 
+  } 
+  git status 
+  echo "ok?" 
+  read 
+  echo "enter message:" 
+  read message 
+  git add . 
+  git commit -m "${message} $( date +%s )" 
+ } 
+ _ 
+}</code></pre>
+
+<div class="w3-panel w3-pale-yellow w3-border w3-border-yellow">
+<p>The command may be canceled by pressing C-Z or C-C at the read stage else press any key</p>
+</div> 
 
 <hr />
 <!--.w3-container--></div>
@@ -77,8 +105,8 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
 <a href="aws-autoscaling-enable-metrics-collection-for-asg.html" class="w3-bar-item w3-button w3-mobile">aws-autoscaling-enable-metrics-collection-for-asg</a>
-<a href="bash-script-coding-style-guide.html" class="w3-bar-item w3-button w3-mobile">bash-script-coding-style-guide</a>
 <a href="bash-one-liners.html" class="w3-bar-item w3-button w3-mobile">bash-one-liners</a>
+<a href="bash-script-coding-style-guide.html" class="w3-bar-item w3-button w3-mobile">bash-script-coding-style-guide</a>
 <a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
 <a href="css-w3-modals.html" class="w3-bar-item w3-button w3-mobile">css-w3-modals</a>
 <a href="git-how-to-migrate-standalone-bash-program-to-package-based-program.html" class="w3-bar-item w3-button w3-mobile">git-how-to-migrate-standalone-bash-program-to-package-based-program</a>
