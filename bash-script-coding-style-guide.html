@@ -216,11 +216,11 @@ test() {
  # may not work 
  # (GNU bash v4.3.42(5)-release (x86_64-pc-msys) ok
  # 
- echo $1   $11      # 1 11 or 1
+ echo $1   $11111   # 1234567890 12345678901111 or 1234567890
  #
  # always ok
  #
- echo ${1} ${11}    # 1 11
+ echo ${1} ${11111} # 1234567890 11111234567890
 }
 ##################################################
 if [ ! ] 
@@ -233,14 +233,14 @@ fi
 test ${@}
 ##################################################
 EOF
-./test.sh {1..11}
+./test.sh {1..11111}234567890
 </pre></code></p>
 
 <p>One of the first things you pick up when getting started writing shell scripts is positional parameters.</p>
 
 <p>Positional parameters contain the values of program or functions arguments.</p>
 
-<p>Your days of using positional parameters without braces as $1 .. $9 in bash are long gone. Not only does it hurt readability, handling positional parameters with $10 and beyond do not work without being enclosed in braces as in ${10}, etc. </p>
+<p>Your days of using positional parameters without braces as $1 .. $9 in bash are long gone. Not only does it hurt readability, handling positional parameters with $10 and beyond may not work without being enclosed in braces as in ${10}, etc. </p>
 
 <p>To prevent pos-par bugs in your code and improve readability, enclose positional parameters in braces..</p>
 
