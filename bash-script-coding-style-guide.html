@@ -41,9 +41,11 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 [bash script coding style guide](bash-script-coding-style-guide.html)
 -->
 
-<p>Here is a bash script coding style guide to be updated on a continual basis covering bash coding style points by temptemp3.</p>
+<p>You are in search of a bash scripting guide written for all kinds of scripters to help you do more writing less code.</p>
 
 <hr />
+
+<p>Here is a bash script coding style guide to be updated on a continual basis covering bash coding style points by temptemp3 subject to revision without notice.</p>
 
 <h2>${0} - bash script guide: coding + style</h2>
 
@@ -254,6 +256,72 @@ EOF
 
 <p>To prevent pos-par bugs in your code and improve readability, enclose positional parameters in braces..</p>
 
+<h2>${4} - use functions</h2>
+
+<p>Although you may be tempted to script </p>
+
+<pre><code>#!/bin/bash</code></pre>
+
+<p>through</p>
+
+<pre><code>exit # or just whatever is the last signal</code></pre>
+
+<p>without</p>
+
+<pre><code>having-fun() { ... }</code></pre>
+
+<p>you will find out that not using functions in bash puts you at a disadvantage in terms of error handling and program structure. </p>
+
+<h3>what are functions</h3>
+
+<p>Functions are building blocks in bash that allow you to encapsulate billions of lines of code into a single function call line. </p>
+
+<h4>functions are blocks of code</h4>
+
+<p>A function in bash is a block of code that does not require execution unless called.</p>
+
+<pre><code>fun(){
+ some old bash code 
+}
+# plan on running later</code></pre>
+
+<p>The cannot be said about the following code block.</p>
+
+<pre><code>{
+ some young bash code
+}
+oops! # it ran</code></pre>
+
+<h4>functions are variables</h4>
+
+<p>Functions in bash are variables having the function attribute, which you can check using</p>
+
+<pre><code>declare -f # dump functions</code></pre>
+
+<p>Note that due to the fact that functions are in fact variables, they can be disposed </p>
+
+<pre><code>unset fun # erase fun</code></pre>
+
+<p>or redefined</p>
+
+<pre><code>fun() { 
+... 
+} # redefine fun</code></pre>
+
+<h4>functions are not aliases</h4>
+
+<p>Aliases are something else.</p>
+
+<h3>what do functions look like</h3>
+
+<p>functions as they should be written ...</p>
+
+<pre><code>template here</code></pre>
+
+<p>functions in the wild ...</p>
+
+<pre><code>natural selection of functions</code></pre>
+
 <hr />
 <!--.w3-container--></div>
 <!--.w3-card--></div>
@@ -263,22 +331,8 @@ EOF
 <div class="w3-container">
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
-<a href="aws-autoscaling-enable-metrics-collection-for-asg.html" class="w3-bar-item w3-button w3-mobile">aws-autoscaling-enable-metrics-collection-for-asg</a>
-<a href="bash-one-liners.html" class="w3-bar-item w3-button w3-mobile">bash-one-liners</a>
+<a href="apache-tips.html" class="w3-bar-item w3-button w3-mobile">apache-tips</a>
 <a href="bash-script-coding-style-guide.html" class="w3-bar-item w3-button w3-mobile">bash-script-coding-style-guide</a>
-<a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
-<a href="css-w3-modals.html" class="w3-bar-item w3-button w3-mobile">css-w3-modals</a>
-<a href="git-how-to-migrate-standalone-bash-program-to-package-based-program.html" class="w3-bar-item w3-button w3-mobile">git-how-to-migrate-standalone-bash-program-to-package-based-program</a>
-<a href="github-pages-tips.html" class="w3-bar-item w3-button w3-mobile">github-pages-tips</a>
-<a href="google-analytics.html" class="w3-bar-item w3-button w3-mobile">google-analytics</a>
-<a href="hello-world.html" class="w3-bar-item w3-button w3-mobile">hello-world</a>
-<a href="how-to-setup-github-pages-for-user.html" class="w3-bar-item w3-button w3-mobile">how-to-setup-github-pages-for-user</a>
-<a href="links.html" class="w3-bar-item w3-button w3-mobile">links</a>
-<a href="seo-optimal-intro-length.html" class="w3-bar-item w3-button w3-mobile">seo-optimal-intro-length</a>
-<a href="seo-optimal-title-length.html" class="w3-bar-item w3-button w3-mobile">seo-optimal-title-length</a>
-<a href="the-little-vimmer.html" class="w3-bar-item w3-button w3-mobile">the-little-vimmer</a>
-<a href="seo-pinging-crawlers.html" class="w3-bar-item w3-button w3-mobile">seo-pinging-crawlers</a>
-<a href="www-protocol-relative-url.html" class="w3-bar-item w3-button w3-mobile">www-protocol-relative-url</a>
 </div> 
 <!--.w3-container--></div>
 <!--.w3-card--></div>
