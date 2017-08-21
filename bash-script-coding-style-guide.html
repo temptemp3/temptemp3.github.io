@@ -59,7 +59,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <h5>temptemp3</h5>
 
-<p>All executables and libraries should have a .sh extension and may be executable. Files and executability are treated mutually exclusive; i.e. executability is not taken into consideration in the naming of a bash script source code file.</p>
+<p>All executables and libraries should have a .sh extension and may be executable. Files and executability are treated mutually exclusive; i.e. executability is not taken into consideration in the naming of a bash program file.</p>
 
 <h5>google</h5>
 
@@ -246,7 +246,7 @@ EOF
 ./test.sh {1..11111}234567890
 </pre></code></p>
 
-<p>source: <a href="https://github.com/temptemp3/test.sh/blob/master/positional-parameters.sh">positional-parameters.sh</a></p>
+<p>see <a href="https://github.com/temptemp3/test.sh/blob/master/positional-parameters.sh">positional-parameters.sh</a></p>
 
 <p>One of the first things you pick up when getting started writing shell scripts is positional parameters.</p>
 
@@ -321,6 +321,12 @@ oops! # it ran</code></pre>
 <p>functions in the wild ...</p>
 
 <pre><code>natural selection of functions</code></pre>
+
+<h2>${5} - use <code class="w3-codespan">.</code> instead of  <code class="w3-codespan">source</code></h2>
+
+<p><code class="w3-codespan">source</code> is a synonym for the bourne again shell builtin <code class="w3-codespan">.</code>, which can be include the contents of another program and optionally provide arguments. </p>
+
+<p>temptemp3 strictly uses <code class="w3-codespan">.</code> instead of <code class="w3-codespan">source</code> and does not use <code class="w3-codespan">.</code> in a way that results in direct exection; i.e. <em>filename</em> should contain only functions and variables to be used or extended within context of file containing <code class="w3-codespan">. <em>filename</em></code>.</p>
 
 <hr />
 <!--.w3-container--></div>
