@@ -89,6 +89,36 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <p>In that respect, do not trust non-English documentation with "may be outdated" notice. In the above case fr is okay, if you understand French; if not, stick to English. Furthermore, even if you understand Japanese, don't read anything with a "may be outdated" notice.</p>
 
+<h2>2. using mod_sed</h2>
+
+<p>Don't you wish you could just</p>
+
+<p><code><pre>
+s/pattern/replacement/g
+</pre></code></p>
+
+<p>in all output of your site without having to dive into php or modifying database tables?</p>
+
+<p>You can with </p>
+
+<p><strong>Apache Module mod_sed</strong></p>
+
+<h3>basic setup</h3>
+
+<ol>
+<li>enable mod_sed</li>
+<li>add output filter</li>
+<li>add output sed lines</li>
+</ol>
+
+<p>with that said you will be in and out of tasks such as http to https migration by the end of the day, unless you are stuck troubleshooting.</p>
+
+<h3>troubleshooting</h3>
+
+<h4>not replacing all patterns</h4>
+
+<p>There is a set limit (which the author hasn't bothered counting) on the number of patterns that may be replaced in a single line. This becomes an issue when running HTML-Tidy-Like optimizations in backend application code. To fix this, diseable whatever-you-use-to-tidy-up, outputing untidy html markup as is to be processed by mod<em>sed in output filtering. To tidy-up-again, it may be neccesary to add another output filter running after mod</em>sed.</p>
+
 <hr />
 <!--.w3-container--></div>
 <!--.w3-card--></div>
