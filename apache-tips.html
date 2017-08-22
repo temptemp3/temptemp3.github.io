@@ -89,6 +89,36 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <p>In that respect, do not trust non-English documentation with "may be outdated" notice. In the above case fr is okay, if you understand French; if not, stick to English. Furthermore, even if you understand Japanese, don't read anything with a "may be outdated" notice.</p>
 
+<h2>2. using mod_sed</h2>
+
+<p>Don't you wish you could just</p>
+
+<p><code><pre>
+s/pattern/replacement/g
+</pre></code></p>
+
+<p>in all output of your site without having to dive into php or modifying database tables?</p>
+
+<p>You can with </p>
+
+<p><strong>Apache Module mod_sed</strong></p>
+
+<h3>basic setup</h3>
+
+<ol>
+<li>enable mod_sed</li>
+<li>add output filter</li>
+<li>add output sed lines</li>
+</ol>
+
+<p>with that said you will be in and out of tasks such as http to https migration by the end of the day, unless you are stuck troubleshooting.</p>
+
+<h3>troubleshooting</h3>
+
+<h4>not replacing all patterns</h4>
+
+<p>There is a set limit (which the author hasn't bothered counting) on the number of patterns that may be replaced in a single line. This becomes an issue when running HTML-Tidy-Like optimizations in backend application code. To fix this, diseable whatever-you-use-to-tidy-up, outputing untidy html markup as is to be processed by mod<em>sed in output filtering. To tidy-up-again, it may be neccesary to add another output filter running after mod</em>sed.</p>
+
 <hr />
 <!--.w3-container--></div>
 <!--.w3-card--></div>
@@ -99,22 +129,6 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
 <a href="apache-tips.html" class="w3-bar-item w3-button w3-mobile">apache-tips</a>
-<a href="aws-autoscaling-enable-metrics-collection-for-asg.html" class="w3-bar-item w3-button w3-mobile">aws-autoscaling-enable-metrics-collection-for-asg</a>
-<a href="bash-one-liners.html" class="w3-bar-item w3-button w3-mobile">bash-one-liners</a>
-<a href="bash-script-coding-style-guide.html" class="w3-bar-item w3-button w3-mobile">bash-script-coding-style-guide</a>
-<a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
-<a href="css-w3-modals.html" class="w3-bar-item w3-button w3-mobile">css-w3-modals</a>
-<a href="git-how-to-migrate-standalone-bash-program-to-package-based-program.html" class="w3-bar-item w3-button w3-mobile">git-how-to-migrate-standalone-bash-program-to-package-based-program</a>
-<a href="github-pages-tips.html" class="w3-bar-item w3-button w3-mobile">github-pages-tips</a>
-<a href="google-analytics.html" class="w3-bar-item w3-button w3-mobile">google-analytics</a>
-<a href="hello-world.html" class="w3-bar-item w3-button w3-mobile">hello-world</a>
-<a href="how-to-setup-github-pages-for-user.html" class="w3-bar-item w3-button w3-mobile">how-to-setup-github-pages-for-user</a>
-<a href="links.html" class="w3-bar-item w3-button w3-mobile">links</a>
-<a href="seo-optimal-intro-length.html" class="w3-bar-item w3-button w3-mobile">seo-optimal-intro-length</a>
-<a href="seo-optimal-title-length.html" class="w3-bar-item w3-button w3-mobile">seo-optimal-title-length</a>
-<a href="seo-pinging-crawlers.html" class="w3-bar-item w3-button w3-mobile">seo-pinging-crawlers</a>
-<a href="the-little-vimmer.html" class="w3-bar-item w3-button w3-mobile">the-little-vimmer</a>
-<a href="www-protocol-relative-url.html" class="w3-bar-item w3-button w3-mobile">www-protocol-relative-url</a>
 </div> 
 <!--.w3-container--></div>
 <!--.w3-card--></div>
