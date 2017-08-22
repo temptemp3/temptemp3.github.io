@@ -36,6 +36,8 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-card-4 w3-margin w3-white">
 <div class="w3-container">
 <h1>apache tips</h1>
+<p>You can use some tips for Apache HTTP Server to aid in troubleshooting issues, host setup ,and optimizing performance.</p>
+<!-- document-intro: You can use some tips for Apache HTTP Server to aid in troubleshooting issues, host setup ,and optimizing performance. -->
 
 <!--
 [apache tips](apache-tips.html)
@@ -43,7 +45,15 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <hr />
 
-<h1>1. do not trust non-English documentation with may be outdated notice</h1>
+<h2>1. do not trust documentation</h2>
+
+<p>In most cases documentation provided by a software vender serves as a source of information that can be trusted; however, there are certain situations in which you would not want to trust documentation.</p>
+
+<h3>do not trust non-English documentation with "may be outdated" notice</h3>
+
+<p>A while back you noticed the "may be outdated"  notice in some non-English apache documentation, and didn't think much of it &mdash; at first. </p>
+
+<h4>Translation of Japanese documentation</h4>
 
 <p><strong>Apache Module mod_headers</strong></p>
 
@@ -53,13 +63,31 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <p>この日本語訳はすでに古くなっている 可能性があります。 最近更新された内容を見るには英語版をご覧下さい。 </p>
 </blockquote>
 
-<p><a href="https://httpd.apache.org/docs/current/en/mod/mod_headers.html">https://httpd.apache.org/docs/current/en/mod/mod_headers.html</a></p>
+<p><a href="https://httpd.apache.org/docs/current/ja/mod/mod_headers.html">https://httpd.apache.org/docs/current/ja/mod/mod_headers.html</a></p>
 
 <p>Translation:</p>
 
 <p>Apache HTTP Server Version 2.2 </p>
 
 <p>Not good.</p>
+
+<h4>How to interpret Available Languages</h4>
+
+<p>Example)</p>
+
+<p><strong>Apache Module mod_mime</strong></p>
+
+<p>Apache HTTP Server Version 2.4 (in English)</p>
+
+<blockquote>
+  <p>Available Languages:  en  |  fr  |  ja </p>
+</blockquote>
+
+<p><a href="https://httpd.apache.org/docs/current/en/mod/mod_mime.html">https://httpd.apache.org/docs/current/en/mod/mod_mime.html</a></p>
+
+<p>Under Available Languages: en (English); fr (French); and ja (Japanese); are listed. It is the opinion of the author that ja should not be listed, because it is most likely outdated. </p>
+
+<p>In that respect, do not trust non-English documentation with "may be outdated" notice. In the above case fr is okay, if you understand French; if not, stick to English. Furthermore, even if you understand Japanese, don't read anything with a "may be outdated" notice.</p>
 
 <hr />
 <!--.w3-container--></div>
