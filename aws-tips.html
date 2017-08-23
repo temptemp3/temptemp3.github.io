@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>css w3 modals | temptemp3.github.io</title>
+<title>aws tips | temptemp3.github.io</title>
 
-<link rel="canonical" href="https://temptemp3.github.io/css-w3-modals.html" />
+<link rel="canonical" href="https://temptemp3.github.io/aws-tips.html" />
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
@@ -35,57 +35,20 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-col l8 s12">
 <div class="w3-card-4 w3-margin w3-white">
 <div class="w3-container">
-<h1>css w3 modals</h1>
-
-<!--
-[css w3 modals](css-w3-modals.html)
--->
-
-<p>A modal is a container that may occupy the screen of your browser in the event of a dialog or popup. Here we will cover how the modal class provided by w3 css is used in this blog.</p>
+<h1>aws tips</h1>
+<p>AWS is one things that you must pick up along the way. Here is a running list of tips that may serve you as well as me.</p>
+<!-- document-intro: AWS is one things that you must pick up along the way. Here is a running list of tips that may serve you as well as me. -->
 
 <hr />
 
-<p>This page was initially created to see w3 css modals in action displaying code. Other use cases may be added in the future.</p>
+<h2>1. use regex to filter out ec2 loadbalancers</h2>
 
-<h2>using w3 css modals</h2>
+<p>Let's say that you have a 100 numbered load balancers prefixed with the letter 'a' starting at 1, a1, a3, to a100. Now you want to list only a1 and a2. How?</p>
 
-<p>use modals to accomplish a task</p>
+<pre><code>Filter: elb$|elb2$
+</code></pre>
 
-<h2>to display code</h2>
-
-<p>display code on screen in user friendly format</p>
-
-<h3>without using modals</h3>
-
-<p>code display using pre code tags</p>
-
-<h3>using modals</h3>
-
-<!-- Trigger/Open the Modal -->
-<button onclick="document.getElementById('id01').style.display='block'"
-class="w3-button">Open Modal</button> 
-<!-- The Modal -->
-
-<div id="id01" class="w3-modal">
-  <div class="w3-modal-content">
-    <div class="w3-container">
-      <span onclick="document.getElementById('id01').style.display='none'"
-      class="w3-button w3-display-topright">&times;</span>
-      <p>
-&lt;div class="box-strong"&gt;<br>
-&lt;img class="rphoto" src="aaaaaaaaaaaaaaaaaaaaa" alt="bbbbbbbbbbbbbbbbbbbbbbb"&gt;<br>
-&lt;p class="boldt"&gt;&lt;a href="${the_hp}" target="_blank" rel="nofollow"&gt;${the_name}&lt;/a&gt;&lt;/p&gt;<br>
-$( if_name_value "TEL" ${the_tel} )<br>
-$( if_name_value "時間" ${the_time} )<br>
-$( if_name_value "住所" ${the_place} )<br>
-$( if_value "" ${the_opt} )<br>
-&lt;/div&gt;<br>
-</p>
-    </div>
-  </div>
-</div> 
-
-<p>based on <a href="https://www.w3schools.com/w3css/w3css_modal.asp">W3.CSS Modal</a></p>
+<p>Right on.</p>
 
 <hr />
 <!--.w3-container--></div>
