@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>index | temptemp3.github.io</title>
+<title>aws tips | temptemp3.github.io</title>
 
-<link rel="canonical" href="https://temptemp3.github.io/" />
+<link rel="canonical" href="https://temptemp3.github.io/aws-tips.html" />
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
@@ -35,17 +35,20 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-col l8 s12">
 <div class="w3-card-4 w3-margin w3-white">
 <div class="w3-container">
-
-
-<!-- show-document-heading-one:false -->
-
-<!--
-[index](index.html)
--->
+<h1>aws tips</h1>
+<p>AWS is one things that you must pick up along the way. Here is a running list of tips that may serve you as well as me.</p>
+<!-- document-intro: AWS is one things that you must pick up along the way. Here is a running list of tips that may serve you as well as me. -->
 
 <hr />
 
-<p>tempt2<sup>3</sup> pronounced "temp-teyt" is the official blog of temptemp3 created as a proof of concept powered by sh2-u2 bash.</p>
+<h2>1. use regex to filter out ec2 loadbalancers</h2>
+
+<p>Let's say that you have a 100 numbered load balancers prefixed with the letter 'a' starting at 1, a1, a3, to a100. Now you want to list only a1 and a2. How?</p>
+
+<pre><code>Filter: elb$|elb2$
+</code></pre>
+
+<p>Right on.</p>
 
 <hr />
 <!--.w3-container--></div>
