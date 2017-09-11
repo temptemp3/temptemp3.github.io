@@ -328,6 +328,37 @@ oops! # it ran</code></pre>
 
 <p>temptemp3 strictly uses <code class="w3-codespan">.</code> instead of <code class="w3-codespan">source</code> and does not use <code class="w3-codespan">.</code> in a way that results in direct exection; i.e. <em>filename</em> should contain only functions and variables to be used or extended within context of file containing <code class="w3-codespan">. <em>filename</em></code>.</p>
 
+<h2>${6} - formatting / indentation</h2>
+
+<p>Indent mixed space. No tabs.</p>
+
+<h3>groups</h3>
+
+<p>Indent 2 spaces</p>
+
+<h4>example</h4>
+
+<p><code><pre>
+{ # group in current shell
+  group-work
+}
+{ # group in sub shell
+  other-group-work
+}
+</pre></code></p>
+
+<h3>default</h3>
+
+<p>Indent 1 space</p>
+
+<h4>example</h4>
+
+<p><code><pre>
+fun() {
+ more-fun
+}
+</pre></code></p>
+
 <hr />
 <!--.w3-container--></div>
 <!--.w3-card--></div>
