@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>www protocol relative url | temptemp3.github.io</title>
+<title>bash bin rm argument list to long | temptemp3.github.io</title>
 
-<link rel="canonical" href="https://temptemp3.github.io/www-protocol-relative-url.html" />
+<link rel="canonical" href="https://temptemp3.github.io/bash-bin-rm-argument-list-to-long.html" />
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
@@ -35,97 +35,42 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-col l8 s12">
 <div class="w3-card-4 w3-margin w3-white">
 <div class="w3-container">
-<h1>www protocol relative url</h1>
+<h1>bash bin rm argument list to long</h1>
 
 <!--
-[www protocol relative url](www-protocol-relative-url.html)
+[bash bin rm argument list to long](bash-bin-rm-argument-list-to-long.html)
 -->
 
-<p>Guide to the protocol/scheme relative URL including: troubleshooting; questions; tips; best practice; and use cases. </p>
-
 <hr />
 
-<p><strong>Table of contents</strong></p>
+<p>You were trying to remove files from a directory with rm and stumbled upon the '-bash: /bin/rm: Argument list too long' error message (21 Sep 2017)</p>
 
-<ul>
-<li><a href="www-protocol-relative-url.html#troubleshooting">troubleshooting</a>
-<ul>
-<li><a href="www-protocol-relative-url.html#local-issues">highlight.js is not working locally</a></li>
-</ul></li>
-<li><a href="www-protocol-relative-url.html#questions">questions</a></li>
-</ul>
+<p><code><pre>
+rm -rvf path-to-files/*
+<font color="red">-bash: /bin/rm: Argument list too long</font>
+</pre></code></p>
 
-<hr />
+<p>(oops)</p>
 
-<h2 id="troubleshooting">troubleshooting</h2>
+<p><strong>What happened</strong></p>
 
-<h3 id="local-issues">not working while viewing file locally</h3>
+<p>Before passing a list of file names to rm, 'path-to-files/*' is expanded to all files and directories contained in 'path-to-files', which we will call k. </p>
 
-<p>You added <code class="w3-codepan">highlight.js</code> to your blog for prettier code highlighting but find it not working.</p>
+<p>The rm command has a set limit on the number of arguments that is is able to handle in a single command line invocation that we will call j. </p>
 
-<p>Here is the code:</p>
+<p>In calling rm with the expandable 'path-to-files/*' argument, k > j, triggering an error response.</p>
 
-<pre><code class="html">
-&lt;link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"&gt;
-&lt;script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"&gt;&lt;/script&gt;
-</code></pre>
+<p><strong>Workaround</strong></p>
 
-<p>The browser should be able to get the resources referenced in the above code, but to your dismay that is not what's happening.</p>
+<p>Use find and xargs in combination with rm</p>
 
-<p>You check the web console of your browser.</p>
+<p>This allows you to limit the amount to arguments supplied to rm by calling rm k times.</p>
 
-<div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
-<p>ReferenceError: hljs is not defined</p>
-</div> 
+<p>I.e.</p>
 
-<p>You open up another tab in your browser to <code class="w3-codepan">view-source:</code>. Click. Click. Still nothing.</p>
-
-<p><em>What now?</em></p>
-
-<p>You realize that you are viewing the html files locally, which in the case of this blog is a given. Then, you remember that viewing files locally forces the browser to use the <pre><code>file:///</code></pre> protocol; and you realize that due to the protocol-relative URLs while viewing file locally, the browser is trying to access the resource at <pre><code>file:///cdnjs.cloudflare.com/.../default.min.css</code></pre> which to no surprise failed miserably.</p>
-
-<p><em>How do we fix this?</em></p>
-
-<p>The easiest way to fix this issue is to simply add <code class="w3-codepan">https</code> to the protocol-relative URL.</p>
-
-<pre><code class="html">
-&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"&gt;
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"&gt;&lt;/script&gt;
-</code></pre>
-
-<p>Now, as you can see <code class="w3-codepan">highlight.js</code> is working with flying colors.</p>
-
-<hr />
-
-<h2 id="questions">questions</h2>
-
-<h3>when does it matter?</h3>
-
-<p>When should you care... </p>
-
-<h4>when migrating to https</h4>
-
-<h5>preventing mixed content</h5>
-
-<p>When your site is migrating to https, there may be a point where you start requesting resources using protocol-relative URLs. On the other hand, you may choose to opt-out entirely carrying out all requests over https instead.</p>
-
-<h4>when security matters</h4>
-
-<h5>when your site is on http</h5>
-
-<p>Requesting a resource using a protocol-relative URL when your site is on http is a risk you don't want to take when security matters. </p>
-
-<h3>what does it mean?</h3>
-
-<p>What does it mean when...</p>
-
-<h3>when someone else does it</h3>
-
-<p>When a domain (cdn, etc.) provides a protocol-relative URL to one are more of its resources as seen in the case of the <a href="www-protocol-relative-url.html#local-issues">troublshooting: not working while viewing file locally</a> example, it could only mean one thing; that is, the domain supports both protocols and most likely won't try to redirect http to https. </p>
-
-<h3>when you do it</h3>
-
-<p>When you hand out business cards with protocol-relative URLs, you are sending a message: 1) I have secure content; 2) Even if you do not, that is okay. Not everyone is going make the move; and not everyone was ready when they did. You may redirect http to https.</p>
+<p><code><pre>
+find path-to-files -maxdepth 1 | xarg rm -rvf 
+</pre></code></p>
 
 <hr />
 <!--.w3-container--></div>
