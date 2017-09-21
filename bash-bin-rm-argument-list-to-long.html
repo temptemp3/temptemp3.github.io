@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>index | temptemp3.github.io</title>
+<title>bash bin rm argument list to long | temptemp3.github.io</title>
 
-<link rel="canonical" href="https://temptemp3.github.io/" />
+<link rel="canonical" href="https://temptemp3.github.io/bash-bin-rm-argument-list-to-long.html" />
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
@@ -35,17 +35,42 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-col l8 s12">
 <div class="w3-card-4 w3-margin w3-white">
 <div class="w3-container">
-<h1>index</h1>
-
-<!-- show-document-heading-one:false -->
+<h1>bash bin rm argument list to long</h1>
 
 <!--
-[index](index.html)
+[bash bin rm argument list to long](bash-bin-rm-argument-list-to-long.html)
 -->
 
 <hr />
 
-<p>tempt2<sup>3</sup> pronounced "temp-teyt" is the official blog of temptemp3 created as a proof of concept powered by sh2-u2 bash.</p>
+<p>You were trying to remove files from a directory with rm and stumbled upon the '-bash: /bin/rm: Argument list too long' error message (21 Sep 2017)</p>
+
+<p><code><pre>
+rm -rvf path-to-files/*
+<font color="red">-bash: /bin/rm: Argument list too long</font>
+</pre></code></p>
+
+<p>(oops)</p>
+
+<p><strong>What happened</strong></p>
+
+<p>Before passing a list of file names to rm, 'path-to-files/*' is expanded to all files and directories contained in 'path-to-files', which we will call k. </p>
+
+<p>The rm command has a set limit on the number of arguments that is is able to handle in a single command line invocation that we will call j. </p>
+
+<p>In calling rm with the expandable 'path-to-files/*' argument, k > j, triggering an error response.</p>
+
+<p><strong>Workaround</strong></p>
+
+<p>Use find and xargs in combination with rm</p>
+
+<p>This allows you to limit the amount to arguments supplied to rm by calling rm k times.</p>
+
+<p>I.e.</p>
+
+<p><code><pre>
+find path-to-files -maxdepth 1 | xarg rm -rvf 
+</pre></code></p>
 
 <hr />
 <!--.w3-container--></div>
