@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>git how to migrate standalone bash program to package based program | temptemp3.github.io</title>
+<title>python read file | temptemp3.github.io</title>
 
-<link rel="canonical" href="https://temptemp3.github.io/git-how-to-migrate-standalone-bash-program-to-package-based-program.html" />
+<link rel="canonical" href="https://temptemp3.github.io/python-read-file.html" />
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
@@ -35,100 +35,40 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-col l8 s12">
 <div class="w3-card-4 w3-margin w3-white">
 <div class="w3-container">
-<h1>git how to migrate standalone bash program to package based program</h1>
+<h1>python read file</h1>
 
-<!-- document-intro: You want to migrate or export a library bash program into its own package to work as a packaged-based standalone program. -->
+<h1>python</h1>
 
-<!--
-[git how to migrate standalone bash program to package based program](git-how-to-migrate-standalone-bash-program-to-package-based-program.html)
--->
+<h2>python import functions from another file</h2>
 
-<hr />
+<h3>import FILE.py definitions</h3>
 
-<h2>introduction</h2>
+<p><code>
+from FILE import *
+</code></p>
 
-<p>This document walks through the process of creating a package-based bash program by migrating a standalone bash program from one bash script repository to another including the source repository as a branched submodule.</p>
+<h3>import PACKAGE/File.py definitions</h3>
 
-<h2>motivation</h2>
+<p><code>
+from PAGEAGE.FILE import *
+</code></p>
 
-<p>As time progresses and the need for new solutions present themselves, the likelihood of introducing non-reusable domain-specific code increases. To optimize code reusability domain-specific code is kept outside of the package, while allowing reusable code to be added to the package for potential use in other package-based programs.</p>
+<p>...</p>
 
-<h2>workflow</h2>
-
-<ol>
-<li><p>create new respository for package</p>
-
-<ul>
-<li>"create new repository for" <a href="https://github.com/temptemp3/sh2-u2">sh2-u2</a> # create "shu" pronounced "shoe"</li>
-</ul></li>
-<li><p>add repository of which standalone program belongs to as submodule</p>
-
-<ul>
-<li>git submodule add https://github.com/temptemp3/<a href="https://github.com/temptemp3/sh2">sh2.git</a></li>
-</ul></li>
-<li><p>create entry to standalone program <pre><code>
-# in sh2-u2 #
-$ ${SH2}/create-stub2.sh main | tee main.sh
-<samp>
-#!/bin/bash
-## main
-## =stub=
-## version 0.0.0 - stub
-exit 0
-##################################################
-main() {
-true
-}
-##################################################
-if [ ${#} -eq 0 ]
-then
-true
-else
-exit 1 # wrong args
-fi
-##################################################
-main
-##################################################
-</samp>
-vim main.sh # adapt stub to use standalone version of program #
-cat main.sh 
-<samp>
-#!/bin/bash
-## main
-## - main entry
-## version 0.0.1 - initial
-##################################################
-u2() { $( dirname ${0} )/sh2/u2.sh ${@} ; }
-##################################################
-main() {
-u2 ${args}
-}
-##################################################
-if [ ! ]
-then
-args=${@}
-else
-exit 1 # wrong args
-fi
-##################################################
-main
-##################################################
-</samp>
-</code></pre></p></li>
-<li><p>now what? (list of things to do that may come next)</p>
-
-<ul>
-<li>commit changes, initial commit</li>
-<li>create .gitignore file
-<ul>
-<li>ignore swp files</li>
-</ul></li>
-<li>create new branch in submodule and commit changes if any</li>
-<li>let <em>coding</em> take its course</li>
-</ul></li>
-</ol>
+<p><a href="https://docs.python.org/2/tutorial/modules.html">https://docs.python.org/2/tutorial/modules.html</a></p>
 
 <hr />
+
+<h2>python read file into variable</h2>
+
+<p><code>
+with open(FILE_NAME,FILE_PERMISSIONS) as HANDLE:
+  IN=HANDLE.read()
+</code></p>
+
+<p>...</p>
+
+<p><a href="https://stackoverflow.com/questions/8369219/how-do-i-read-a-text-file-into-a-string-variable-in-python">https://stackoverflow.com/questions/8369219/how-do-i-read-a-text-file-into-a-string-variable-in-python</a></p>
 <!--.w3-container--></div>
 <!--.w3-card--></div>
 <!--.w3-col--></div>
