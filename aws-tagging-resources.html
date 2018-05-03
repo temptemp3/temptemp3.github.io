@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>index | temptemp3.github.io</title>
+<title>aws tagging resources | temptemp3.github.io</title>
 
-<link rel="canonical" href="https://temptemp3.github.io/" />
+<link rel="canonical" href="https://temptemp3.github.io/aws-tagging-resources.html" />
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
@@ -35,33 +35,38 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-col l8 s12">
 <div class="w3-card-4 w3-margin w3-white">
 <div class="w3-container">
-
-
-<!-- show-document-heading-one:false -->
+<h1>aws tagging resources</h1>
 
 <!--
-[index](index.html)
+[aws tagging resources](aws-tagging-resources.html)
 -->
 
 <hr />
 
-<p>rename index in sidebar navigation 3 May 2018</p>
+<p>Tagging <strong>r53 hosted zones</strong></p>
 
-<hr />
+<p>r53 hosted zones are one of those resources in aws that isn't obvious to tag for tracking costs. Here is the long way followed by the short way to tag r53 hosted zones in aws.</p>
 
-<ul>
-<li>future</li>
-<li>switch to sidebar navigation grouped by documents add/modified in a single commit <!-- 10:58 -->
-<ul>
-<li>only time to update 1 or 2 files, plus others for organization</li>
-<li>although the though of having everything k-connected seemed like a good ideas at first, having to many links on a page is not user-friendly</li>
-</ul></li>
-<li>move old index content to <a href="about.html">about</a> <!-- 2018/05/03 10:55 -->
-<ul>
-<li>having about content in not that helpful especially to self</li>
-</ul></li>
-<li>start <!-- 2017/06/25 --></li>
-</ul>
+<p>The long way</p>
+
+<ol>
+<li>Go to <a href="https://console.aws.amazon.com/route53/home?#hosted-zones:">r53 hosted zones</a></li>
+<li>Click on the part of the hosted zone that do not go to record sets. You should see Hosted Zone Details. </li>
+<li>Click Tag Editor</li>
+</ol>
+
+<p>The short way</p>
+
+<ol>
+<li>Go to <a href="https://resources.console.aws.amazon.com/r/tags">Resource tag editor</a></li>
+<li>Select Regions: ex) Asia Pacific (Tokyo)</li>
+<li>Select Resource types: Route 53 Hosted Zones</li>
+<li>Click Find resources</li>
+<li>Start tagging</li>
+<li>Do tagging</li>
+<li>End tagging</li>
+<li>Done</li>
+</ol>
 
 <hr />
 <!--.w3-container--></div>
