@@ -49,6 +49,76 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <p>Here is a list of ways declare may be used. </p>
 
+<h2>to declare an array</h2>
+
+<p>declaring arrays in bash</p>
+
+<h3>indexed arrays</h3>
+
+<p><code class="w3-codespan">declare -a</code> in bash</p>
+
+<p>The <code class="w3-codespan">-a</code> option adds the indexed array attribute to the variable name provided to the declare command.</p>
+
+<pre><code>#
+# declare an array
+#
+declare -a VARIABLE 
+</code></pre>
+
+<h3>associative arrays, hashes, map, dictionary, or collection of (key,value) pairs</h3>
+
+<p><code class="w3-codespan">declare -A</code> in bash</p>
+
+<p>The <code class="w3-codespan">-A</code> option adds the associative array attribute to the variable name provided to the declare command.</p>
+
+<pre><code>#
+# declare an associative arrays
+#
+declare -A VARIABLE 
+</code></pre>
+
+<h4>associative arrays in the wild</h4>
+
+<pre><code>declare -A document
+...
+get-document-meta() {
+ local document_meta
+ local document_meta_name
+ local document_meta_value
+ document_meta=$(
+  cat ${file} \
+  | grep \
+  -e '<[!]--\s\+[a-z-]\+:[a-z,]\+\s\+-->' --only-matching \
+  | sed -e 's/\(.*\)/\1/' \
+  -e 's/<!--\s\+//g' \
+  -e 's/\s\+-->//g' 
+ )
+ test ! "${document_meta}" || {
+  document_meta_name=$( 
+   echo "${document_meta}" | cut -f1 -d:
+  )
+  document_meta_value=$(
+   echo "${document_meta}" | cut -f2 -d:
+  )
+  document["${document_meta_name}"]="${document_meta_value}" 
+ }
+}
+</code></pre>
+
+<p>source: <a href="https://github.com/temptemp3/sh2-u2-theme-default/blob/master/include.sh">sh2-u2-theme-default/include.sh</a></p>
+
+<h2>to declare a variable to be a reference to another variable</h2>
+
+<p><code class="w3-codespan">declare -n</code> in bash</p>
+
+<p>The <code class="w3-codespan">-n</code> option adds the nameref attribute to the name provided to the declare command.</p>
+
+<pre><code>#
+# declare nameref
+#
+declare -n VARIABLE 
+</code></pre>
+
 <h2>to dump variables</h2>
 
 <p>Using declare by itself may be used to dump variable names and functions along with their value and definitions, respectfully.</p>
@@ -94,10 +164,18 @@ declare +X VARIABLE
 
 <h2>to list attributes</h2>
 
+<p><code class="w3-codespan">declare -p</code> in bash</p>
+
+<p>The <code class="w3-codespan">-p</code> option displays the attributes of the name provided to the declare command. Variables may include an assigned value.</p>
+
 <pre><code>declare -p 
 </code></pre>
 
 <h2>to declare a variable without attributes</h2>
+
+<p><code class="w3-codespan">declare</code> in bash without attributes</p>
+
+<p>The declare command may be used without specifying attributes resulting in an assignment.</p>
 
 <pre><code>#
 # declare variable without attribute
@@ -113,61 +191,11 @@ declare VARIABLE[=VALUE]
 VARIABLE=[VALUE] 
 </code></pre>
 
-<h2>to declare an array</h2>
-
-<p>declaring arrays in bash</p>
-
-<h3>indexed arrays</h3>
-
-<p>"declare -a" in bash</p>
-
-<pre><code>#
-# declare an array
-#
-declare -a VARIABLE 
-</code></pre>
-
-<h3>associative arrays, hashes, map, dictionary, or collection of (key,value) pairs</h3>
-
-<p>"declare -A" in bash</p>
-
-<pre><code>#
-# declare an associative arrays
-#
-declare -A VARIABLE 
-</code></pre>
-
-<h4>associative arrays in the wild</h4>
-
-<pre><code>declare -A document
-...
-get-document-meta() {
- local document_meta
- local document_meta_name
- local document_meta_value
- document_meta=$(
-  cat ${file} \
-  | grep \
-  -e '<[!]--\s\+[a-z-]\+:[a-z,]\+\s\+-->' --only-matching \
-  | sed -e 's/\(.*\)/\1/' \
-  -e 's/<!--\s\+//g' \
-  -e 's/\s\+-->//g' 
- )
- test ! "${document_meta}" || {
-  document_meta_name=$( 
-   echo "${document_meta}" | cut -f1 -d:
-  )
-  document_meta_value=$(
-   echo "${document_meta}" | cut -f2 -d:
-  )
-  document["${document_meta_name}"]="${document_meta_value}" 
- }
-}
-</code></pre>
-
-<p>source: <a href="https://github.com/temptemp3/sh2-u2-theme-default/blob/master/include.sh">sh2-u2-theme-default/include.sh</a></p>
-
 <h2>to declare a readonly variable</h2>
+
+<p><code class="w3-codespan">declare -r</code> in bash</p>
+
+<p>The <code class="w3-codespan">-r</code> option adds the read-only attribute to the variable name provided to the declare command such that the variable may not be reassigned.</p>
 
 <pre><code>#
 # declare readonly
@@ -177,6 +205,10 @@ declare -r VARIABLE
 
 <h2>to declare a variable to be treated as an integer</h2>
 
+<p><code class="w3-codespan">declare -i</code> in bash</p>
+
+<p>The <code class="w3-codespan">-i</code> option adds the integer attribute to the variable name provided to the declare command such that the variable is to treated as an integer.</p>
+
 <pre><code>#
 # declare integer
 #
@@ -184,6 +216,10 @@ declare -i VARIABLE
 </code></pre>
 
 <h2>to declare a variable to be case-insensitive, or lowercase</h2>
+
+<p><code class="w3-codespan">declare -l</code> in bash</p>
+
+<p>The <code class="w3-codespan">-l</code> option adds the lowercase attribute to the variable name provided to the declare command such that any value is converted to lowercase on assignment.</p>
 
 <pre><code>#
 # declare lower
@@ -193,18 +229,36 @@ declare -l VARIABLE
 
 <h2>to declare a variable to be uppercase</h2>
 
+<p><code class="w3-codespan">declare -u</code> in bash</p>
+
+<p>The <code class="w3-codespan">-u</code> option adds the uppercase attribute to the variable name provided to the declare command such that any value is converted to uppercase on assignment.</p>
+
 <pre><code>#
 # declare upper
 #
 declare -u VARIABLE 
 </code></pre>
 
-<h2>to declare a variable to be a reference to another variable</h2>
+<h2>to export variables or functions to subshells</h2>
+
+<p><code class="w3-codespan">declare -x</code> in bash</p>
+
+<p>The <code class="w3-codespan">-x</code> option adds the export attribute to the variable or function name provided to the declare command.</p>
+
+<h3>export variable to subshells</h3>
 
 <pre><code>#
-# declare nameref
+# declare export variable
 #
-declare -n VARIABLE 
+declare -x VARIABLE 
+</code></pre>
+
+<h3>export function to subshells</h3>
+
+<pre><code>#
+# declare export function
+#
+declare -xf FUNCTION
 </code></pre>
 
 <hr />
@@ -216,27 +270,9 @@ declare -n VARIABLE
 <div class="w3-container">
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
-<a href="apache-tips.html" class="w3-bar-item w3-button w3-mobile">apache-tips</a>
-<a href="aws-tips.html" class="w3-bar-item w3-button w3-mobile">aws-tips</a>
-<a href="aws-autoscaling-enable-metrics-collection-for-asg.html" class="w3-bar-item w3-button w3-mobile">aws-autoscaling-enable-metrics-collection-for-asg</a>
-<a href="bash-one-liners.html" class="w3-bar-item w3-button w3-mobile">bash-one-liners</a>
-<a href="bash-bin-rm-argument-list-to-long.html" class="w3-bar-item w3-button w3-mobile">bash-bin-rm-argument-list-to-long</a>
-<a href="git-how-to-migrate-standalone-bash-program-to-package-based-program.html" class="w3-bar-item w3-button w3-mobile">git-how-to-migrate-standalone-bash-program-to-package-based-program</a>
-<a href="css-w3-modals.html" class="w3-bar-item w3-button w3-mobile">css-w3-modals</a>
+<a href="2018-in-a-nutshell.html" class="w3-bar-item w3-button w3-mobile">2018-in-a-nutshell</a>
+<a href="2019-in-a-nutshell.html" class="w3-bar-item w3-button w3-mobile">2019-in-a-nutshell</a>
 <a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
-<a href="bash-script-coding-style-guide.html" class="w3-bar-item w3-button w3-mobile">bash-script-coding-style-guide</a>
-<a href="google-analytics.html" class="w3-bar-item w3-button w3-mobile">google-analytics</a>
-<a href="github-pages-tips.html" class="w3-bar-item w3-button w3-mobile">github-pages-tips</a>
-<a href="how-to-setup-github-pages-for-user.html" class="w3-bar-item w3-button w3-mobile">how-to-setup-github-pages-for-user</a>
-<a href="hello-world.html" class="w3-bar-item w3-button w3-mobile">hello-world</a>
-<a href="scratch.html" class="w3-bar-item w3-button w3-mobile">scratch</a>
-<a href="links.html" class="w3-bar-item w3-button w3-mobile">links</a>
-<a href="python-read-file.html" class="w3-bar-item w3-button w3-mobile">python-read-file</a>
-<a href="seo-pinging-crawlers.html" class="w3-bar-item w3-button w3-mobile">seo-pinging-crawlers</a>
-<a href="seo-optimal-title-length.html" class="w3-bar-item w3-button w3-mobile">seo-optimal-title-length</a>
-<a href="seo-optimal-intro-length.html" class="w3-bar-item w3-button w3-mobile">seo-optimal-intro-length</a>
-<a href="the-little-vimmer.html" class="w3-bar-item w3-button w3-mobile">the-little-vimmer</a>
-<a href="www-protocol-relative-url.html" class="w3-bar-item w3-button w3-mobile">www-protocol-relative-url</a>
 </div> 
 <!--.w3-container--></div>
 <!--.w3-card--></div>
