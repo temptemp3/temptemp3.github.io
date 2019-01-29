@@ -71,6 +71,8 @@ declare -a VARIABLE
 
 <p>The <code class="w3-codespan">-A</code> option adds the associative array attribute to the variable name provided to the declare command.</p>
 
+<p>Indexed array variable example</p>
+
 <pre><code>#
 # declare an associative arrays
 #
@@ -78,6 +80,8 @@ declare -A VARIABLE
 </code></pre>
 
 <h4>associative arrays in the wild</h4>
+
+<p>Associative array variable example using array to store document meta name value pairs</p>
 
 <pre><code>declare -A document
 ...
@@ -113,6 +117,8 @@ get-document-meta() {
 
 <p>The <code class="w3-codespan">-n</code> option adds the nameref attribute to the name provided to the declare command.</p>
 
+<p>Nameref variable example</p>
+
 <pre><code>#
 # declare nameref
 #
@@ -123,12 +129,16 @@ declare -n VARIABLE
 
 <p>Using declare by itself may be used to dump variable names and functions along with their value and definitions, respectfully.</p>
 
+<p>Declare command example</p>
+
 <pre><code>declare
 </code></pre>
 
 <h2>to test a function</h2>
 
 <p>The declare command may be used to test if a function has been declared and is usable within the scope of the bash program.</p>
+
+<p>Function test examples</p>
 
 <pre><code>#
 # return name and definition of function if declared
@@ -144,6 +154,8 @@ declare -F ${function_name}
 
 <h2>to give a variable attributes</h2>
 
+<p>Attribute variable example</p>
+
 <pre><code>#
 # give variable attribute x
 #
@@ -153,6 +165,8 @@ declare -X VARIABLE
 <h2>to remove variable attributes</h2>
 
 <p>Use '+' instead of '-'.</p>
+
+<p>Variable attribute removal example</p>
 
 <pre><code>#
 # remove attribute x from variable
@@ -177,6 +191,8 @@ declare +X VARIABLE
 
 <p>The declare command may be used without specifying attributes resulting in an assignment.</p>
 
+<p>Declare variable example</p>
+
 <pre><code>#
 # declare variable without attribute
 #
@@ -197,6 +213,8 @@ VARIABLE=[VALUE]
 
 <p>The <code class="w3-codespan">-r</code> option adds the read-only attribute to the variable name provided to the declare command such that the variable may not be reassigned.</p>
 
+<p>Read-only variable example</p>
+
 <pre><code>#
 # declare readonly
 #
@@ -208,6 +226,8 @@ declare -r VARIABLE
 <p><code class="w3-codespan">declare -i</code> in bash</p>
 
 <p>The <code class="w3-codespan">-i</code> option adds the integer attribute to the variable name provided to the declare command such that the variable is to treated as an integer.</p>
+
+<p>Integer variable example</p>
 
 <pre><code>#
 # declare integer
@@ -221,6 +241,8 @@ declare -i VARIABLE
 
 <p>The <code class="w3-codespan">-l</code> option adds the lowercase attribute to the variable name provided to the declare command such that any value is converted to lowercase on assignment.</p>
 
+<p>Lower variable example</p>
+
 <pre><code>#
 # declare lower
 #
@@ -232,6 +254,8 @@ declare -l VARIABLE
 <p><code class="w3-codespan">declare -u</code> in bash</p>
 
 <p>The <code class="w3-codespan">-u</code> option adds the uppercase attribute to the variable name provided to the declare command such that any value is converted to uppercase on assignment.</p>
+
+<p>Upper variable example</p>
 
 <pre><code>#
 # declare upper
@@ -247,6 +271,8 @@ declare -u VARIABLE
 
 <h3>export variable to subshells</h3>
 
+<p>Export variable example</p>
+
 <pre><code>#
 # declare export variable
 #
@@ -254,6 +280,8 @@ declare -x VARIABLE
 </code></pre>
 
 <h3>export function to subshells</h3>
+
+<p>Export function example</p>
 
 <pre><code>#
 # declare export function
@@ -270,8 +298,6 @@ declare -xf FUNCTION
 <div class="w3-container">
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
-<a href="2018-in-a-nutshell.html" class="w3-bar-item w3-button w3-mobile">2018-in-a-nutshell</a>
-<a href="2019-in-a-nutshell.html" class="w3-bar-item w3-button w3-mobile">2019-in-a-nutshell</a>
 <a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
 </div> 
 <!--.w3-container--></div>
