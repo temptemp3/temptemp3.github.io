@@ -41,7 +41,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 [bash using declare](bash-using-declare.html)
 -->
 
-<p>One thing you learn later in bash is how to use the builtin declare to modify variable attributes allowing creation of arrays, listing of defined functions, and integers.</p>
+<p>One thing you learn later in bash is to use certain builtin commands. Declare in bash is no exception. Here we cover how to use the builtin declare to modify variable attributes allowing creation of arrays, listing of defined functions, integers, and much more.</p>
 
 <hr />
 
@@ -219,7 +219,7 @@ declare +X VARIABLE
 
 <p><code class="w3-codespan">declare -p</code> in bash</p>
 
-<p>The <code class="w3-codespan">-p</code> option displays the attributes of the name provided to the declare command. Variables may include an assigned value.</p>
+<p>Print variables and attributes in bash using the <code class="w3-codespan">-p</code> option displays the attributes of the name provided to the declare command. Variables may include an assigned value.</p>
 
 <pre><code>declare -p 
 </code></pre>
@@ -250,7 +250,7 @@ VARIABLE=[VALUE]
 
 <p><code class="w3-codespan">declare -r</code> in bash</p>
 
-<p>The <code class="w3-codespan">-r</code> option adds the read-only attribute to the variable name provided to the declare command such that the variable may not be reassigned.</p>
+<p>Declare read-only variable in bash using the <code class="w3-codespan">-r</code> option adds the read-only attribute to the variable name provided to the declare command such that the variable may not be reassigned.</p>
 
 <p>Read-only variable example</p>
 
@@ -266,7 +266,7 @@ declare -r VARIABLE
 
 <p><code class="w3-codespan">declare -i</code> in bash</p>
 
-<p>The <code class="w3-codespan">-i</code> option adds the integer attribute to the variable name provided to the declare command such that the variable is to treated as an integer.</p>
+<p>Declare integer variables in bash using the <code class="w3-codespan">-i</code> option adds the integer attribute to the variable name provided to the declare command such that the variable is to treated as an integer.</p>
 
 <p>Integer variable example</p>
 
@@ -286,7 +286,7 @@ declare -i VARIABLE
 
 <p><code class="w3-codespan">declare -l</code> in bash</p>
 
-<p>The <code class="w3-codespan">-l</code> option adds the lowercase attribute to the variable name provided to the declare command such that any value is converted to lowercase on assignment.</p>
+<p>Declare lowercase variables in bash using the <code class="w3-codespan">-l</code> option adds the lowercase attribute to the variable name provided to the declare command such that any value is converted to lowercase on assignment.</p>
 
 <p>Lower variable example</p>
 
@@ -300,7 +300,7 @@ declare -l VARIABLE
 
 <p><code class="w3-codespan">declare -u</code> in bash</p>
 
-<p>The <code class="w3-codespan">-u</code> option adds the uppercase attribute to the variable name provided to the declare command such that any value is converted to uppercase on assignment.</p>
+<p>Declare uppercase variables in bash using the <code class="w3-codespan">-u</code> option adds the uppercase attribute to the variable name provided to the declare command such that any value is converted to uppercase on assignment.</p>
 
 <p>Upper variable example</p>
 
@@ -314,7 +314,7 @@ declare -u VARIABLE
 
 <p><code class="w3-codespan">declare -x</code> in bash</p>
 
-<p>The <code class="w3-codespan">-x</code> option adds the export attribute to the variable or function name provided to the declare command.</p>
+<p>Export variables and functions in bash using the <code class="w3-codespan">-x</code> option adds the export attribute to the variable or function name provided to the declare command.</p>
 
 <h3>export variable to subshells</h3>
 
@@ -346,6 +346,26 @@ declare -xf FUNCTION
 
 <p>See <a href="bash-using-local.html">bash using local</a></p>
 
+<h3>typeset</h3>
+
+<p>Synonym for declare. That can be used interchangeably. May be used for compatibility with ksh or other POSIX complaint shell; however, set of option available may differ.</p>
+
+<h2>questions</h2>
+
+<p>Questions and answers regarding declare in bash.</p>
+
+<h3>why declare?</h3>
+
+<p>Typing. Declare allows you to apply or take away attributes to variables in bash similar to how types or assigned in statically typed programming languages. For example, you may want to make it so a variable may not be reassigned a new value. This can be accomplished using the bash builtin command declare. </p>
+
+<h3>declare or typeset?</h3>
+
+<p>Either is fine. However, I personally don't use typeset. Although it doesn't hurt to know what it is at least or in case you have to migrate to ksh for some reason.</p>
+
+<h3>do I need declare to assign a value to a variable?</h3>
+
+<p>No. For most cases, you do not need declare to assign values to variable. However, there may be site effects of declaring variable attributes after assignment. In that case, it would be advantageous to declare attributes before or on assignment in a single statement assigning value to a variable. </p>
+
 <hr />
 <!--.w3-container--></div>
 <!--.w3-card--></div>
@@ -355,10 +375,8 @@ declare -xf FUNCTION
 <div class="w3-container">
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
-<a href="bash.html" class="w3-bar-item w3-button w3-mobile">bash</a>
 <a href="bash-declare-integer.html" class="w3-bar-item w3-button w3-mobile">bash-declare-integer</a>
 <a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
-<a href="bash-using-local.html" class="w3-bar-item w3-button w3-mobile">bash-using-local</a>
 </div> 
 <!--.w3-container--></div>
 <!--.w3-card--></div>
@@ -367,7 +385,8 @@ declare -xf FUNCTION
 <!-- Grid end -->
 <!-- .w3-content --></div>
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
-<p>&copy; 2017 <a href="https://temptemp3.github.io/">temptemp3.github.io</a></p>
+<p>&copy; 2017-2019 <a href="https://temptemp3.github.io/">temptemp3.github.io</a><br>
+Built with <a href="https://github.com/temptemp3/sh2/blob/180702/u2.sh">u2.sh</a> Default theme and a lot of coffee</p>
 <!--button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
 <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next</button-->
 <!--mute in global fields -->
