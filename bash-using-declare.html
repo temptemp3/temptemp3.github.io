@@ -368,6 +368,12 @@ declare -xf FUNCTION
 
 <p>No. For most cases, you do not need declare to assign values to variable. However, there may be site effects of declaring variable attributes after assignment. In that case, it would be advantageous to declare attributes before or on assignment in a single statement assigning value to a variable. </p>
 
+<h3>why would I can to declare a variable without value in bash?</h3>
+
+<p>You may declare a variable without a value to communicate that a variable may be modified from this point on or to unset a variable via assignment.</p>
+
+<p>It is not necessary to declare a variable for the purpose of initialization if no assignment was made prior to appearance in script.</p>
+
 <hr />
 <!--.w3-container--></div>
 <!--.w3-card--></div>
@@ -377,8 +383,6 @@ declare -xf FUNCTION
 <div class="w3-container">
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
-<a href="bash-coding-challenges.html" class="w3-bar-item w3-button w3-mobile">bash-coding-challenges</a>
-<a href="bash-dashed-filename.html" class="w3-bar-item w3-button w3-mobile">bash-dashed-filename</a>
 <a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
 </div> 
 <!--.w3-container--></div>
