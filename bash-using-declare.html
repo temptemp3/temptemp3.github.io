@@ -41,7 +41,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 [bash using declare](bash-using-declare.html)
 -->
 
-<p>One thing you learn later in bash is to use certain builtin commands. Declare in bash is no exception. Here we cover how to use the builtin declare to modify variable attributes allowing creation of arrays, listing of defined functions, integers, and much more.</p>
+<p>One thing you learn later in <a href="bash.html">bash</a> is to use certain builtin commands. Declare in bash is no exception. Here we cover how to use the builtin declare to modify variable attributes allowing creation of arrays, listing of defined functions, integers, and much more.</p>
 
 <hr />
 
@@ -51,26 +51,43 @@ declare: declare [-aAfFgilnrtux] [-p] [name[=value] ...]
 
     Declare variables and give them attributes.  If no NAMEs are given,
     display the attributes and values of all variables.
+</code></pre>
 
-    Options:
-      -f        restrict action or display to function names and definitions
-      -F        restrict display to function names only (plus line number and
-                source file when debugging)
-      -g        create global variables when used in a shell function; otherwise
-                ignored
-      -p        display the attributes and value of each NAME
+<p>Options:</p>
 
-    Options which set attributes:
-      -a        to make NAMEs indexed arrays (if supported)
-      -A        to make NAMEs associative arrays (if supported)
-      -i        to make NAMEs have the `integer' attribute
-      -l        to convert NAMEs to lower case on assignment
-      -n        make NAME a reference to the variable named by its value
-      -r        to make NAMEs readonly
-      -t        to make NAMEs have the `trace' attribute
-      -u        to convert NAMEs to upper case on assignment
-      -x        to make NAMEs export
+<pre><code>  -f        restrict action or display to function names and definitions
 
+  -F        restrict display to function names only (plus line number and
+            source file when debugging)
+
+  -g        create global variables when used in a shell function; otherwise
+            ignored
+
+  -p        display the attributes and value of each NAME
+</code></pre>
+
+<p>Options which set attributes:</p>
+
+<p><span class="w3-codespan">-<a href="bash-using-declare.html#indexed_arrays">a</a> to make NAMEs indexed arrays (if supported)</span></p>
+
+<pre><code>  -A        to make NAMEs associative arrays (if supported)
+
+  -i        to make NAMEs have the `integer' attribute
+
+  -l        to convert NAMEs to lower case on assignment
+
+  -n        make NAME a reference to the variable named by its value
+
+  -r        to make NAMEs readonly
+
+  -t        to make NAMEs have the `trace' attribute
+
+  -u        to convert NAMEs to upper case on assignment
+
+  -x        to make NAMEs export
+</code></pre>
+
+<pre><code>
     Using `+' instead of `-' turns off the given attribute.
 
     Variables with the integer attribute have arithmetic evaluation (see
@@ -92,16 +109,41 @@ declare: declare [-aAfFgilnrtux] [-p] [name[=value] ...]
 
 <p>declaring arrays in bash</p>
 
+<p><a name="indexed_arrays"></a></p>
+
 <h3>indexed arrays</h3>
 
 <p><code class="w3-codespan">declare -a</code> in bash</p>
 
 <p>The <code class="w3-codespan">-a</code> option adds the indexed array attribute to the variable name provided to the declare command.</p>
 
+<h4>declare indexed array variable</h4>
+
 <pre><code>#
 # declare an array
 #
 declare -a VARIABLE 
+</code></pre>
+
+<h4>set indexed array key value</h4>
+
+<p>Array key values may be set on initialization or afterwords. Indices inherit the integer attribute inside square brackets ("<code class="w3-codespan">[]</code>"). Using <code class="w3-codespan">declare -p</code> on an indexed array will list all array keys along with their corresponding assigned values.</p>
+
+<pre><code>#
+# declare an array and set key values
+#
+declare -a arr=(1) # arr[0]=1
+arr[1]=$(( arr[0] + 1 ))
+echo ${arr[0]} # 1
+echo ${arr[1]} # 2
+for i in {1..10}
+do
+ arr[i]=$(( arr[i-1] + arr[i-2] ))
+done
+echo ${arr[i]} # 199
+declare -p arr
+## expect
+#declare -a arr=([0]="1" [1]="3" [2]="4" [3]="7" [4]="11" [5]="18" [6]="29" [7]="47" [8]="76" [9]="123" [10]="199")
 </code></pre>
 
 <h3>associative arrays, hashes, map, dictionary, or collection of (key,value) pairs</h3>
@@ -383,7 +425,9 @@ declare -xf FUNCTION
 <div class="w3-container">
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
+<a href="bash-coding-challenges.html" class="w3-bar-item w3-button w3-mobile">bash-coding-challenges</a>
 <a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
+<a href="bash-using-local.html" class="w3-bar-item w3-button w3-mobile">bash-using-local</a>
 </div> 
 <!--.w3-container--></div>
 <!--.w3-card--></div>
