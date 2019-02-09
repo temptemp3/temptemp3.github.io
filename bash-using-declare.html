@@ -70,11 +70,11 @@ declare: declare [-aAfFgilnrtux] [-p] [name[=value] ...]
 
 <p><span class="w3-codespan">-<a href="bash-using-declare.html#indexed_arrays">a</a> to make NAMEs indexed arrays (if supported)</span></p>
 
-<pre><code>  -A        to make NAMEs associative arrays (if supported)
+<p><span class="w3-codespan">-<a href="bash-using-declare.html#associative_arrays">A</a> to make NAMEs associative arrays (if supported)</span></p>
 
-  -i        to make NAMEs have the `integer' attribute
+<p><span class="w3-codespan">-<a href="bash-using-declare.html#integers">i</a> to make NAMEs have the 'integer' attribute</span></p>
 
-  -l        to convert NAMEs to lower case on assignment
+<pre><code>  -l        to convert NAMEs to lower case on assignment
 
   -n        make NAME a reference to the variable named by its value
 
@@ -146,18 +146,64 @@ declare -p arr
 #declare -a arr=([0]="1" [1]="3" [2]="4" [3]="7" [4]="11" [5]="18" [6]="29" [7]="47" [8]="76" [9]="123" [10]="199")
 </code></pre>
 
+<p><a name="associative_arrays"></a></p>
+
 <h3>associative arrays, hashes, map, dictionary, or collection of (key,value) pairs</h3>
 
 <p><code class="w3-codespan">declare -A</code> in bash</p>
 
 <p>The <code class="w3-codespan">-A</code> option adds the associative array attribute to the variable name provided to the declare command.</p>
 
-<p>Indexed array variable example</p>
+<h4>declare associative array</h4>
 
 <pre><code>#
 # declare an associative arrays
 #
 declare -A VARIABLE 
+</code></pre>
+
+<h4>local associative array</h4>
+
+<pre><code>foobar() { # foo w/ bar
+  echo -n ${FUNCNAME}:
+  ## note that local is not required in the case of declare -A
+  declare -A arr
+  arr["key"]=value2
+  bar
+}
+fab() { # declares arr local
+  echo -n ${FUNCNAME}:
+  local arr
+  declare -p arr
+}
+bar() { # may inherit global arr
+  echo -n ${FUNCNAME}:
+  declare -p arr
+}
+foo() { # declare arr local to function
+  echo -n ${FUNCNAME}:
+  ## note that local is not required in the case of declare -A
+  declare -A arr
+  arr["key"]=value2
+  declare -p arr
+}
+{ echo -n : ; declare -p arr 2>/dev/null || echo no variable named arr 1>&2 ; }
+foo
+{ echo -n : ; declare -p arr 2>/dev/null || echo no variable named arr 1>&2 ; }
+( declare -A arr ; arr["key"]=value ; declare -p arr ; )
+{ echo -n : ; declare -p arr 2>/dev/null || echo no variable named arr 1>&2 ; }
+{ declare -A arr ; arr["key"]=value ; declare -p arr ; }
+{ echo -n : ; declare -p arr 2>/dev/null || echo no variable named arr 1>&2 ; }
+foo
+{ echo -n : ; declare -p arr 2>/dev/null || echo no variable named arr 1>&2 ; }
+( declare -A arr ; arr["key"]=value3 ; declare -p arr ; )
+{ echo -n : ; declare -p arr 2>/dev/null || echo no variable named arr 1>&2 ; }
+bar
+{ echo -n : ; declare -p arr 2>/dev/null || echo no variable named arr 1>&2 ; }
+fab
+{ echo -n : ; declare -p arr 2>/dev/null || echo no variable named arr 1>&2 ; }
+foobar
+{ echo -n : ; declare -p arr 2>/dev/null || echo no variable named arr 1>&2 ; }
 </code></pre>
 
 <h4>associative arrays in the wild</h4>
@@ -304,7 +350,8 @@ VARIABLE=[VALUE]
 declare -r VARIABLE 
 </code></pre>
 
-<p><a name="bash-declare-integer"></a></p>
+<p><a name="bash-declare-integer"></a>
+<a name="integers"></a></p>
 
 <h2>to declare a variable to be treated as an integer</h2>
 
@@ -427,7 +474,6 @@ declare -xf FUNCTION
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
 <a href="bash-coding-challenges.html" class="w3-bar-item w3-button w3-mobile">bash-coding-challenges</a>
 <a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
-<a href="bash-using-local.html" class="w3-bar-item w3-button w3-mobile">bash-using-local</a>
 </div> 
 <!--.w3-container--></div>
 <!--.w3-card--></div>
