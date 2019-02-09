@@ -204,6 +204,24 @@ fab
 { echo -n : ; declare -p arr 2>/dev/null || echo no variable named arr 1>&2 ; }
 foobar
 { echo -n : ; declare -p arr 2>/dev/null || echo no variable named arr 1>&2 ; }
+## expect
+#:no variable named arr
+#foo:declare -A arr=([key]="value2" )
+#:no variable named arr
+#declare -A arr=([key]="value" )
+#:no variable named arr
+#declare -A arr=([key]="value" )
+#:declare -A arr=([key]="value" )
+#foo:declare -A arr=([key]="value2" )
+#:declare -A arr=([key]="value" )
+#declare -A arr=([key]="value3" )
+#:declare -A arr=([key]="value" )
+#bar:declare -A arr=([key]="value" )
+#:declare -A arr=([key]="value" )
+#fab:declare -- arr
+#:declare -A arr=([key]="value" )
+#foobar:bar:declare -A arr=([key]="value2" )
+#:declare -A arr=([key]="value" )
 </code></pre>
 
 <h4>associative arrays in the wild</h4>
@@ -472,7 +490,6 @@ declare -xf FUNCTION
 <div class="w3-container">
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
-<a href="bash-coding-challenges.html" class="w3-bar-item w3-button w3-mobile">bash-coding-challenges</a>
 <a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
 </div> 
 <!--.w3-container--></div>
