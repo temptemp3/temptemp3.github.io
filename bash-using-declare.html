@@ -445,6 +445,8 @@ declare -x VARIABLE
 declare -xf FUNCTION
 </code></pre>
 
+<hr />
+
 <h2>commands similar to declare</h2>
 
 <p>In addition to declare, the following commands allow modification of bash variable attributes.</p>
@@ -458,6 +460,12 @@ declare -xf FUNCTION
 <h3>typeset</h3>
 
 <p>Synonym for declare. That can be used interchangeably. May be used for compatibility with ksh or other POSIX complaint shell; however, set of option available may differ.</p>
+
+<h3>unset</h3>
+
+<p>Remove variable from list of declared variables. Does not apply to indexed and associative arrays. Can be used on functions. Some options similar to declare, local, and typeset.</p>
+
+<hr />
 
 <h2>questions</h2>
 
