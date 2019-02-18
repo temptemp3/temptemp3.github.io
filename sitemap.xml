@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
 <url>
+<loc>https://temptemp3.github.io/bash-declare-integer.html</loc>
+<lastmod>2019-02-19</lastmod>
+</url>
+<url>
+<loc>https://temptemp3.github.io/more.html</loc>
+<lastmod>2019-02-19</lastmod>
+</url>
+<url>
+<loc>https://temptemp3.github.io/</loc>
+<lastmod>2019-02-19</lastmod>
+</url>
+<url>
 <loc>https://temptemp3.github.io/bash-conditionals.html</loc>
 <lastmod>2019-02-12</lastmod>
 </url>
 <url>
 <loc>https://temptemp3.github.io/bash.html</loc>
-<lastmod>2019-02-12</lastmod>
-</url>
-<url>
-<loc>https://temptemp3.github.io/</loc>
 <lastmod>2019-02-12</lastmod>
 </url>
 <url>
@@ -27,14 +35,6 @@
 <url>
 <loc>https://temptemp3.github.io/bash-dashed-filename.html</loc>
 <lastmod>2019-02-06</lastmod>
-</url>
-<url>
-<loc>https://temptemp3.github.io/bash-declare-integer.html</loc>
-<lastmod>2019-02-05</lastmod>
-</url>
-<url>
-<loc>https://temptemp3.github.io/more.html</loc>
-<lastmod>2019-02-04</lastmod>
 </url>
 <url>
 <loc>https://temptemp3.github.io/2019-in-a-nutshell.html</loc>

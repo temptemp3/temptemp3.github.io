@@ -43,7 +43,45 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <hr />
 
-<p>In <a href="bash-using-declare.html#bash-declare-integer">bash using declare</a> we covered all uses for the bash builtin command declare. Here we only cover usage of declare for integers. However, coverage should go into greater detail.</p>
+<p>In <a href="bash-using-declare.html#bash-declare-integer">bash using declare</a> we covered all the uses for the <a href="bash.html">bash</a> builtin command declare. Here we focus on the usage of declare for integers, covering declaring integers in greater detail.</p>
+
+<h2>Basic usage</h2>
+
+<p>Let's skip to good part! <br />
+Here is how to declare a integer variable in bash. Note that <span class="w3-codespan">int</span> is not a keyword for integer. That is the job of the <span class="w3-codespan">-i</span> option to the builtin declare.</p>
+
+<pre><code>declare -i int      # int is an integer
+int=5               # int=$(( 5 ))=5
+int+=1              # int=$(( int + 1 ))=6
+int+=int+1          # int=$(( int + int + 1 ))=13
+</code></pre>
+
+<p>Now look at what happens without the integer attribute.</p>
+
+<pre><code>int=5               # int=5
+int+=1              # int=${int}1=51
+int+=int+1          # int=${int}+int+1=51int+1
+</code></pre>
+
+<p>Now you see what happens if you forget to declare a variable as an integer. Not something that you want running loose in your program.</p>
+
+<h3>breakdown</h3>
+
+<p><span class="w3-codespan">declare -i int</span></p>
+
+<p>We say that if there is a variable named int, it now has the integer attribute set. If the variable named in the declare command is not set yet, then the attribute is applied to future variable unless <span class="w3-codespan">unset</span>. Using <span class="w3-codespan">local</span> instead of <span class="w3-codespan">declare</span>, causes the attribute to only be applied in subsequent assignments in the local scope.</p>
+
+<p><span class="w3-codespan">int=5</span></p>
+
+<p>Depending on whether the variable has the integer attribute this sets the value of int to the string 5 or arithmetic expansion of 5. In the case of 5, the result yields 5 for both cases.</p>
+
+<p><span class="w3-codespan">int+=1</span></p>
+
+<p>Should increment int if integer attribute set.</p>
+
+<p><span class="w3-codespan">int+=int+1</span></p>
+
+<p>Should double int and increment if integer attribute set.</p>
 
 <h2>Introduction</h2>
 
@@ -55,7 +93,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <h3>Integer variable</h3>
 
-<p>We define an integer variable in bash as a variable with the integer attribute set.</p>
+<p>We define an integer variable in bash as a variable with the integer attribute set. The question we ask here is, "Is it valid to declare a variable with the integer attribute in combination with another attribute?" This may be expanded later.</p>
 
 <h3>Pure integer variable</h3>
 
@@ -144,7 +182,7 @@ declare -i myint
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
 <a href="bash-declare-integer.html" class="w3-bar-item w3-button w3-mobile">bash-declare-integer</a>
-<a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
+<a href="more.html" class="w3-bar-item w3-button w3-mobile">more</a>
 </div> 
 <!--.w3-container--></div>
 <!--.w3-card--></div>
@@ -154,7 +192,7 @@ declare -i myint
 <!-- .w3-content --></div>
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
 <p>&copy; 2017-2019 <a href="https://temptemp3.github.io/">temptemp3.github.io</a><br>
-Built with <a href="https://github.com/temptemp3/sh2/blob/180702/u2.sh">u2.sh</a> Default theme and a lot of coffee</p>
+Built with <a href="https://github.com/temptemp3/sh2/blob/180702/u2.sh">u2.sh</a> Default theme and Vim</p>
 <!--button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
 <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next</button-->
 <!--mute in global fields -->
