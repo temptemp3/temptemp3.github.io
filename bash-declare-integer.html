@@ -101,7 +101,7 @@ int+=int+1          # int=${int}+int+1=51int+1
 
 <h2>Why declare integers in bash?</h2>
 
-<p>In order to understand how an why integers are declared in bash, it is helpful to compare behavior with and without using integer variables.</p>
+<p>In order to understand how an why integers are declared in bash, it is helpful to look at behavior with and without using integer variables.</p>
 
 <pre><code>#!/bin/bash
 ## test-bash-declare-integer-1
@@ -153,6 +153,13 @@ test-bash-declare-integer-1
 
 <h2>Questions</h2>
 
+<h3>How do I compare two integers?</h3>
+
+<p>Arithmetic binary operators can be used to <a href="bash-conditionals.html#arithmetic">compare integers in bash</a> in the form <span class="w3-codespan">arg1 OP arg2</span>. For example, we may test if two integers are not equal as follows.</p>
+
+<pre><code>test ! ${a} -eq ${b} # a != b
+</code></pre>
+
 <h3>How do I declare an integer bash?</h3>
 
 <p>Declare integer variables using the <span class="w3-codespan">-i</span> option.</p>
@@ -181,8 +188,9 @@ declare -i myint
 <div class="w3-container">
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
+<a href="bash.html" class="w3-bar-item w3-button w3-mobile">bash</a>
+<a href="bash-conditionals.html" class="w3-bar-item w3-button w3-mobile">bash-conditionals</a>
 <a href="bash-declare-integer.html" class="w3-bar-item w3-button w3-mobile">bash-declare-integer</a>
-<a href="more.html" class="w3-bar-item w3-button w3-mobile">more</a>
 </div> 
 <!--.w3-container--></div>
 <!--.w3-card--></div>
