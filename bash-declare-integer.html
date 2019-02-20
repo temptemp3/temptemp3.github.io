@@ -47,20 +47,42 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <h2>Basic usage</h2>
 
-<p>Let's skip to good part! <br />
+<p>Let's skip to good part, creating integer variables! <br />
 Here is how to declare a integer variable in bash. Note that <span class="w3-codespan">int</span> is not a keyword for integer. That is the job of the <span class="w3-codespan">-i</span> option to the builtin declare.</p>
 
-<pre><code>declare -i int      # int is an integer
+<ul>
+<li>determine if a variable is an integer</li>
+<li>create an integer variable</li>
+</ul>
+
+<h3>determine if a variable is an integer</h3>
+
+<pre><code># check if a variable is an integer
+declare -p int          # declare -i int="1"
+</code></pre>
+
+<p>We say a variable is an integer if the <span class="w3-codespan">-i</span> attribute set, i.e. if <span class="w3-codespan">declare -p</span> returns either <span class="w3-codespan">-i</span> or <span class="w3-codespan">-ir</span>. Note that in the case that the variable is found to have the <span class="w3-codespan">-n</span> attribute set, testing the end nameref is required to determine if the variable is an integer.</p>
+
+<h3>create an integer variable</h3>
+
+<pre><code># create an integer variable and modify through assignment
+unset one           # just to be sure
+declare -i int      # int is an integer
 int=5               # int=$(( 5 ))=5
 int+=1              # int=$(( int + 1 ))=6
 int+=int+1          # int=$(( int + int + 1 ))=13
+int=one             # int=$(( one ))=
 </code></pre>
 
 <p>Now look at what happens without the integer attribute.</p>
 
-<pre><code>int=5               # int=5
+<pre><code># result of assignment without integer attrbute
+unset int           # just to be sure
+unset one           # just to be sure
+int=5               # int=5
 int+=1              # int=${int}1=51
 int+=int+1          # int=${int}+int+1=51int+1
+int=one             # int=one
 </code></pre>
 
 <p>Now you see what happens if you forget to declare a variable as an integer. Not something that you want running loose in your program.</p>
@@ -89,13 +111,27 @@ int+=int+1          # int=${int}+int+1=51int+1
 
 <h2>Definitions</h2>
 
-<p>Definition that may or may not be used from hereon.</p>
+<p>Definition of types of integer variables.</p>
+
+<ul>
+<li>Integer variable</li>
+<li>Read-only integer variable</li>
+<li>Pure integer variable</li>
+</ul>
 
 <h3>Integer variable</h3>
 
+<p>A variable with the <span class="w3-codespan">-i</span> attribute set.</p>
+
 <p>We define an integer variable in bash as a variable with the integer attribute set. The question we ask here is, "Is it valid to declare a variable with the integer attribute in combination with another attribute?" This may be expanded later.</p>
 
+<h3>Read-only integer variable</h3>
+
+<p>An integer variable with the <span class="w3-codespan">-r</span> attribute set.</p>
+
 <h3>Pure integer variable</h3>
+
+<p>A variable with only the <span class="w3-codespan">-i</span> attribute set.</p>
 
 <p>We define a pure integer variable in bash as a variable with only the integer attribute set.</p>
 
@@ -188,9 +224,8 @@ declare -i myint
 <div class="w3-container">
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
-<a href="bash.html" class="w3-bar-item w3-button w3-mobile">bash</a>
-<a href="bash-conditionals.html" class="w3-bar-item w3-button w3-mobile">bash-conditionals</a>
 <a href="bash-declare-integer.html" class="w3-bar-item w3-button w3-mobile">bash-declare-integer</a>
+<a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
 </div> 
 <!--.w3-container--></div>
 <!--.w3-card--></div>
