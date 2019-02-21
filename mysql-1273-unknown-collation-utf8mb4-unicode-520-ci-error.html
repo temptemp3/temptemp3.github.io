@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mysql 1273 unknown collation utf8mb4 unicode 520 ci error | temptemp3.github.io</title>
+
+<link rel="canonical" href="https://temptemp3.github.io/mysql-1273-unknown-collation-utf8mb4-unicode-520-ci-error.html" />
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-104620931-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body class="w3-light-grey">
+<div class="w3-content" style="max-width:1400px">
+
+<header class="w3-container w3-center w3-padding-32"> 
+<h1><b><a style="text-decoration:none;" href="https://temptemp3.github.io/">tempt2<sup>3</sup></a></b></h1>
+<p>Welcome to the blog of <span class="w3-tag"><a style="text-decoration:none;" href="https://github.com/temptemp3">temptemp3</a></span></p>
+</header>
+
+<div class="w3-row">
+<div class="w3-col l8 s12">
+<div class="w3-card-4 w3-margin w3-white">
+<div class="w3-container">
+<h1>mysql 1273 unknown collation utf8mb4 unicode 520 ci error</h1>
+
+<!--
+[mysql 1273 unknown collation utf8mb4 unicode 520 ci error](mysql-1273-unknown-collation-utf8mb4-unicode-520-ci-error.html)
+-->
+
+<hr />
+
+<p>Documented work through mysql 1273 unknown collation utf8mb4 unicode 520 ci error while relocating database from one hosts to another. Document best read from bottom to top.</p>
+
+<hr />
+
+<p>Insight</p>
+
+<p>Engine version</p>
+
+<p>MySQL</p>
+
+<pre><code>< 5.6.34
+> 5.5
+</code></pre>
+
+The source host does not list patch version, which is disconcerting. It turns out that this is visible if logged into the mysql server.
+
+<pre><code>> 5.5.38
+</code></pre>
+
+<hr>
+
+Approach ii
+
+<pre><code>sed -i -e 's/utf8mb4_unicode_520_ci/utf8_general_ci/g' 1550708639-mod.sql
+</code></pre>
+
+<hr>
+
+Error
+
+<pre><code>ERROR 1273 (HY000) at line 1686: Unknown collation: 'utf8mb4_unicode_520_ci'</code></pre>
+
+<hr>
+
+Comparison
+
+<pre><code>< CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+> CHARSET=utf8 COLLATE=utf8_general_ci;
+</code></pre>
+
+<hr>
+
+Sample
+
+<pre><code>DROP TABLE IF EXISTS `wp_popularpostssummary`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `wp_popularpostssummary` (
+  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `postid` bigint(20) NOT NULL,
+  `pageviews` bigint(20) NOT NULL DEFAULT '1',
+  `view_date` date NOT NULL,
+  `view_datetime` datetime NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `postid` (`postid`),
+  KEY `view_date` (`view_date`),
+  KEY `view_datetime` (`view_datetime`)
+) ENGINE=InnoDB AUTO_INCREMENT=48435 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+</code></pre>
+
+<hr>
+
+Approach i
+
+<pre>
+vim, replace <span class="w3-codespan">utf8mb4_unicode_520_ci</span> with <span class="w3-codespan">utf8_general_ci</span>
+</pre>
+
+<hr />
+
+<p>Error</p>
+
+<pre><code>ERROR 1273 (HY000) at line 802: Unknown collation: 'utf8mb4_unicode_520_ci'</code></pre>
+
+<hr />
+
+<p>Background</p>
+
+<p>On 21 Feb 2018, one of your tasks was to relocate a database from one host to another. </p>
+
+<p>Usually, the procedure is straightforward with few issues occurring. However, this time around that was not the case.</p>
+
+<pre><code>ERROR 1273 (HY000): Unknown collation: 'utf8mb4_unicode_520_ci'</code></pre>
+
+<p>You recall seeing this error before.</p>
+
+<p>Not too long ago, you worked through the same issue at least once.</p>
+
+<p>And history repeats itself.</p>
+
+<p>This time around, you move to record the event.</p>
+
+<p>No votes here but I can tell you that it's going to be okay and you will be moving on to bigger and better things than database relocation soon.</p>
+
+<p>Next,</p>
+
+<hr />
+
+<p>Sources</p>
+
+<ul>
+<li><a href="https://stackoverflow.com/questions/42385099/1273-unknown-collation-utf8mb4-unicode-520-ci">https://stackoverflow.com/questions/42385099/1273-unknown-collation-utf8mb4-unicode-520-ci</a></li>
+</ul>
+
+<hr />
+</div>
+</div>
+</div>
+<div class="w3-col l4">
+<div class="w3-card-2 w3-margin w3-margin-top w3-white">
+<div class="w3-container">
+<div class="w3-bar w3-white">
+<a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
+<a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
+<a href="mysql-1273-unknown-collation-utf8mb4-unicode-520-ci-error.html" class="w3-bar-item w3-button w3-mobile">mysql-1273-unknown-collation-utf8mb4-unicode-520-ci-error</a>
+</div> 
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+<p>&copy; 2017-2019 <a href="https://temptemp3.github.io/">temptemp3.github.io</a><br>
+Built with <a href="https://github.com/temptemp3/sh2/blob/180702/u2.sh">u2.sh</a> Default theme and Vim</p>
+<!--button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
+<button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next</button-->
+
+
+</footer>
+</body>
+</html>
