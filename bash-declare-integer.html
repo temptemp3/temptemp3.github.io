@@ -43,7 +43,67 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <hr />
 
-<p>In <a href="bash-using-declare.html#bash-declare-integer">bash using declare</a> we covered all uses for the bash builtin command declare. Here we only cover usage of declare for integers. However, coverage should go into greater detail.</p>
+<p>In <a href="bash-using-declare.html#bash-declare-integer">bash using declare</a> we covered all the uses for the <a href="bash.html">bash</a> builtin command declare. Here we focus on the usage of declare for integers, covering declaring integers in greater detail.</p>
+
+<h2>Basic usage</h2>
+
+<p>Let's skip to good part, creating integer variables! <br />
+Here is how to declare a integer variable in bash. Note that <span class="w3-codespan">int</span> is not a keyword for integer. That is the job of the <span class="w3-codespan">-i</span> option to the builtin declare.</p>
+
+<ul>
+<li>determine if a variable is an integer</li>
+<li>create an integer variable</li>
+</ul>
+
+<h3>determine if a variable is an integer</h3>
+
+<pre><code># check if a variable is an integer
+declare -p int          # declare -i int="1"
+</code></pre>
+
+<p>We say a variable is an integer if the <span class="w3-codespan">-i</span> attribute set, i.e. if <span class="w3-codespan">declare -p</span> returns either <span class="w3-codespan">-i</span> or <span class="w3-codespan">-ir</span>. Note that in the case that the variable is found to have the <span class="w3-codespan">-n</span> attribute set, testing the end nameref is required to determine if the variable is an integer.</p>
+
+<h3>create an integer variable</h3>
+
+<pre><code># create an integer variable and modify through assignment
+unset one           # just to be sure
+declare -i int      # int is an integer
+int=5               # int=$(( 5 ))=5
+int+=1              # int=$(( int + 1 ))=6
+int+=int+1          # int=$(( int + int + 1 ))=13
+int=one             # int=$(( one ))=
+</code></pre>
+
+<p>Now look at what happens without the integer attribute.</p>
+
+<pre><code># result of assignment without integer attrbute
+unset int           # just to be sure
+unset one           # just to be sure
+int=5               # int=5
+int+=1              # int=${int}1=51
+int+=int+1          # int=${int}+int+1=51int+1
+int=one             # int=one
+</code></pre>
+
+<p>Now you see what happens if you forget to declare a variable as an integer. Not something that you want running loose in your program.</p>
+
+<h3>breakdown</h3>
+
+<p><span class="w3-codespan">declare -i int</span></p>
+
+<p>We say that if there is a variable named int, it now has the integer attribute set. If the variable named in the declare command is not set yet, then the attribute is applied to future variable unless <span class="w3-codespan">unset</span>. Using <span class="w3-codespan">local</span> instead of <span class="w3-codespan">declare</span>, causes the attribute to only be applied in subsequent assignments in the local scope.</p>
+
+<p><span class="w3-codespan">int=5</span></p>
+
+<p>Depending on whether the variable has the integer attribute this sets the value of int to the string 5 or arithmetic expansion of 5. In the case of 5, the result yields 5 for both cases.</p>
+
+<p><span class="w3-codespan">int+=1</span></p>
+
+<p>Should increment int if integer attribute set.</p>
+
+<p><span class="w3-codespan">int+=int+1</span></p>
+
+<p>Should double int and increment if integer attribute set.</p>
 
 <h2>Introduction</h2>
 
@@ -51,19 +111,33 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <h2>Definitions</h2>
 
-<p>Definition that may or may not be used from hereon.</p>
+<p>Definition of types of integer variables.</p>
+
+<ul>
+<li>Integer variable</li>
+<li>Read-only integer variable</li>
+<li>Pure integer variable</li>
+</ul>
 
 <h3>Integer variable</h3>
 
-<p>We define an integer variable in bash as a variable with the integer attribute set.</p>
+<p>A variable with the <span class="w3-codespan">-i</span> attribute set.</p>
+
+<p>We define an integer variable in bash as a variable with the integer attribute set. The question we ask here is, "Is it valid to declare a variable with the integer attribute in combination with another attribute?" This may be expanded later.</p>
+
+<h3>Read-only integer variable</h3>
+
+<p>An integer variable with the <span class="w3-codespan">-r</span> attribute set.</p>
 
 <h3>Pure integer variable</h3>
+
+<p>A variable with only the <span class="w3-codespan">-i</span> attribute set.</p>
 
 <p>We define a pure integer variable in bash as a variable with only the integer attribute set.</p>
 
 <h2>Why declare integers in bash?</h2>
 
-<p>In order to understand how an why integers are declared in bash, it is helpful to compare behavior with and without using integer variables.</p>
+<p>In order to understand how an why integers are declared in bash, it is helpful to look at behavior with and without using integer variables.</p>
 
 <pre><code>#!/bin/bash
 ## test-bash-declare-integer-1
@@ -115,6 +189,13 @@ test-bash-declare-integer-1
 
 <h2>Questions</h2>
 
+<h3>How do I compare two integers?</h3>
+
+<p>Arithmetic binary operators can be used to <a href="bash-conditionals.html#arithmetic">compare integers in bash</a> in the form <span class="w3-codespan">arg1 OP arg2</span>. For example, we may test if two integers are not equal as follows.</p>
+
+<pre><code>test ! ${a} -eq ${b} # a != b
+</code></pre>
+
 <h3>How do I declare an integer bash?</h3>
 
 <p>Declare integer variables using the <span class="w3-codespan">-i</span> option.</p>
@@ -154,7 +235,7 @@ declare -i myint
 <!-- .w3-content --></div>
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
 <p>&copy; 2017-2019 <a href="https://temptemp3.github.io/">temptemp3.github.io</a><br>
-Built with <a href="https://github.com/temptemp3/sh2/blob/180702/u2.sh">u2.sh</a> Default theme and a lot of coffee</p>
+Built with <a href="https://github.com/temptemp3/sh2/blob/180702/u2.sh">u2.sh</a> Default theme and Vim</p>
 <!--button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
 <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next</button-->
 <!--mute in global fields -->

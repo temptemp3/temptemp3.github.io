@@ -138,11 +138,62 @@ Returns success if EXPR evaluates to true; fails if EXPR evaluates to
 false or an invalid argument is given.
 </code></pre>
 
+<p><a name="arithmetic"></a></p>
+
+<h2>compare integers</h2>
+
+<p>Arithmetic tests are a form of <span class="w3-codspan">[expr]</span> for use on integers.</p>
+
+<p>Tests between integers are carried out using operators <span class="w3-codspan">-eq</span>, <span class="w3-codspan">-ne</span>, <span class="w3-codspan">-lt</span>, <span class="w3-codspan">-le</span>, <span class="w3-codspan">-gt</span>, and <span class="w3-codspan">-ge</span> taking two arguments. Tests return true or false depending on evaluation, or false if arguments are invalid.</p>
+
+<p>Here are some examples comparing integers.</p>
+
+<pre><code>test 0 -eq 0
+echo ${?} # 0
+</code></pre>
+
+<pre><code>test 0 -ne 0
+echo ${?} # 1
+</code></pre>
+
+<pre><code>test 0 -lt 0
+echo ${?} # 1
+</code></pre>
+
+<pre><code>test 0 -le 0
+echo ${?} # 0
+</code></pre>
+
+<pre><code>test 0 -gt 0
+echo ${?} # 1
+</code></pre>
+
+<pre><code>test 0 -ge 0
+echo ${?} # 0
+</code></pre>
+
+<p>Here are some more practical integer comparison examples.</p>
+
+<pre><code>test ${#} -eq 0 # no arguments were provided
+</code></pre>
+
+<pre><code>test $(( int % 2 )) -eq 0 # int is even
+</code></pre>
+
+<pre><code>test ${int} -gt 0 # int is a natural number
+</code></pre>
+
+<pre><code>test ${b} -ge ${a} -a ${b} -le ${c} # b is in [a,c]
+</code></pre>
+
+<pre><code>test ${b} -lt ${a} -o ${b} -gt ${c} # b is out of the box
+</code></pre>
+
 <h2>examples</h2>
 
 <h3>trivial if conditional block</h3>
 
-<p>In my opinion, every program should have at least 1 of these. Others are optional but not neccessary. This particular example is my default entry. It says that we'll just any parameters and exit. You could even say that this is the zeroth if conditional.</p>
+<p>In my opinion, every program should have at least 1 of these. Others are optional but not necessary. This particular example is my default entry. It says that we'll just any parameters and exit. You could even say that this is the zeroth if conditional.</p>
 
 <pre><code>if [ ${#} -eq 0 ] 
 then
@@ -181,9 +232,9 @@ entry ${@}
 <p>Notes</p>
 
 <ol>
-<li>Adding double quotations around ('"') around <em>regex</em> is interpretted as a litteral quote so if the conditional isn't working as intend it may be because of double quotes.</li>
-<li>The dashed filename ("-") doesn't carry any special meaning, it's there to hint that we are using standard input. Or if that is not the case, you may substitude in something else.</li>
-<li>For spaces, use backslash ("\") because we don't have double qutoes.</li>
+<li>Adding double quotations around ('"') around <em>regex</em> is interpreted as a literal quote so if the conditional isn't working as intend it may be because of double quotes.</li>
+<li>The dashed filename ("-") doesn't carry any special meaning, it's there to hint that we are using standard input. Or if that is not the case, you may substitute in something else.</li>
+<li>For spaces, use backslash ("\") because we don't have double quotes.</li>
 </ol>
 
 <hr />
@@ -197,6 +248,7 @@ entry ${@}
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
 <a href="bash.html" class="w3-bar-item w3-button w3-mobile">bash</a>
 <a href="bash-conditionals.html" class="w3-bar-item w3-button w3-mobile">bash-conditionals</a>
+<a href="bash-declare-integer.html" class="w3-bar-item w3-button w3-mobile">bash-declare-integer</a>
 </div> 
 <!--.w3-container--></div>
 <!--.w3-card--></div>
