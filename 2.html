@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>mysql 1253 collation utf8 general not valid for character set utf8mb4 | temptemp3.github.io</title>
-
-<link rel="canonical" href="https://temptemp3.github.io/mysql-1253-collation-utf8-general-not-valid-for-character-set-utf8mb4.html" />
+<title>2 | temptemp3.github.io</title>
+<meta name="robots" content="noindex, follow">
+<meta http-equiv="refresh" content="3,bash-curl.html">
+<link rel="canonical" href="https://temptemp3.github.io/2.html" />
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
@@ -26,91 +27,39 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <body class="w3-light-grey">
 <div class="w3-content" style="max-width:1400px">
 
-  
 <header class="w3-container w3-center w3-padding-32"> 
 <h1><b><a style="text-decoration:none;" href="https://temptemp3.github.io/">tempt2<sup>3</sup></a></b></h1>
 <p>Welcome to the blog of <span class="w3-tag"><a style="text-decoration:none;" href="https://github.com/temptemp3">temptemp3</a></span></p>
 </header>
 
-  
 <div class="w3-row">
 <div class="w3-col l8 s12">
 <div class="w3-card-4 w3-margin w3-white">
 <div class="w3-container">
-<h1>mysql 1253 collation utf8 general not valid for character set utf8mb4</h1>
-
-
+<h1>2</h1>
 
 <!--
-[mysql 1253 collation utf8 general not valid for character set utf8mb4](mysql-1253-collation-utf8-general-not-valid-for-character-set-utf8mb4.html)
+[2](2.html)
 -->
 
-<hr />
 
-<p>Documented work through collation utf8 general is not valid for character set utf8mb4 error while relocating database from one hosts to another. Document best read from bottom to top.</p>
 
-<pre>replace utf8mb4 with utf8</pre>
 
 <hr />
 
-<p>Approach</p>
+<p>Redirecting to final destination ...</p>
 
-<pre><code>sed -i -e 's/\(CHARSET=utf8\)mb4\( COLLATE=utf8_general_ci\)/\1\2/
-</code></pre>
-
-<hr />
-
-<p>Check</p>
-
-<pre><code>grep -e 'CHARSET=utf8mb4 COLLATE=utf8_general_ci'</code></pre>
-
-<hr />
-
-<p>Sample</p>
-
-<pre><code>
-DROP TABLE IF EXISTS `wp_popularpostssummary`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `wp_popularpostssummary` (
-  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
-  `postid` bigint(20) NOT NULL,
-  `pageviews` bigint(20) NOT NULL DEFAULT '1',
-  `view_date` date NOT NULL,
-  `view_datetime` datetime NOT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `postid` (`postid`),
-  KEY `view_date` (`view_date`),
-  KEY `view_datetime` (`view_datetime`)
-) ENGINE=InnoDB AUTO_INCREMENT=7997 DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-</code></pre>
-
-<hr />
-
-<p>Error</p>
-
-<pre><code>ERROR 1253 (42000) at line 542: COLLATION 'utf8_general_ci' is not valid for CHARACTER SET 'utf8mb4'</code></pre>
-
-<hr />
-
-<p>see also</p>
-
-<ul>
-<li><a href="mysql-1273-unknown-collation-utf8mb4-unicode-520-ci-error.html">mysql 1273 unknown collation utf8mb4 unicode 520 ci error</a></li>
-</ul>
+<p>since 11 Mar 2019</p>
 
 <hr />
 </div>
 </div>
 </div>
-
 <div class="w3-col l4">
 <div class="w3-card-2 w3-margin w3-margin-top w3-white">
 <div class="w3-container">
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
-
 <a href="1.html" class="w3-bar-item w3-button w3-mobile">1</a>
 <a href="2.html" class="w3-bar-item w3-button w3-mobile">2</a>
 <a href="2019-in-a-nutshell.html" class="w3-bar-item w3-button w3-mobile">2019-in-a-nutshell</a>
@@ -132,13 +81,11 @@ CREATE TABLE `wp_popularpostssummary` (
 </div>
 
 </div>
-
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
 <p>&copy; 2017-2019 <a href="https://temptemp3.github.io/">temptemp3.github.io</a><br>
 Built with <a href="https://github.com/temptemp3/sh2/blob/180702/u2.sh">u2.sh</a> Default theme and Vim</p>
 <!--button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
 <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next</button-->
-
 
 
 </footer>
