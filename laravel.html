@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>index | temptemp3.github.io</title>
-<link rel="canonical" href="https://temptemp3.github.io/" />
+<title>laravel | temptemp3.github.io</title>
+
+
+<link rel="canonical" href="https://temptemp3.github.io/laravel.html" />
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
@@ -34,97 +36,75 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-col l8 s12">
 <div class="w3-card-4 w3-margin w3-white">
 <div class="w3-container">
-
-
-
+<h1>laravel</h1>
 
 <!--
-[index](index.html)
+[laravel](laravel.html)
 -->
 
 <hr />
 
-<p>start writing <a href="laravel.html">laravel</a> guide 20 Mar 2019</p>
+<p>larvel-guide</p>
 
-<hr />
+<p>Its laravel ground zero</p>
 
-<p>created <a href="contact.html">contact</a> using soft redirect 20 Mar 2019</p>
+<p>Install requirements</p>
 
-<hr />
+<p>Install php</p>
 
-<p>document noindex, follow procedure 11 Mar 2019</p>
+<p><a href="http://php.net/manual/en/install.php">http://php.net/manual/en/install.php</a></p>
 
-<p>user &lt;!-- meta-robot:no-index-follow --&gt; comment in document head</p>
+<p>Install composer</p>
 
-<hr />
-
-<p>implement command to create soft redirects 11 Mar 2019</p>
+<p><a href="https://getcomposer.org/download/">https://getcomposer.org/download/</a></p>
 
 <ul>
-<li>creates document by name redirecting to another document by name2 in n seconds
-<ul>
-<li>command name n name2</li>
-</ul></li>
+<li>If using homestead</li>
 </ul>
 
-<p>body</p>
+<p>Install vagrant</p>
 
-<pre>
+<p><a href="https://www.vagrantup.com/downloads.html">https://www.vagrantup.com/downloads.html</a></p>
 
-&lt;!-- meta-robots:noindex,follow --&gt;
-&lt;!-- meta-http-equiv:3,index.html --&gt;
+<p>You are setup to create laravel projects</p>
 
----
+<p>Create new laravel project </p>
 
-Redirecting to final destination
-
-Since 11 Mar 2019
-
-</pre>
-
-<hr />
-
-<p>implement random navigation link for static site 6 Feb 2019</p>
-
-<hr />
-
-<p>updating <a href="bash-using-declare.html">bash using declare</a> 29 Jan 2019</p>
-
-<hr />
-
-<p>snippet from <a href="how-to-setup-github-pages-for-user.html">how to setup github pages for user</a> 29 Jan 2019</p>
-
-<pre><code>git-prompt
-git subtree push --prefix=html/ origin update
+<pre><code>laravel new project-name
 </code></pre>
 
-<hr />
+<p>Install homestead</p>
 
-<p>work on <a href="2019-in-a-nutshell.html">2019 in a nutshell</a> 28 Jan 2019</p>
+<pre><code>composer require laravel/composer --dev
+</code></pre>
 
-<hr />
+<p>Vagrant up</p>
 
-<p>rename index in sidebar navigation 3 May 2018</p>
+<pre><code>vagrant up
+</code></pre>
 
-<hr />
+<p>You want users to be able to login and register</p>
 
-<p><a name="less"></a></p>
+<p>Make auth using artisan</p>
 
-<p>setup soft redirects for urls 1..9 to bash curl 11 Mar 2019</p>
+<pre><code>php artisan make:auth
+</code></pre>
 
-<hr />
+<p>If you see this</p>
 
-<ul>
-<li>future</li>
-<li>setup soft redirects for urls 1..9 appearing as crawl errors to bash curl</li>
-<li>add html <a href="sitemap.html">sitemap</a></li>
-<li>remove noindex and soft 404 private or draft pages from sitemap</li>
-<li>add mentions <br />
-Build with u2.sh Default theme and a lot of coffee</li>
-<li>adopt year range copyright style; ex) 2017-2019 etc.</li>
-<li>create xml sitemap</li>
-<li><a href="more.html">more</a></li>
-</ul>
+<pre><code>SQLSTATE[42S02]: Base table or view not found: 
+1146 Table 'homestead.users' doesn't exist (42S02)
+</code></pre>
+
+<p>you need to <span class="w3-codespan">vagrant ssh</span> into homestead and run </p>
+
+<pre><code>cd code
+php artisan migrate
+</code></pre>
+
+<p>Users can login and register</p>
+
+<p>Next</p>
 
 <hr />
 </div>
@@ -138,8 +118,6 @@ Build with u2.sh Default theme and a lot of coffee</li>
 <a href="apache-redirect-http-to-https.html" class="w3-bar-item w3-button w3-mobile">apache-redirect-http-to-https</a>
 <a href="contact.html" class="w3-bar-item w3-button w3-mobile">contact</a>
 <a href="laravel.html" class="w3-bar-item w3-button w3-mobile">laravel</a>
-<a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
-<a href="hello-world.html" class="w3-bar-item w3-button w3-mobile">hello-world</a>
 </div> 
 </div>
 </div>
