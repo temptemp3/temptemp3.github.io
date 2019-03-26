@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>bash dashed filename | temptemp3.github.io</title>
 
+
 <link rel="canonical" href="https://temptemp3.github.io/bash-dashed-filename.html" />
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -50,6 +51,30 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <p>Within the scope of bash, it is any file named by a single dash. However, within the context of a command line utility such as cat and sed following a convention, it may be used as a sign that the command will opt to read from <span class="w3-codespan">/dev/stdin</span>. </p>
 
 <p>Combined with proper usage in a bash script, it may improve shell script readability.</p>
+
+<h2>Usage of dash ("-") as filename in FreeBSD 9.1</h2>
+
+<p>In a FreeBSD 9.1 box somewhere you write a filter</p>
+
+<pre><code>escape() { sed -e 's/¥//¥¥¥//g' - ; }
+</code></pre>
+
+<p>which we test and results in</p>
+
+<pre><code>echo asdf/asfd | escape
+sed: -: No such file or directory
+</code></pre>
+
+<p>so we remove the dash</p>
+
+<pre><code>escape() { sed -e 's/¥//¥¥¥//g' ; }
+</code></pre>
+
+<p>and life is good</p>
+
+<pre><code>echo asdf/asfd | escape
+asdf¥/asfd
+</code></pre>
 
 <h2>Bash: Finding Your Way Along the Path of Dash</h2>
 
@@ -155,6 +180,7 @@ EOF
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
 <a href="bash-dashed-filename.html" class="w3-bar-item w3-button w3-mobile">bash-dashed-filename</a>
+<a href="laravel.html" class="w3-bar-item w3-button w3-mobile">laravel</a>
 </div> 
 </div>
 </div>
