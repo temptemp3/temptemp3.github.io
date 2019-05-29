@@ -59,16 +59,26 @@ declare: declare [-aAfFgilnrtux] [-p] [name[=value] ...]
 
 <p>Options:</p>
 
+<p>Declare takes <span class="w3-codespan">[-aAfFgilnrtux] [-p]</span> as options. </p>
+
+<p><span class="w3-codespan">[-aAfFgilnrtux]</span> affects attribute assignment.</p>
+
+<p><span class="w3-codespan">[-p]</span> affects display of attributes</p>
+
+<p>Options for functions</p>
+
 <pre><code>  -f        restrict action or display to function names and definitions
 
   -F        restrict display to function names only (plus line number and
-            source file when debugging)
-
-  -g        create global variables when used in a shell function; otherwise
-            ignored
-
-  -p        display the attributes and value of each NAME
+                source file when debugging)
 </code></pre>
+
+<p>Option to list bash variable attributes</p>
+
+<pre><code>  -p        display the attributes and value of each NAME
+</code></pre>
+
+<p>When you need to get variable attributes in bash <span class="w3-codespan">declare -p variable_name</span> comes in handy. The <span class="w3-codespan">-p</span> option can be used to filter out functions definitions and function names. Additionally, the effect of the -p option is cancelled out when combined with either the <span class="w3-codespan">-f</span> option or the <span class="w3-codespan">-F</span> option.</p>
 
 <p>Options which set attributes:</p>
 
@@ -78,7 +88,10 @@ declare: declare [-aAfFgilnrtux] [-p] [name[=value] ...]
 
 <p><span class="w3-codespan">-<a href="bash-using-declare.html#integers">i</a> to make NAMEs have the 'integer' attribute</span></p>
 
-<pre><code>  -l        to convert NAMEs to lower case on assignment
+<pre><code>  -g        create global variables when used in a shell function; otherwise
+            ignored
+
+  -l        to convert NAMEs to lower case on assignment
 
   -n        make NAME a reference to the variable named by its value
 
@@ -517,8 +530,10 @@ declare -xf FUNCTION
 <div class="w3-container">
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
+<a href="bash-curl.html" class="w3-bar-item w3-button w3-mobile">bash-curl</a>
+<a href="bash-examples.html" class="w3-bar-item w3-button w3-mobile">bash-examples</a>
+<a href="bash-range-depreciation-for-seq.html" class="w3-bar-item w3-button w3-mobile">bash-range-depreciation-for-seq</a>
 <a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
-<a href="hello-world.html" class="w3-bar-item w3-button w3-mobile">hello-world</a>
 </div> 
 </div>
 </div>
