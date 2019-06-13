@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>bash check file permissions | temptemp3.github.io</title>
+<title>bash range depreciation for seq | temptemp3.github.io</title>
 
-<meta http-equiv="refresh" content="0,bash/check-file-permissions.html">
-<link rel="canonical" href="https://temptemp3.github.io/bash-check-file-permissions.html" />
+<meta http-equiv="refresh" content="0,bash/range-depreciation-for-seq.html">
+<link rel="canonical" href="https://temptemp3.github.io/bash-range-depreciation-for-seq.html" />
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
@@ -36,23 +36,33 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-col l8 s12">
 <div class="w3-card-4 w3-margin w3-white">
 <div class="w3-container">
-<h1>bash check file permissions</h1>
+<h1>bash range depreciation for seq</h1>
+
+
 
 <!--
-[bash check file permissions](bash-check-file-permissions.html)
+[bash range depreciation for seq](bash-range-depreciation-for-seq.html)
 -->
-
-
 
 <hr />
 
-<p>Suppose that there is a <strong>file</strong> in your bash script that you want to check the file permissions for. Here is a quick snippet to accomplish the task using <strong>ls</strong> and <strong>cut</strong>.</p>
+<p>Most programming languages provide a means to generate a sequence of numbers with little to no effort. Bash is no different. In fact, it is builtin, such as in the case of quickly creating integers ranging between 1 and 10 in increments of 1.</p>
 
-<pre><code>_() { # 1 - path to file
-  ls -s ${1} |
-  cut '-d ' '-f1' # expect [-dl][-r][-w][-x][-r][-w][-x][-r][-w][-x]
-}
+<pre><code>echo {1..10} # 1 through 10 
 </code></pre>
+
+<p>The same can be said about generating a range of integers by an arbitrary step to increment by, let's say 2.</p>
+
+<pre><code>echo {1..10..2} # odd numbers less then 10
+</code></pre>
+
+<p>Now what if we want to generate a range from within a bash script ...</p>
+
+<p>range ...</p>
+
+<p>seq {end}
+seq ${start} {end}
+seq ${start} ${step} {end}</p>
 
 <hr />
 </div>
