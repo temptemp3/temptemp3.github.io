@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>laravel | temptemp3.github.io</title>
+<title>react render html | temptemp3.github.io</title>
 
 
-<link rel="canonical" href="https://temptemp3.github.io/laravel.html" />
+<link rel="canonical" href="https://temptemp3.github.io/react-render-html.html" />
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
@@ -36,119 +36,30 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-col l8 s12">
 <div class="w3-card-4 w3-margin w3-white">
 <div class="w3-container">
-<h1>laravel</h1>
+<h1>react render html</h1>
 
 <!--
-[laravel](laravel.html)
+[react render html](react-render-html.html)
 -->
 
 <hr />
 
-<p>TOC</p>
+<p>Over the past few months in 10 minute bursts of spare time code power you have been piecing together a new front end using react and material-ui. So far so good.</p>
 
-<hr />
+<p>One of the issues that came up was rendering html in jsx, i.e.</p>
 
-<h2>quickstart homestead</h2>
-
-<pre><code>_() {
-  laravel new ${1}
-  cd ${1}
-  composer require laravel/homestead --dev
-  vendor/bin/homestead
-  vagrant up
+<pre><code>render() {
+  return &#x3C;div&#x3E;
+    {data.someHTML}
+  &#x3C;/div&#x3E;
 }
 </code></pre>
 
-<hr />
+<p>may results in visible html tags as follows.</p>
 
-<p>larvel-guide</p>
-
-<p>Its laravel ground zero</p>
-
-<p>Install requirements</p>
-
-<p>Install php</p>
-
-<p><a href="http://php.net/manual/en/install.php">http://php.net/manual/en/install.php</a></p>
-
-<p>Install composer</p>
-
-<p><a href="https://getcomposer.org/download/">https://getcomposer.org/download/</a></p>
-
-<ul>
-<li>If using homestead</li>
-</ul>
-
-<p>Install vagrant</p>
-
-<p><a href="https://www.vagrantup.com/downloads.html">https://www.vagrantup.com/downloads.html</a></p>
-
-<p>You are setup to create laravel projects</p>
-
-<p>Create new laravel project </p>
-
-<pre><code>laravel new project-name
+<pre><code>content
+&#x3C;p&#x3E;You are shock!&#x3C;/p&#x3E;
 </code></pre>
-
-<p>Install homestead</p>
-
-<ul>
-<li>Global</li>
-</ul>
-
-<pre><code>...
-</code></pre>
-
-<ul>
-<li>Per Project Installation</li>
-</ul>
-
-<pre><code>composer require laravel/homestead --dev
-</code></pre>
-
-<p>Vagrant up</p>
-
-<pre><code>vagrant up
-</code></pre>
-
-<p>You are up running laravel with homestead</p>
-
-<hr />
-
-<p>You want to become familiar with using homestead</p>
-
-<p><a href="https://laravel.com/docs/5.8/homestead#daily-usage">https://laravel.com/docs/5.8/homestead#daily-usage</a></p>
-
-<hr />
-
-<p>You are working on laravel project </p>
-
-<p>You want users to be able to login and register</p>
-
-<p>Make auth using artisan</p>
-
-<pre><code>php artisan make:auth
-</code></pre>
-
-<p>If you see this</p>
-
-<pre><code>SQLSTATE[42S02]: Base table or view not found: 
-1146 Table 'homestead.users' doesn't exist (42S02)
-</code></pre>
-
-<p>you need to <span class="w3-codespan">vagrant ssh</span> into homestead and run </p>
-
-<pre><code>cd code
-php artisan migrate
-</code></pre>
-
-<p>Users can login and register</p>
-
-<p>Next</p>
-
-<ul>
-<li><a href="https://laravel.com/docs/5.8/homestead">https://laravel.com/docs/5.8/homestead</a></li>
-</ul>
 
 <hr />
 </div>

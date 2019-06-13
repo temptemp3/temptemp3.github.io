@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>laravel | temptemp3.github.io</title>
+<title>node test merge img | temptemp3.github.io</title>
 
 
-<link rel="canonical" href="https://temptemp3.github.io/laravel.html" />
+<link rel="canonical" href="https://temptemp3.github.io/node-test-merge-img.html" />
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
@@ -36,119 +36,108 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-col l8 s12">
 <div class="w3-card-4 w3-margin w3-white">
 <div class="w3-container">
-<h1>laravel</h1>
+<h1>node test merge img</h1>
 
 <!--
-[laravel](laravel.html)
+[node test merge img](node-test-merge-img.html)
 -->
 
 <hr />
 
-<p>TOC</p>
+<p>Making 4コマ漫画 ...</p>
 
-<hr />
+<p>Node module to merge images... mergeImg ...</p>
 
-<h2>quickstart homestead</h2>
-
-<pre><code>_() {
-  laravel new ${1}
-  cd ${1}
-  composer require laravel/homestead --dev
-  vendor/bin/homestead
-  vagrant up
-}
+<pre><code>npm install merge-img
 </code></pre>
 
-<hr />
-
-<p>larvel-guide</p>
-
-<p>Its laravel ground zero</p>
-
-<p>Install requirements</p>
-
-<p>Install php</p>
-
-<p><a href="http://php.net/manual/en/install.php">http://php.net/manual/en/install.php</a></p>
-
-<p>Install composer</p>
-
-<p><a href="https://getcomposer.org/download/">https://getcomposer.org/download/</a></p>
-
-<ul>
-<li>If using homestead</li>
-</ul>
-
-<p>Install vagrant</p>
-
-<p><a href="https://www.vagrantup.com/downloads.html">https://www.vagrantup.com/downloads.html</a></p>
-
-<p>You are setup to create laravel projects</p>
-
-<p>Create new laravel project </p>
-
-<pre><code>laravel new project-name
+<pre><code>touch TestMergeImg.js
 </code></pre>
 
-<p>Install homestead</p>
-
-<ul>
-<li>Global</li>
-</ul>
-
-<pre><code>...
+<pre><code>vim TestMergeImg.js
 </code></pre>
 
-<ul>
-<li>Per Project Installation</li>
-</ul>
+<pre><code>import mergeImg from 'merge-img';
 
-<pre><code>composer require laravel/homestead --dev
+mergeImg(['image-1.png', 'image-2.jpg'])
+  .then((img) => {
+    // Save image as file
+    img.write('out.png', () => console.log('done'));
+  });
 </code></pre>
 
-<p>Vagrant up</p>
+<pre><code>$ node TestMergeImg.js
+/path/to/TestMergeImg.js:1
+import mergeImg as a from 'merge-img'
+       ^^^^^^^^
 
-<pre><code>vagrant up
+SyntaxError: Unexpected identifier
+    at Module._compile (internal/modules/cjs/loader.js:749:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:81
+6:10)
+    at Module.load (internal/modules/cjs/loader.js:672:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:612:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:604:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:868:12)
+    at internal/main/run_main_module.js:21:11
 </code></pre>
 
-<p>You are up running laravel with homestead</p>
-
-<hr />
-
-<p>You want to become familiar with using homestead</p>
-
-<p><a href="https://laravel.com/docs/5.8/homestead#daily-usage">https://laravel.com/docs/5.8/homestead#daily-usage</a></p>
-
-<hr />
-
-<p>You are working on laravel project </p>
-
-<p>You want users to be able to login and register</p>
-
-<p>Make auth using artisan</p>
-
-<pre><code>php artisan make:auth
+<pre><code>const mergeImg = require('merge-img')
+mergeImg([
+        '1.png', 
+        '2.png', 
+        '3.png', 
+        '4.png', 
+])
+.then((img) => {
+  // Save image as file
+  img.write('out.png', () => console.log('done'))
+})
 </code></pre>
 
-<p>If you see this</p>
-
-<pre><code>SQLSTATE[42S02]: Base table or view not found: 
-1146 Table 'homestead.users' doesn't exist (42S02)
+<pre><code>$ node --version
+v11.13.0
 </code></pre>
 
-<p>you need to <span class="w3-codespan">vagrant ssh</span> into homestead and run </p>
+<p><a href="https://www.npmjs.com/package/merge-img">https://www.npmjs.com/package/merge-img</a> <br />
+<a href="http://thecodebarbarian.com/nodejs-12-imports.html">http://thecodebarbarian.com/nodejs-12-imports.html</a> <br />
+<a href="https://levelup.gitconnected.com/whats-new-in-node-12-e00111ffb83f">https://levelup.gitconnected.com/whats-new-in-node-12-e00111ffb83f</a></p>
 
-<pre><code>cd code
-php artisan migrate
+<pre><code>const mergeImg = require('merge-img')
+mergeImg([
+  '1.png', 
+  '2.png', 
+  '3.png', 
+  '4.png', 
+], {
+  direction: true,
+})
+.then((img) => {
+  // Save image as file
+  img.write('full.png', () => console.log('done'))
+})
 </code></pre>
 
-<p>Users can login and register</p>
+<p><a href="https://github.com/oliver-moran/jimp/tree/master/packages/plugin-resize">https://github.com/oliver-moran/jimp/tree/master/packages/plugin-resize</a></p>
 
-<p>Next</p>
+<pre><code>const mergeImg = require('merge-img')
+const jimp = require('jimp')
 
-<ul>
-<li><a href="https://laravel.com/docs/5.8/homestead">https://laravel.com/docs/5.8/homestead</a></li>
-</ul>
+mergeImg([
+  '1.png', 
+  '2.png', 
+  '3.png', 
+  '4.png', 
+], {
+  direction: true,
+})
+.then((img) => {
+  // Save image as file
+  img.write('full.png', () => console.log('done'))
+  img.resize(756, jimp.AUTO)
+  img.write("small.png", () => console.log('image resize (done)'))
+})
+</code></pre>
 
 <hr />
 </div>

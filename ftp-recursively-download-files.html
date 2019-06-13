@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>laravel | temptemp3.github.io</title>
+<title>ftp recursively download files | temptemp3.github.io</title>
 
 
-<link rel="canonical" href="https://temptemp3.github.io/laravel.html" />
+<link rel="canonical" href="https://temptemp3.github.io/ftp-recursively-download-files.html" />
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
@@ -36,119 +36,77 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-col l8 s12">
 <div class="w3-card-4 w3-margin w3-white">
 <div class="w3-container">
-<h1>laravel</h1>
+<h1>ftp recursively download files</h1>
 
 <!--
-[laravel](laravel.html)
+[ftp recursively download files](ftp-recursively-download-files.html)
 -->
 
 <hr />
 
-<p>TOC</p>
+<p>Somewhere down the road you may be tasked with continuing a project in a staging environment with nothing but files and access via old-fashion ftp. As they say, once you go git you never want to git backwards to unfettered data transfer through ftp. At the only logical choice is to move out.</p>
 
-<hr />
+<p>You could download the files on your machine but that would not only be lame but blew up dust. Find a host that you have ssh access to and recursively download files through ftp using wget.</p>
 
-<h2>quickstart homestead</h2>
+<p><span class="w3-codespan">wget -r ftp://${host} --user="${user}" --password="${passwd}"</span></p>
 
-<pre><code>_() {
-  laravel new ${1}
-  cd ${1}
-  composer require laravel/homestead --dev
-  vendor/bin/homestead
-  vagrant up
+<p>When it's done a day or so later, pack up and download the payload.</p>
+
+<p><span class="w3-codespan">tar -czf ${host}.tar.gz ${host}</span></p>
+
+<h2>Wrapping up</h2>
+
+<p>Suppose the goal is to complete the task to one go. You are going to need the following two commands.</p>
+
+<p><span class="w3-codespan">ssh() { command ssh ... ; }</span></p>
+
+<p><span class="w3-codespan">scp() { command ssh ... ; }</span></p>
+
+<p>There are effectively three hosts:</p>
+
+<ol>
+<li>Your machine or origin of script</li>
+<li>The host with ssh access </li>
+<li>The host with only ftp holding all your files</li>
+</ol>
+
+<p>On host-1, we make a payload script. Suppose that we <span class="w3-codespan">clipboy make:function script-1</span> a command for this. Call this script-1. </p>
+
+<p>script-1 has subcommands. One subcommand we will call execute and another cleanup. Let's assume they work because whoever wrote them did a good job.</p>
+
+<p><span class="w3-codespan">scp script-1 # place payload</span></p>
+
+<p><span class="w3-codespan">ssh "script-1 run" # execute payload on host-2 interacting with host-3</span></p>
+
+<p><span class="w3-codespan">scp script-1-payload ./ # copy to host-1 from host-2</span></p>
+
+<p><span class="w3-codespan">ssh 'script-1 cleanup' # cleanup</span></p>
+
+<p><code><pre>
+#!/bin/bash
+## test-run-remotely
+## =stub=
+## version 0.0.0 - stub
+exit 0
+##################################################
+test-run-remotely() {
+ true
 }
-</code></pre>
-
-<hr />
-
-<p>larvel-guide</p>
-
-<p>Its laravel ground zero</p>
-
-<p>Install requirements</p>
-
-<p>Install php</p>
-
-<p><a href="http://php.net/manual/en/install.php">http://php.net/manual/en/install.php</a></p>
-
-<p>Install composer</p>
-
-<p><a href="https://getcomposer.org/download/">https://getcomposer.org/download/</a></p>
-
-<ul>
-<li>If using homestead</li>
-</ul>
-
-<p>Install vagrant</p>
-
-<p><a href="https://www.vagrantup.com/downloads.html">https://www.vagrantup.com/downloads.html</a></p>
-
-<p>You are setup to create laravel projects</p>
-
-<p>Create new laravel project </p>
-
-<pre><code>laravel new project-name
-</code></pre>
-
-<p>Install homestead</p>
-
-<ul>
-<li>Global</li>
-</ul>
-
-<pre><code>...
-</code></pre>
-
-<ul>
-<li>Per Project Installation</li>
-</ul>
-
-<pre><code>composer require laravel/homestead --dev
-</code></pre>
-
-<p>Vagrant up</p>
-
-<pre><code>vagrant up
-</code></pre>
-
-<p>You are up running laravel with homestead</p>
-
-<hr />
-
-<p>You want to become familiar with using homestead</p>
-
-<p><a href="https://laravel.com/docs/5.8/homestead#daily-usage">https://laravel.com/docs/5.8/homestead#daily-usage</a></p>
-
-<hr />
-
-<p>You are working on laravel project </p>
-
-<p>You want users to be able to login and register</p>
-
-<p>Make auth using artisan</p>
-
-<pre><code>php artisan make:auth
-</code></pre>
-
-<p>If you see this</p>
-
-<pre><code>SQLSTATE[42S02]: Base table or view not found: 
-1146 Table 'homestead.users' doesn't exist (42S02)
-</code></pre>
-
-<p>you need to <span class="w3-codespan">vagrant ssh</span> into homestead and run </p>
-
-<pre><code>cd code
-php artisan migrate
-</code></pre>
-
-<p>Users can login and register</p>
-
-<p>Next</p>
-
-<ul>
-<li><a href="https://laravel.com/docs/5.8/homestead">https://laravel.com/docs/5.8/homestead</a></li>
-</ul>
+##################################################
+if [ ${#} -eq 0 ] 
+then
+ true
+else
+ exit 1 # wrong args
+fi
+##################################################
+test-run-remotely
+##################################################
+## generated by create-stub2.sh v0.1.2
+## on Wed, 13 Mar 2019 23:26:49 +0900
+## see <a href="https://github.com/temptemp3/sh2">https://github.com/temptemp3/sh2</a>
+##################################################
+</pre></code></p>
 
 <hr />
 </div>
