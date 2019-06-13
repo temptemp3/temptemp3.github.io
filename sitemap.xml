@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
 <url>
+<loc>https://temptemp3.github.io/hello-world.html</loc>
+<lastmod>2019-03-13</lastmod>
+</url>
+<url>
+<loc>https://temptemp3.github.io/bash-using-declare.html</loc>
+<lastmod>2019-03-13</lastmod>
+</url>
+<url>
 <loc>https://temptemp3.github.io/</loc>
+
 <lastmod>2019-06-13</lastmod>
 </url>
 <url>
@@ -90,6 +99,7 @@
 </url>
 <url>
 <loc>https://temptemp3.github.io/1.html</loc>
+
 <lastmod>2019-03-12</lastmod>
 </url>
 <url>
@@ -97,7 +107,9 @@
 <lastmod>2019-03-12</lastmod>
 </url>
 <url>
+
 <loc>https://temptemp3.github.io/2.html</loc>
+
 <lastmod>2019-03-12</lastmod>
 </url>
 <url>
@@ -105,10 +117,14 @@
 <lastmod>2019-03-12</lastmod>
 </url>
 <url>
+
 <loc>https://temptemp3.github.io/4.html</loc>
+
 <lastmod>2019-03-12</lastmod>
+
 </url>
 <url>
+
 <loc>https://temptemp3.github.io/6.html</loc>
 <lastmod>2019-03-12</lastmod>
 </url>
@@ -119,6 +135,7 @@
 <url>
 <loc>https://temptemp3.github.io/9.html</loc>
 <lastmod>2019-03-12</lastmod>
+
 </url>
 <url>
 <loc>https://temptemp3.github.io/mysql-1253-collation-utf8-general-not-valid-for-character-set-utf8mb4.html</loc>
@@ -178,6 +195,7 @@
 </url>
 <url>
 <loc>https://temptemp3.github.io/scratch.html</loc>
+
 <lastmod>2018-02-01</lastmod>
 </url>
 <url>
@@ -186,6 +204,7 @@
 </url>
 <url>
 <loc>https://temptemp3.github.io/apache-tips.html</loc>
+
 <lastmod>2018-02-01</lastmod>
 </url>
 <url>
@@ -209,7 +228,9 @@
 <lastmod>2018-02-01</lastmod>
 </url>
 <url>
+
 <loc>https://temptemp3.github.io/hello-world.html</loc>
+
 <lastmod>2018-02-01</lastmod>
 </url>
 <url>
@@ -221,10 +242,12 @@
 <lastmod>2018-02-01</lastmod>
 </url>
 <url>
-<loc>https://temptemp3.github.io/seo-pinging-crawlers.html</loc>
+<loc>https://temptemp3.github.io/google-analytics.html</loc>
 <lastmod>2018-02-01</lastmod>
 </url>
 <url>
+
+
 <loc>https://temptemp3.github.io/python-read-file.html</loc>
 <lastmod>2018-02-01</lastmod>
 </url>
