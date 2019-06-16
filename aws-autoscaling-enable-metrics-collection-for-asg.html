@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>aws autoscaling enable metrics collection for asg | temptemp3.github.io</title>
 
+
 <link rel="canonical" href="https://temptemp3.github.io/aws-autoscaling-enable-metrics-collection-for-asg.html" />
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -25,15 +26,15 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </head>
 <body class="w3-light-grey">
 <div class="w3-content" style="max-width:1400px">
-<!-- Header -->
+
 <header class="w3-container w3-center w3-padding-32"> 
 <h1><b><a style="text-decoration:none;" href="https://temptemp3.github.io/">tempt2<sup>3</sup></a></b></h1>
 <p>Welcome to the blog of <span class="w3-tag"><a style="text-decoration:none;" href="https://github.com/temptemp3">temptemp3</a></span></p>
 </header>
-<!-- begin Grid -->
+
 <div class="w3-row">
 <div class="w3-col l8 s12">
-<div class="w3-card-4 w3-margin w3-white">
+<div class="w3-card-4 w3-margin w3-white w3-round">
 <div class="w3-container">
 <h1>aws autoscaling enable metrics collection for asg</h1>
 
@@ -41,16 +42,14 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 [aws autoscaling enable metrics collection for asg](aws-autoscaling-enable-metrics-collection-for-asg.html)
 #-->
 
-<!-- created: 28 Jul 2017 -->
 
-<p>You created an auto scaling group through the management console. The issue is "group metrics collection is not enabled for the following auto scaling groups" and; you would simply like to know how to enable metric collection using the AWS CLI. Here you will a <a href="#enable-metrics-collection">bash function aws-cli wrapper</a> to help automate enabling metrics collection for autoscaling groups in AWS.</p>
 
-<hr />
+<p>You created an auto scaling group through the AWS Management Console. Now the issue is "group metrics collection is not enabled for the following auto scaling groups" and; you would simply like to know how to enable metric collection using the AWS CLI. Here you will a <a href="#enable-metrics-collection">bash function aws-cli wrapper</a> to help automate enabling metrics collection for autoscaling groups in AWS.</p>
 
 <p>Today in AWS, <u>enabling metrics collection for an auto scaling group</u> was on my to-do list. 
 (28 Jul 2017)</p>
 
-<p>This page dedicated to the task of enabling auto scaling metrics collection.</p>
+<p>This page dedicated to the task of enabling auto scaling metrics collection using the AWS CLI in <a href="bash/">bash</a> scripts.</p>
 
 <h2>Introduction</h2>
 
@@ -66,7 +65,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <p>If you've ever picked up where you left off, in the middle of a test, or are in your free tier period, you will find out or be reminded that metrics collection is not enabled by default. <em>So, what do you do?</em></p>
 
-<!-- write about how to enable auto scaling group metrics collection -->
+
 
 <p><strong>Why enable auto scaling metrics collection?</strong></p>
 
@@ -86,7 +85,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <p>The name or ARN of the auto scaling group is required.</p>
 
-<!-- link to arn -->
+
 
 <h5>--granularity</h5>
 
@@ -100,8 +99,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <h6>aws-cli wrapper</h6>
 
-<p><code><pre>
-enable-metrics-collection() { { local auto_scaling_group_name ; auto_scaling_group_name="${1}" ; }
+<pre><code>enable-metrics-collection() { { local auto_scaling_group_name ; auto_scaling_group_name="${1}" ; }
  local granularity
  granularity="1Minute"
  aws \
@@ -110,9 +108,11 @@ enable-metrics-collection() { { local auto_scaling_group_name ; auto_scaling_gro
  --auto-scaling-group-name "${auto_scaling_group_name}" \
  --granularity "${granularity}"
 }
-</pre></code></p>
+</code></pre>
 
 <h2>log</h2>
+
+<p>(16 Jun 20199   Minor revision</p>
 
 <p>(3 Feb 2019)    Minor revision</p>
 
@@ -121,32 +121,38 @@ enable-metrics-collection() { { local auto_scaling_group_name ; auto_scaling_gro
 <p>( 7 Aug 2017)   Add introduction</p>
 
 <p>(28 Jul 2017)   Create document</p>
-
-<hr />
-<!--.w3-container--></div>
-<!--.w3-card--></div>
-<!--.w3-col--></div>
+</div>
+</div>
+</div>
 <div class="w3-col l4">
-<div class="w3-card-2 w3-margin w3-margin-top w3-white">
+<div class="w3-card-2 w3-margin w3-margin-top w3-white w3-round">
 <div class="w3-container">
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
 <a href="aws-autoscaling-enable-metrics-collection-for-asg.html" class="w3-bar-item w3-button w3-mobile">aws-autoscaling-enable-metrics-collection-for-asg</a>
-<a href="bash-declare-integer.html" class="w3-bar-item w3-button w3-mobile">bash-declare-integer</a>
-<a href="bash-using-declare.html" class="w3-bar-item w3-button w3-mobile">bash-using-declare</a>
 </div> 
-<!--.w3-container--></div>
-<!--.w3-card--></div>
-<!--.w3-col--></div>
-<!--.w3-row--></div>
-<!-- Grid end -->
-<!-- .w3-content --></div>
+</div>
+</div>
+</div>
+<div class="w3-col l4">
+<div class="w3-card-2 w3-margin w3-black w3-round">
+<div class="w3-container">
+<div class="w3-bar w3-black">
+<a href="bash/" class="w3-bar-item w3-button w3-mobile w3-text-green">bash</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
-<p>&copy; 2017 <a href="https://temptemp3.github.io/">temptemp3.github.io</a></p>
+<p>&copy; 2019 <a href="https://temptemp3.github.io/">temptemp3.github.io</a><br>
+Built with <a href="https://github.com/temptemp3/sh2/blob/180702/u2.sh">u2.sh</a> Default theme and Vim</p>
 <!--button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
 <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next</button-->
-<!--mute in global fields -->
-<!--p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" rel="nofollow">w3.css</a></p-->
+
+
 </footer>
 </body>
 </html>
