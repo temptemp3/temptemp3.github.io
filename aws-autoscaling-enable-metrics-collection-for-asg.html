@@ -40,9 +40,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <!--
 [aws autoscaling enable metrics collection for asg](aws-autoscaling-enable-metrics-collection-for-asg.html)
-#-->
-
-
+-->
 
 <p>You created an auto scaling group through the AWS Management Console. Now the issue is "group metrics collection is not enabled for the following auto scaling groups" and; you would simply like to know how to enable metric collection using the AWS CLI. Here you will a <a href="#enable-metrics-collection">bash function aws-cli wrapper</a> to help automate enabling metrics collection for autoscaling groups in AWS.</p>
 
@@ -75,7 +73,11 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <h2 id="aws-cli">AWS CLI</h2>
 
+<p>You need to update an auto scaling group programmatically. To be specific, metrics collection needs to be enabled for a auto scaling group created using the AWS Management console. Here follows a simple bash aws-cli wrapper function.</p>
+
 <h3>aws autoscaling enable-metrics-collection</h3>
+
+<p>Autoscaling groups have a metrics collection setting that can be easily enabled or disabled using the AWS CLI.</p>
 
 <h4>required options</h4>
 
@@ -110,9 +112,24 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 }
 </code></pre>
 
+<h5>usage</h5>
+
+<pre><code>_() { 
+  declare -f "list-autoscaling-groups" 1>/dev/null || { 
+    { echo "'${_}' not yet implemented" 1>&2 ; false ; return ; } 
+  } 
+  list-autoscaling-groups | while read -r auto_scaling_group_name
+  do
+   enable-metrics-collection "${auto_scaling_group_name}"
+  done
+}
+</code></pre>
+
 <h2>log</h2>
 
-<p>(16 Jun 20199   Minor revision</p>
+<p>(22 Jun 2019    Minor revision, add usage</p>
+
+<p>(16 Jun 2019    Minor revision</p>
 
 <p>(3 Feb 2019)    Minor revision</p>
 
@@ -130,6 +147,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-bar w3-white">
 <a href="index.html" class="w3-bar-item w3-button w3-mobile">index</a>
 <a href="aws-autoscaling-enable-metrics-collection-for-asg.html" class="w3-bar-item w3-button w3-mobile">aws-autoscaling-enable-metrics-collection-for-asg</a>
+<a href="aws-how-to-enable-metrics-collection-for-asg.html" class="w3-bar-item w3-button w3-mobile">aws-how-to-enable-metrics-collection-for-asg</a>
 </div> 
 </div>
 </div>
