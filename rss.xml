@@ -1,127 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[temp23]]></title><description><![CDATA[Articles written by Temptemp3]]></description><link>https://temptemp3.github.io</link><image><url>https://temptemp3.github.io/logos/logo-512.png</url><title>temp23</title><link>https://temptemp3.github.io</link></image><generator>GatsbyJS Advanced Starter</generator><lastBuildDate>Wed, 09 Oct 2019 11:11:37 GMT</lastBuildDate><atom:link href="https://temptemp3.github.io/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[Copyright © 2019. temptemp3]]></copyright><item><title><![CDATA[Bash declare integer]]></title><description><![CDATA[Read in 3 minutesIn bash using declare we covered all the uses for the bash builtin command declare. Here we focus on the usage to declare…]]></description><link>https://temptemp3.github.io/bash-declare-integer</link><guid isPermaLink="false">https://temptemp3.github.io/bash-declare-integer</guid><category><![CDATA[bash]]></category><category><![CDATA[bash-builtins]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Read in 3 minutes&lt;/p&gt;
-&lt;p&gt;In &lt;a href=&quot;declare.html#bash-declare-integer&quot;&gt;bash using declare&lt;/a&gt; we covered all the uses for the &lt;a href=&quot;manual.html&quot;&gt;bash&lt;/a&gt; builtin command declare. Here we focus on the usage to declare integer variables in bash, hopefully covering the topic in greater detail.&lt;/p&gt;
-&lt;h2 id=&quot;usage&quot;&gt;&lt;a href=&quot;#usage&quot; aria-label=&quot;usage permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;usage&lt;/h2&gt;
-&lt;p&gt;Let&apos;s skip to the good part, creating integer variables!&lt;br&gt;
-Here is how to declare an integer variable in bash. Note that &lt;span class=&quot;w3-codespan&quot;&gt;int&lt;/span&gt; is not a keyword for integer. That is the job of the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; option to the builtin declare.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;determine if a variable is an integer *&lt;/li&gt;
-&lt;li&gt;create an integer variable *&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;determine-if-a-variable-is-an-integer&quot;&gt;&lt;a href=&quot;#determine-if-a-variable-is-an-integer&quot; aria-label=&quot;determine if a variable is an integer permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;determine if a variable is an integer&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;# check if a variable is an integer
-declare -p int			# declare -i int=&quot;1&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We say a variable is an integer if the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; attribute set, i.e. if &lt;span class=&quot;w3-codespan&quot;&gt;declare -p&lt;/span&gt; returns either &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; or &lt;span class=&quot;w3-codespan&quot;&gt;-ir&lt;/span&gt;. Note that in the case that the variable is found to have the &lt;span class=&quot;w3-codespan&quot;&gt;-n&lt;/span&gt; attribute set, testing the end nameref is required to determine if the variable is an integer.&lt;/p&gt;
-&lt;h3 id=&quot;create-an-integer-variable&quot;&gt;&lt;a href=&quot;#create-an-integer-variable&quot; aria-label=&quot;create an integer variable permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;create an integer variable&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;# create an integer variable and modify through assignment
-unset one			# just to be sure
-declare -i int		# int is an integer
-int=5				# int=$(( 5 ))=5
-int+=1 				# int=$(( int + 1 ))=6
-int+=int+1 			# int=$(( int + int + 1 ))=13
-int=one				# int=$(( one ))=
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now look at what happens without the integer attribute.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# result of assignment without integer attribute
-unset int			# just to be sure
-unset one			# just to be sure
-int=5				# int=5
-int+=1 				# int=${int}1=51
-int+=int+1 			# int=${int}+int+1=51int+1
-int=one				# int=one
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now you see what happens if you forget to declare a variable as an integer. Not something that you want running loose in your program.&lt;/p&gt;
-&lt;h3 id=&quot;breakdown&quot;&gt;&lt;a href=&quot;#breakdown&quot; aria-label=&quot;breakdown permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;breakdown&lt;/h3&gt;
-&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;declare -i int&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;We say that if there is a variable named int, it now has the integer attribute set. If the variable named in the declare command is not set yet, then the attribute is applied to a future variable unless &lt;span class=&quot;w3-codespan&quot;&gt;unset&lt;/span&gt;. Using &lt;span class=&quot;w3-codespan&quot;&gt;local&lt;/span&gt; instead of &lt;span class=&quot;w3-codespan&quot;&gt;declare&lt;/span&gt;, causes the attribute to only be applied in subsequent assignments in the local scope.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;int=5&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Depending on whether the variable has the integer attribute this sets the value of int to the string 5 or arithmetic expansion of 5. In the case of 5, the result yields 5 for both cases.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;int+=1&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Should increment int if integer attribute set.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;int+=int+1&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Should double int and increment if integer attribute set.&lt;/p&gt;
-&lt;h2 id=&quot;introduction&quot;&gt;&lt;a href=&quot;#introduction&quot; aria-label=&quot;introduction permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;introduction&lt;/h2&gt;
-&lt;p&gt;Bash variables are untyped. That is, if a value is assigned to a variable without declaring variable attributes, the value is treated like any other variable, a string. Declaring a variable with the integer attribute affects assignment and treatment in arithmetic expressions.&lt;/p&gt;
-&lt;h2 id=&quot;definitions&quot;&gt;&lt;a href=&quot;#definitions&quot; aria-label=&quot;definitions permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;definitions&lt;/h2&gt;
-&lt;p&gt;Definition of types of integer variables.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Integer variable&lt;/li&gt;
-&lt;li&gt;Read-only integer variable&lt;/li&gt;
-&lt;li&gt;Pure integer variable&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;integer-variable&quot;&gt;&lt;a href=&quot;#integer-variable&quot; aria-label=&quot;integer variable permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;integer variable&lt;/h3&gt;
-&lt;p&gt;A variable with the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; attribute set.&lt;/p&gt;
-&lt;p&gt;We define an integer variable in bash as a variable with the integer attribute set. The question we ask here is, &quot;Is it valid to declare a variable with the integer attribute in combination with another attribute?&quot; This may be expanded later.&lt;/p&gt;
-&lt;h3 id=&quot;read-only-integer-variable&quot;&gt;&lt;a href=&quot;#read-only-integer-variable&quot; aria-label=&quot;read only integer variable permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Read-only integer variable&lt;/h3&gt;
-&lt;p&gt;An integer variable with the &lt;span class=&quot;w3-codespan&quot;&gt;-r&lt;/span&gt; attribute set.&lt;/p&gt;
-&lt;h3 id=&quot;pure-integer-variable&quot;&gt;&lt;a href=&quot;#pure-integer-variable&quot; aria-label=&quot;pure integer variable permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Pure integer variable&lt;/h3&gt;
-&lt;p&gt;A variable with only the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; attribute set.&lt;/p&gt;
-&lt;p&gt;We define a pure integer variable in bash as a variable with only the integer attribute set.&lt;/p&gt;
-&lt;h2 id=&quot;motivation&quot;&gt;&lt;a href=&quot;#motivation&quot; aria-label=&quot;motivation permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;motivation&lt;/h2&gt;
-&lt;p&gt;You may be wondering why you would even bother declaring integer variables in bash. After all, aren&apos;t all variable strings? Yes exactly, but using declare to add the integer attribute to a variable affects assignment.&lt;/p&gt;
-&lt;h3 id=&quot;why-declare-integers-in-bash&quot;&gt;&lt;a href=&quot;#why-declare-integers-in-bash&quot; aria-label=&quot;why declare integers in bash permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Why declare integers in bash?&lt;/h3&gt;
-&lt;p&gt;In order to understand how and why integers are declared in bash, it is helpful to look at behavior with and without using integer variables.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#!/bin/bash
-## test-bash-declare-integer-1
-## - fun with integers attributes
-## version 0.0.1 - initial
-##################################################
-test-bash-declare-integer-1() {
-  ## setup
-  local lonely_integer		# one int is fine
-  local i			# for ease of use
-  declare -n i=lonely_integer 	# declare attributes
-  ## (1) do something wrong with integers
-  i=asdf			# (1) asdf as i is asdf
-  echo ${i}			# (2) asdf
-  ## (2) what if we give it the integer attribute?
-  declare -i lonely_integer	# (1) declare integer
-  i=asdf			# (2) asdf as i is 0
-  echo ${i}			# (3) 0
-  ## (3) what happened?
-  declare +i lonely_integer	# (1) revert back
-  i=$(( ${asdf} ))		# (2) what happens in (2) under (1) conditions
-  echo ${i}			# (3) 0
-  ## (4) proof: part i (without integer attribute)
-  asdf=1			# assignment for proof
-  i=$(( ${asdf} ))		# same as (3.2)
-  echo ${i}			# 1
-  ## (5) proof: part ii (with integer attribute)
-  declare -i lonely_integer	# same as (2.1)
-  i=asdf			#  asdf as i is 1
-  echo ${i}			# 1
-}
-##################################################
-if [ ${#} -eq 0 ] 
-then
- true
-else
- exit 1 # wrong args
-fi
-##################################################
-test-bash-declare-integer-1
-##################################################
-## generated by create-stub2.sh v0.1.1
-## on Sun, 03 Feb 2019 17:36:53 +0900
-## see &amp;lt;https://github.com/temptemp3/sh2&amp;gt;
-##################################################
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You see that adding the integer attribute forces arithmetic expressions to be evaluated on assignment. &lt;/p&gt;
-&lt;h2 id=&quot;questions&quot;&gt;&lt;a href=&quot;#questions&quot; aria-label=&quot;questions permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Questions&lt;/h2&gt;
-&lt;h3 id=&quot;how-do-i-compare-two-integers&quot;&gt;&lt;a href=&quot;#how-do-i-compare-two-integers&quot; aria-label=&quot;how do i compare two integers permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How do I compare two integers?&lt;/h3&gt;
-&lt;p&gt;Arithmetic binary operators can be used to &lt;a href=&quot;conditionals.html#arithmetic&quot;&gt;compare integers in bash&lt;/a&gt; in the form &lt;span class=&quot;w3-codespan&quot;&gt;arg1 OP arg2&lt;/span&gt;. For example, we may test if two integers are not equal as follows.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;test ! ${a} -eq ${b} # a != b
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;how-do-i-declare-an-integer-bash&quot;&gt;&lt;a href=&quot;#how-do-i-declare-an-integer-bash&quot; aria-label=&quot;how do i declare an integer bash permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How do I declare an integer bash?&lt;/h3&gt;
-&lt;p&gt;Declare integer variables using the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; option.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;declare -i myint
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;how-do-i-declare-a-local-integer-in-bash&quot;&gt;&lt;a href=&quot;#how-do-i-declare-a-local-integer-in-bash&quot; aria-label=&quot;how do i declare a local integer in bash permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How do I declare a local integer in bash?&lt;/h3&gt;
-&lt;p&gt;Declare integer variables with local bindings using declare in conjunction with the local. In shortest form, the operation may be performed in a single statement consisting of local, the integer option flag, and variable name.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;local myint
-declare -i myint
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;See &lt;a href=&quot;local.html#declare-local-integer&quot;&gt;declaring a local integer&lt;/a&gt;&lt;/p&gt;</content:encoded><author></author></item><item><title><![CDATA[Enable metrics collction for an auto scaling group]]></title><description><![CDATA[You created an auto scaling group through the management console. The issue is "group metrics collection is not enabled for the following…]]></description><link>https://temptemp3.github.io/enable-metrics-collction-for-an-auto-scaling-group</link><guid isPermaLink="false">https://temptemp3.github.io/enable-metrics-collction-for-an-auto-scaling-group</guid><category><![CDATA[aws]]></category><category><![CDATA[aws-cli]]></category><category><![CDATA[aws-autoscaling]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;You created an auto scaling group through the management console. The issue is &quot;group metrics collection is not enabled for the following auto scaling groups&quot; and; you would simply like to know how to enable metric collection using the AWS CLI. Here you will a &lt;a href=&quot;#aws-cli-wrapper&quot;&gt;bash function aws-cli wrapper&lt;/a&gt; to help automate enabling metrics collection for autoscaling groups in AWS.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[temp23]]></title><description><![CDATA[Articles written by Temptemp3]]></description><link>https://temptemp3.github.io</link><image><url>https://temptemp3.github.io/logos/logo-512.png</url><title>temp23</title><link>https://temptemp3.github.io</link></image><generator>GatsbyJS Advanced Starter</generator><lastBuildDate>Tue, 31 Dec 2019 03:33:54 GMT</lastBuildDate><atom:link href="https://temptemp3.github.io/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[Copyright © 2019. temptemp3]]></copyright><item><title><![CDATA[Enable metrics collction for an auto scaling group]]></title><description><![CDATA[You created an auto scaling group through the management console. The issue is "group metrics collection is not enabled for the following…]]></description><link>https://temptemp3.github.io/enable-metrics-collction-for-an-auto-scaling-group</link><guid isPermaLink="false">https://temptemp3.github.io/enable-metrics-collction-for-an-auto-scaling-group</guid><category><![CDATA[aws]]></category><category><![CDATA[aws-cli]]></category><category><![CDATA[aws-autoscaling]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;You created an auto scaling group through the management console. The issue is &quot;group metrics collection is not enabled for the following auto scaling groups&quot; and; you would simply like to know how to enable metric collection using the AWS CLI. Here you will a &lt;a href=&quot;#aws-cli-wrapper&quot;&gt;bash function aws-cli wrapper&lt;/a&gt; to help automate enabling metrics collection for autoscaling groups in AWS.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Today in AWS, &lt;u&gt;enabling metrics collection for an auto scaling group&lt;/u&gt; was on my to-do list.
 (28 Jul 2017)&lt;/p&gt;
@@ -567,7 +444,130 @@ declare -xf FUNCTION
 &lt;h3 id=&quot;why-would-i-declare-a-variable-without-value-in-bash&quot;&gt;&lt;a href=&quot;#why-would-i-declare-a-variable-without-value-in-bash&quot; aria-label=&quot;why would i declare a variable without value in bash permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;why would I declare a variable without value in bash?&lt;/h3&gt;
 &lt;p&gt;You may declare a variable without value to communicate that a variable may be modified from this point on or to unset a variable via assignment.&lt;/p&gt;
 &lt;p&gt;It is not necessary to declare a variable for the purpose of initialization if no assignment was made prior to appearance in script.&lt;/p&gt;
-&lt;hr&gt;</content:encoded><author></author></item><item><title><![CDATA[Bash functions]]></title><description><![CDATA[Read in 16 minutesShell functions in bash allow you to name groups of commands to be run at a later time. Once named, command groups may be…]]></description><link>https://temptemp3.github.io/bash-functions</link><guid isPermaLink="false">https://temptemp3.github.io/bash-functions</guid><category><![CDATA[bash]]></category><category><![CDATA[bash-functions]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Read in 16 minutes&lt;/p&gt;
+&lt;hr&gt;</content:encoded><author></author></item><item><title><![CDATA[Bash declare integer]]></title><description><![CDATA[Read in 3 minutesIn bash using declare we covered all the uses for the bash builtin command declare. Here we focus on the usage to declare…]]></description><link>https://temptemp3.github.io/bash-declare-integer</link><guid isPermaLink="false">https://temptemp3.github.io/bash-declare-integer</guid><category><![CDATA[bash]]></category><category><![CDATA[bash-builtins]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Read in 3 minutes&lt;/p&gt;
+&lt;p&gt;In &lt;a href=&quot;declare.html#bash-declare-integer&quot;&gt;bash using declare&lt;/a&gt; we covered all the uses for the &lt;a href=&quot;manual.html&quot;&gt;bash&lt;/a&gt; builtin command declare. Here we focus on the usage to declare integer variables in bash, hopefully covering the topic in greater detail.&lt;/p&gt;
+&lt;h2 id=&quot;usage&quot;&gt;&lt;a href=&quot;#usage&quot; aria-label=&quot;usage permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;usage&lt;/h2&gt;
+&lt;p&gt;Let&apos;s skip to the good part, creating integer variables!&lt;br&gt;
+Here is how to declare an integer variable in bash. Note that &lt;span class=&quot;w3-codespan&quot;&gt;int&lt;/span&gt; is not a keyword for integer. That is the job of the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; option to the builtin declare.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;determine if a variable is an integer *&lt;/li&gt;
+&lt;li&gt;create an integer variable *&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;determine-if-a-variable-is-an-integer&quot;&gt;&lt;a href=&quot;#determine-if-a-variable-is-an-integer&quot; aria-label=&quot;determine if a variable is an integer permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;determine if a variable is an integer&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# check if a variable is an integer
+declare -p int			# declare -i int=&quot;1&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We say a variable is an integer if the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; attribute set, i.e. if &lt;span class=&quot;w3-codespan&quot;&gt;declare -p&lt;/span&gt; returns either &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; or &lt;span class=&quot;w3-codespan&quot;&gt;-ir&lt;/span&gt;. Note that in the case that the variable is found to have the &lt;span class=&quot;w3-codespan&quot;&gt;-n&lt;/span&gt; attribute set, testing the end nameref is required to determine if the variable is an integer.&lt;/p&gt;
+&lt;h3 id=&quot;create-an-integer-variable&quot;&gt;&lt;a href=&quot;#create-an-integer-variable&quot; aria-label=&quot;create an integer variable permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;create an integer variable&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# create an integer variable and modify through assignment
+unset one			# just to be sure
+declare -i int		# int is an integer
+int=5				# int=$(( 5 ))=5
+int+=1 				# int=$(( int + 1 ))=6
+int+=int+1 			# int=$(( int + int + 1 ))=13
+int=one				# int=$(( one ))=
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now look at what happens without the integer attribute.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# result of assignment without integer attribute
+unset int			# just to be sure
+unset one			# just to be sure
+int=5				# int=5
+int+=1 				# int=${int}1=51
+int+=int+1 			# int=${int}+int+1=51int+1
+int=one				# int=one
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now you see what happens if you forget to declare a variable as an integer. Not something that you want running loose in your program.&lt;/p&gt;
+&lt;h3 id=&quot;breakdown&quot;&gt;&lt;a href=&quot;#breakdown&quot; aria-label=&quot;breakdown permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;breakdown&lt;/h3&gt;
+&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;declare -i int&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;We say that if there is a variable named int, it now has the integer attribute set. If the variable named in the declare command is not set yet, then the attribute is applied to a future variable unless &lt;span class=&quot;w3-codespan&quot;&gt;unset&lt;/span&gt;. Using &lt;span class=&quot;w3-codespan&quot;&gt;local&lt;/span&gt; instead of &lt;span class=&quot;w3-codespan&quot;&gt;declare&lt;/span&gt;, causes the attribute to only be applied in subsequent assignments in the local scope.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;int=5&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Depending on whether the variable has the integer attribute this sets the value of int to the string 5 or arithmetic expansion of 5. In the case of 5, the result yields 5 for both cases.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;int+=1&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Should increment int if integer attribute set.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;int+=int+1&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Should double int and increment if integer attribute set.&lt;/p&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;&lt;a href=&quot;#introduction&quot; aria-label=&quot;introduction permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;introduction&lt;/h2&gt;
+&lt;p&gt;Bash variables are untyped. That is, if a value is assigned to a variable without declaring variable attributes, the value is treated like any other variable, a string. Declaring a variable with the integer attribute affects assignment and treatment in arithmetic expressions.&lt;/p&gt;
+&lt;h2 id=&quot;definitions&quot;&gt;&lt;a href=&quot;#definitions&quot; aria-label=&quot;definitions permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;definitions&lt;/h2&gt;
+&lt;p&gt;Definition of types of integer variables.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Integer variable&lt;/li&gt;
+&lt;li&gt;Read-only integer variable&lt;/li&gt;
+&lt;li&gt;Pure integer variable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;integer-variable&quot;&gt;&lt;a href=&quot;#integer-variable&quot; aria-label=&quot;integer variable permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;integer variable&lt;/h3&gt;
+&lt;p&gt;A variable with the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; attribute set.&lt;/p&gt;
+&lt;p&gt;We define an integer variable in bash as a variable with the integer attribute set. The question we ask here is, &quot;Is it valid to declare a variable with the integer attribute in combination with another attribute?&quot; This may be expanded later.&lt;/p&gt;
+&lt;h3 id=&quot;read-only-integer-variable&quot;&gt;&lt;a href=&quot;#read-only-integer-variable&quot; aria-label=&quot;read only integer variable permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Read-only integer variable&lt;/h3&gt;
+&lt;p&gt;An integer variable with the &lt;span class=&quot;w3-codespan&quot;&gt;-r&lt;/span&gt; attribute set.&lt;/p&gt;
+&lt;h3 id=&quot;pure-integer-variable&quot;&gt;&lt;a href=&quot;#pure-integer-variable&quot; aria-label=&quot;pure integer variable permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Pure integer variable&lt;/h3&gt;
+&lt;p&gt;A variable with only the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; attribute set.&lt;/p&gt;
+&lt;p&gt;We define a pure integer variable in bash as a variable with only the integer attribute set.&lt;/p&gt;
+&lt;h2 id=&quot;motivation&quot;&gt;&lt;a href=&quot;#motivation&quot; aria-label=&quot;motivation permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;motivation&lt;/h2&gt;
+&lt;p&gt;You may be wondering why you would even bother declaring integer variables in bash. After all, aren&apos;t all variable strings? Yes exactly, but using declare to add the integer attribute to a variable affects assignment.&lt;/p&gt;
+&lt;h3 id=&quot;why-declare-integers-in-bash&quot;&gt;&lt;a href=&quot;#why-declare-integers-in-bash&quot; aria-label=&quot;why declare integers in bash permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Why declare integers in bash?&lt;/h3&gt;
+&lt;p&gt;In order to understand how and why integers are declared in bash, it is helpful to look at behavior with and without using integer variables.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+## test-bash-declare-integer-1
+## - fun with integers attributes
+## version 0.0.1 - initial
+##################################################
+test-bash-declare-integer-1() {
+  ## setup
+  local lonely_integer		# one int is fine
+  local i			# for ease of use
+  declare -n i=lonely_integer 	# declare attributes
+  ## (1) do something wrong with integers
+  i=asdf			# (1) asdf as i is asdf
+  echo ${i}			# (2) asdf
+  ## (2) what if we give it the integer attribute?
+  declare -i lonely_integer	# (1) declare integer
+  i=asdf			# (2) asdf as i is 0
+  echo ${i}			# (3) 0
+  ## (3) what happened?
+  declare +i lonely_integer	# (1) revert back
+  i=$(( ${asdf} ))		# (2) what happens in (2) under (1) conditions
+  echo ${i}			# (3) 0
+  ## (4) proof: part i (without integer attribute)
+  asdf=1			# assignment for proof
+  i=$(( ${asdf} ))		# same as (3.2)
+  echo ${i}			# 1
+  ## (5) proof: part ii (with integer attribute)
+  declare -i lonely_integer	# same as (2.1)
+  i=asdf			#  asdf as i is 1
+  echo ${i}			# 1
+}
+##################################################
+if [ ${#} -eq 0 ] 
+then
+ true
+else
+ exit 1 # wrong args
+fi
+##################################################
+test-bash-declare-integer-1
+##################################################
+## generated by create-stub2.sh v0.1.1
+## on Sun, 03 Feb 2019 17:36:53 +0900
+## see &amp;lt;https://github.com/temptemp3/sh2&amp;gt;
+##################################################
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You see that adding the integer attribute forces arithmetic expressions to be evaluated on assignment. &lt;/p&gt;
+&lt;h2 id=&quot;questions&quot;&gt;&lt;a href=&quot;#questions&quot; aria-label=&quot;questions permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Questions&lt;/h2&gt;
+&lt;h3 id=&quot;how-do-i-compare-two-integers&quot;&gt;&lt;a href=&quot;#how-do-i-compare-two-integers&quot; aria-label=&quot;how do i compare two integers permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How do I compare two integers?&lt;/h3&gt;
+&lt;p&gt;Arithmetic binary operators can be used to &lt;a href=&quot;conditionals.html#arithmetic&quot;&gt;compare integers in bash&lt;/a&gt; in the form &lt;span class=&quot;w3-codespan&quot;&gt;arg1 OP arg2&lt;/span&gt;. For example, we may test if two integers are not equal as follows.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;test ! ${a} -eq ${b} # a != b
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;how-do-i-declare-an-integer-bash&quot;&gt;&lt;a href=&quot;#how-do-i-declare-an-integer-bash&quot; aria-label=&quot;how do i declare an integer bash permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How do I declare an integer bash?&lt;/h3&gt;
+&lt;p&gt;Declare integer variables using the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; option.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;declare -i myint
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;how-do-i-declare-a-local-integer-in-bash&quot;&gt;&lt;a href=&quot;#how-do-i-declare-a-local-integer-in-bash&quot; aria-label=&quot;how do i declare a local integer in bash permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How do I declare a local integer in bash?&lt;/h3&gt;
+&lt;p&gt;Declare integer variables with local bindings using declare in conjunction with the local. In shortest form, the operation may be performed in a single statement consisting of local, the integer option flag, and variable name.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;local myint
+declare -i myint
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;See &lt;a href=&quot;local.html#declare-local-integer&quot;&gt;declaring a local integer&lt;/a&gt;&lt;/p&gt;</content:encoded><author></author></item><item><title><![CDATA[Bash functions]]></title><description><![CDATA[Read in 16 minutesShell functions in bash allow you to name groups of commands to be run at a later time. Once named, command groups may be…]]></description><link>https://temptemp3.github.io/bash-functions</link><guid isPermaLink="false">https://temptemp3.github.io/bash-functions</guid><category><![CDATA[bash]]></category><category><![CDATA[bash-functions]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Read in 16 minutes&lt;/p&gt;
 &lt;p&gt;Shell functions in bash allow you to name groups of commands to be run at a later time. Once named, command groups may be executed by using the function name. Each function has its own set of positional parameters when called. Variable attributes such as local may apply within a function. &lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;function-help&quot;&gt;&lt;a href=&quot;#function-help&quot; aria-label=&quot;function help permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;function help&lt;/h2&gt;
@@ -1407,4 +1407,18 @@ test-associative-arrays
 &lt;p&gt;Source: &lt;a href=&quot;https://github.com/temptemp3/ba.sh/blob/master/test-associative-arrays.sh&quot;&gt;test-associative-arrays.sh&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&quot;indexed-arrays&quot;&gt;&lt;a href=&quot;#indexed-arrays&quot; aria-label=&quot;indexed arrays permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;indexed arrays&lt;/h4&gt;
 &lt;p&gt;It is possible to return an indexed array from a shell function. Sanitizing the string representation of the array before instantiation is recommended. See the example showing how to return from functions above.&lt;/p&gt;
-&lt;hr&gt;</content:encoded><author></author></item></channel></rss>
+&lt;hr&gt;</content:encoded><author></author></item><item><title><![CDATA[Headless Wordpress]]></title><description><![CDATA[A little while back I started tinkering with WordPress as a source for Gatsby instead of markdown files. Basically, I am keeping a log of…]]></description><link>https://temptemp3.github.io/headless-wordpress</link><guid isPermaLink="false">https://temptemp3.github.io/headless-wordpress</guid><category><![CDATA[gatsbyjs]]></category><category><![CDATA[wordpress]]></category><pubDate>Tue, 19 Dec 2023 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;A little while back I started tinkering with WordPress as a source for Gatsby instead of markdown files. Basically, I am keeping a log of all the things I end up wanting to do. Here is the &lt;a href=&quot;/hdlesswp/&quot;&gt;link&lt;/a&gt; in case you are interested. It&apos;s called Self::starter. &lt;/p&gt;</content:encoded><author></author></item><item><title><![CDATA[GAS notes]]></title><description><![CDATA[Read in 1 minuteHere are my working list of notes on Google apps script, also known as GAS. Includes specific notes on Google apps script…]]></description><link>https://temptemp3.github.io/gas-notes</link><guid isPermaLink="false">https://temptemp3.github.io/gas-notes</guid><category><![CDATA[gas]]></category><category><![CDATA[google apps script]]></category><category><![CDATA[apps script]]></category><category><![CDATA[javascript]]></category><category><![CDATA[automation]]></category><pubDate>Mon, 19 Nov 2001 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Read in 1 minute&lt;/p&gt;
+&lt;p&gt;Here are my working list of notes on Google apps script, also known as GAS. Includes specific notes on Google apps script. Read on.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;spreadsheet&quot;&gt;&lt;a href=&quot;#spreadsheet&quot; aria-label=&quot;spreadsheet permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;spreadsheet&lt;/h2&gt;
+&lt;p&gt;The GAS spreadsheet service allows interactive with spreadsheets stored in OneDrive. Here are my spreadsheet specific notes on Google apps script.&lt;/p&gt;
+&lt;h2 id=&quot;handling-case-of-cell-with-value-0&quot;&gt;&lt;a href=&quot;#handling-case-of-cell-with-value-0&quot; aria-label=&quot;handling case of cell with value 0 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;handling case of cell with value 0&lt;/h2&gt;
+&lt;p&gt;We want to perform an action if both cells are empty while omitting the case when cell value is 0. Cell is an object with properties of one cell. value is the value of another cell.&lt;/p&gt;
+&lt;p&gt;Performs action if cell value is 0 (not good)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;  &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;cell&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;value&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt;value&lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// using transitive property&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// perform action&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Does not perform action if cell value is 0 (good)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;  &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;cell&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;value&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt;value&lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;value&lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;value&lt;span class=&quot;token operator&quot;&gt;!=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// perform action&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded><author></author></item></channel></rss>
