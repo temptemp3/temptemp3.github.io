@@ -5,7 +5,8 @@
 <url> <loc>https://temptemp3.github.io/bash-declare</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://temptemp3.github.io/bash-functions</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://temptemp3.github.io/headless-wordpress</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://temptemp3.github.io/gas-notes</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://temptemp3.github.io/conversational-ai</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://temptemp3.github.io/google-apps-script</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://temptemp3.github.io/tags/aws/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://temptemp3.github.io/tags/aws-cli/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://temptemp3.github.io/tags/aws-autoscaling/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -15,6 +16,11 @@
 <url> <loc>https://temptemp3.github.io/tags/gatsbyjs/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://temptemp3.github.io/tags/wordpress/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://temptemp3.github.io/tags/project/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://temptemp3.github.io/tags/ai/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://temptemp3.github.io/tags/conversatational-ai/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://temptemp3.github.io/tags/sap-conversatational-ai/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://temptemp3.github.io/tags/chatbots/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://temptemp3.github.io/tags/python/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://temptemp3.github.io/tags/gas/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://temptemp3.github.io/tags/google-apps-script/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://temptemp3.github.io/tags/apps-script/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
