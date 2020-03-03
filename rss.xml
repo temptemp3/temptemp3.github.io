@@ -1,127 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[temp23]]></title><description><![CDATA[Articles written by Temptemp3]]></description><link>https://temptemp3.github.io</link><image><url>https://temptemp3.github.io/logos/logo-512.png</url><title>temp23</title><link>https://temptemp3.github.io</link></image><generator>GatsbyJS Advanced Starter</generator><lastBuildDate>Sun, 05 Jan 2020 04:29:35 GMT</lastBuildDate><atom:link href="https://temptemp3.github.io/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[Copyright © 2019. temptemp3]]></copyright><item><title><![CDATA[Bash declare integer]]></title><description><![CDATA[Read in 3 minutesIn bash using declare we covered all the uses for the bash builtin command declare. Here we focus on the usage to declare…]]></description><link>https://temptemp3.github.io/bash-declare-integer</link><guid isPermaLink="false">https://temptemp3.github.io/bash-declare-integer</guid><category><![CDATA[bash]]></category><category><![CDATA[bash-builtins]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Read in 3 minutes&lt;/p&gt;
-&lt;p&gt;In &lt;a href=&quot;declare.html#bash-declare-integer&quot;&gt;bash using declare&lt;/a&gt; we covered all the uses for the &lt;a href=&quot;manual.html&quot;&gt;bash&lt;/a&gt; builtin command declare. Here we focus on the usage to declare integer variables in bash, hopefully covering the topic in greater detail.&lt;/p&gt;
-&lt;h2 id=&quot;usage&quot;&gt;&lt;a href=&quot;#usage&quot; aria-label=&quot;usage permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;usage&lt;/h2&gt;
-&lt;p&gt;Let&apos;s skip to the good part, creating integer variables!&lt;br&gt;
-Here is how to declare an integer variable in bash. Note that &lt;span class=&quot;w3-codespan&quot;&gt;int&lt;/span&gt; is not a keyword for integer. That is the job of the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; option to the builtin declare.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;determine if a variable is an integer *&lt;/li&gt;
-&lt;li&gt;create an integer variable *&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;determine-if-a-variable-is-an-integer&quot;&gt;&lt;a href=&quot;#determine-if-a-variable-is-an-integer&quot; aria-label=&quot;determine if a variable is an integer permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;determine if a variable is an integer&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;# check if a variable is an integer
-declare -p int			# declare -i int=&quot;1&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We say a variable is an integer if the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; attribute set, i.e. if &lt;span class=&quot;w3-codespan&quot;&gt;declare -p&lt;/span&gt; returns either &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; or &lt;span class=&quot;w3-codespan&quot;&gt;-ir&lt;/span&gt;. Note that in the case that the variable is found to have the &lt;span class=&quot;w3-codespan&quot;&gt;-n&lt;/span&gt; attribute set, testing the end nameref is required to determine if the variable is an integer.&lt;/p&gt;
-&lt;h3 id=&quot;create-an-integer-variable&quot;&gt;&lt;a href=&quot;#create-an-integer-variable&quot; aria-label=&quot;create an integer variable permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;create an integer variable&lt;/h3&gt;
-&lt;pre&gt;&lt;code&gt;# create an integer variable and modify through assignment
-unset one			# just to be sure
-declare -i int		# int is an integer
-int=5				# int=$(( 5 ))=5
-int+=1 				# int=$(( int + 1 ))=6
-int+=int+1 			# int=$(( int + int + 1 ))=13
-int=one				# int=$(( one ))=
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now look at what happens without the integer attribute.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# result of assignment without integer attribute
-unset int			# just to be sure
-unset one			# just to be sure
-int=5				# int=5
-int+=1 				# int=${int}1=51
-int+=int+1 			# int=${int}+int+1=51int+1
-int=one				# int=one
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now you see what happens if you forget to declare a variable as an integer. Not something that you want running loose in your program.&lt;/p&gt;
-&lt;h3 id=&quot;breakdown&quot;&gt;&lt;a href=&quot;#breakdown&quot; aria-label=&quot;breakdown permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;breakdown&lt;/h3&gt;
-&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;declare -i int&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;We say that if there is a variable named int, it now has the integer attribute set. If the variable named in the declare command is not set yet, then the attribute is applied to a future variable unless &lt;span class=&quot;w3-codespan&quot;&gt;unset&lt;/span&gt;. Using &lt;span class=&quot;w3-codespan&quot;&gt;local&lt;/span&gt; instead of &lt;span class=&quot;w3-codespan&quot;&gt;declare&lt;/span&gt;, causes the attribute to only be applied in subsequent assignments in the local scope.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;int=5&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Depending on whether the variable has the integer attribute this sets the value of int to the string 5 or arithmetic expansion of 5. In the case of 5, the result yields 5 for both cases.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;int+=1&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Should increment int if integer attribute set.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;int+=int+1&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Should double int and increment if integer attribute set.&lt;/p&gt;
-&lt;h2 id=&quot;introduction&quot;&gt;&lt;a href=&quot;#introduction&quot; aria-label=&quot;introduction permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;introduction&lt;/h2&gt;
-&lt;p&gt;Bash variables are untyped. That is, if a value is assigned to a variable without declaring variable attributes, the value is treated like any other variable, a string. Declaring a variable with the integer attribute affects assignment and treatment in arithmetic expressions.&lt;/p&gt;
-&lt;h2 id=&quot;definitions&quot;&gt;&lt;a href=&quot;#definitions&quot; aria-label=&quot;definitions permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;definitions&lt;/h2&gt;
-&lt;p&gt;Definition of types of integer variables.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Integer variable&lt;/li&gt;
-&lt;li&gt;Read-only integer variable&lt;/li&gt;
-&lt;li&gt;Pure integer variable&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;integer-variable&quot;&gt;&lt;a href=&quot;#integer-variable&quot; aria-label=&quot;integer variable permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;integer variable&lt;/h3&gt;
-&lt;p&gt;A variable with the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; attribute set.&lt;/p&gt;
-&lt;p&gt;We define an integer variable in bash as a variable with the integer attribute set. The question we ask here is, &quot;Is it valid to declare a variable with the integer attribute in combination with another attribute?&quot; This may be expanded later.&lt;/p&gt;
-&lt;h3 id=&quot;read-only-integer-variable&quot;&gt;&lt;a href=&quot;#read-only-integer-variable&quot; aria-label=&quot;read only integer variable permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Read-only integer variable&lt;/h3&gt;
-&lt;p&gt;An integer variable with the &lt;span class=&quot;w3-codespan&quot;&gt;-r&lt;/span&gt; attribute set.&lt;/p&gt;
-&lt;h3 id=&quot;pure-integer-variable&quot;&gt;&lt;a href=&quot;#pure-integer-variable&quot; aria-label=&quot;pure integer variable permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Pure integer variable&lt;/h3&gt;
-&lt;p&gt;A variable with only the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; attribute set.&lt;/p&gt;
-&lt;p&gt;We define a pure integer variable in bash as a variable with only the integer attribute set.&lt;/p&gt;
-&lt;h2 id=&quot;motivation&quot;&gt;&lt;a href=&quot;#motivation&quot; aria-label=&quot;motivation permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;motivation&lt;/h2&gt;
-&lt;p&gt;You may be wondering why you would even bother declaring integer variables in bash. After all, aren&apos;t all variable strings? Yes exactly, but using declare to add the integer attribute to a variable affects assignment.&lt;/p&gt;
-&lt;h3 id=&quot;why-declare-integers-in-bash&quot;&gt;&lt;a href=&quot;#why-declare-integers-in-bash&quot; aria-label=&quot;why declare integers in bash permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Why declare integers in bash?&lt;/h3&gt;
-&lt;p&gt;In order to understand how and why integers are declared in bash, it is helpful to look at behavior with and without using integer variables.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#!/bin/bash
-## test-bash-declare-integer-1
-## - fun with integers attributes
-## version 0.0.1 - initial
-##################################################
-test-bash-declare-integer-1() {
-  ## setup
-  local lonely_integer		# one int is fine
-  local i			# for ease of use
-  declare -n i=lonely_integer 	# declare attributes
-  ## (1) do something wrong with integers
-  i=asdf			# (1) asdf as i is asdf
-  echo ${i}			# (2) asdf
-  ## (2) what if we give it the integer attribute?
-  declare -i lonely_integer	# (1) declare integer
-  i=asdf			# (2) asdf as i is 0
-  echo ${i}			# (3) 0
-  ## (3) what happened?
-  declare +i lonely_integer	# (1) revert back
-  i=$(( ${asdf} ))		# (2) what happens in (2) under (1) conditions
-  echo ${i}			# (3) 0
-  ## (4) proof: part i (without integer attribute)
-  asdf=1			# assignment for proof
-  i=$(( ${asdf} ))		# same as (3.2)
-  echo ${i}			# 1
-  ## (5) proof: part ii (with integer attribute)
-  declare -i lonely_integer	# same as (2.1)
-  i=asdf			#  asdf as i is 1
-  echo ${i}			# 1
-}
-##################################################
-if [ ${#} -eq 0 ] 
-then
- true
-else
- exit 1 # wrong args
-fi
-##################################################
-test-bash-declare-integer-1
-##################################################
-## generated by create-stub2.sh v0.1.1
-## on Sun, 03 Feb 2019 17:36:53 +0900
-## see &amp;lt;https://github.com/temptemp3/sh2&amp;gt;
-##################################################
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You see that adding the integer attribute forces arithmetic expressions to be evaluated on assignment. &lt;/p&gt;
-&lt;h2 id=&quot;questions&quot;&gt;&lt;a href=&quot;#questions&quot; aria-label=&quot;questions permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Questions&lt;/h2&gt;
-&lt;h3 id=&quot;how-do-i-compare-two-integers&quot;&gt;&lt;a href=&quot;#how-do-i-compare-two-integers&quot; aria-label=&quot;how do i compare two integers permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How do I compare two integers?&lt;/h3&gt;
-&lt;p&gt;Arithmetic binary operators can be used to &lt;a href=&quot;conditionals.html#arithmetic&quot;&gt;compare integers in bash&lt;/a&gt; in the form &lt;span class=&quot;w3-codespan&quot;&gt;arg1 OP arg2&lt;/span&gt;. For example, we may test if two integers are not equal as follows.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;test ! ${a} -eq ${b} # a != b
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;how-do-i-declare-an-integer-bash&quot;&gt;&lt;a href=&quot;#how-do-i-declare-an-integer-bash&quot; aria-label=&quot;how do i declare an integer bash permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How do I declare an integer bash?&lt;/h3&gt;
-&lt;p&gt;Declare integer variables using the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; option.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;declare -i myint
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;how-do-i-declare-a-local-integer-in-bash&quot;&gt;&lt;a href=&quot;#how-do-i-declare-a-local-integer-in-bash&quot; aria-label=&quot;how do i declare a local integer in bash permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How do I declare a local integer in bash?&lt;/h3&gt;
-&lt;p&gt;Declare integer variables with local bindings using declare in conjunction with the local. In shortest form, the operation may be performed in a single statement consisting of local, the integer option flag, and variable name.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;local myint
-declare -i myint
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;See &lt;a href=&quot;local.html#declare-local-integer&quot;&gt;declaring a local integer&lt;/a&gt;&lt;/p&gt;</content:encoded><author></author></item><item><title><![CDATA[Enable metrics collction for an auto scaling group]]></title><description><![CDATA[You created an auto scaling group through the management console. The issue is "group metrics collection is not enabled for the following…]]></description><link>https://temptemp3.github.io/enable-metrics-collction-for-an-auto-scaling-group</link><guid isPermaLink="false">https://temptemp3.github.io/enable-metrics-collction-for-an-auto-scaling-group</guid><category><![CDATA[aws]]></category><category><![CDATA[aws-cli]]></category><category><![CDATA[aws-autoscaling]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;You created an auto scaling group through the management console. The issue is &quot;group metrics collection is not enabled for the following auto scaling groups&quot; and; you would simply like to know how to enable metric collection using the AWS CLI. Here you will a &lt;a href=&quot;#aws-cli-wrapper&quot;&gt;bash function aws-cli wrapper&lt;/a&gt; to help automate enabling metrics collection for autoscaling groups in AWS.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[temp23]]></title><description><![CDATA[Articles written by Temptemp3]]></description><link>https://temptemp3.github.io</link><image><url>https://temptemp3.github.io/logos/logo-512.png</url><title>temp23</title><link>https://temptemp3.github.io</link></image><generator>GatsbyJS Advanced Starter</generator><lastBuildDate>Tue, 03 Mar 2020 04:35:39 GMT</lastBuildDate><atom:link href="https://temptemp3.github.io/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[Copyright © 2019. temptemp3]]></copyright><item><title><![CDATA[Enable metrics collction for an auto scaling group]]></title><description><![CDATA[You created an auto scaling group through the management console. The issue is "group metrics collection is not enabled for the following…]]></description><link>https://temptemp3.github.io/enable-metrics-collction-for-an-auto-scaling-group</link><guid isPermaLink="false">https://temptemp3.github.io/enable-metrics-collction-for-an-auto-scaling-group</guid><category><![CDATA[aws]]></category><category><![CDATA[aws-cli]]></category><category><![CDATA[aws-autoscaling]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;You created an auto scaling group through the management console. The issue is &quot;group metrics collection is not enabled for the following auto scaling groups&quot; and; you would simply like to know how to enable metric collection using the AWS CLI. Here you will a &lt;a href=&quot;#aws-cli-wrapper&quot;&gt;bash function aws-cli wrapper&lt;/a&gt; to help automate enabling metrics collection for autoscaling groups in AWS.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Today in AWS, &lt;u&gt;enabling metrics collection for an auto scaling group&lt;/u&gt; was on my to-do list.
 (28 Jul 2017)&lt;/p&gt;
@@ -169,12 +46,11 @@ enable-metrics-collection &lt;br&gt;
 &lt;p&gt;(12 Jan 2018)	Update example converting original bash example code into a aws-cli wrapper bash function&lt;/p&gt;
 &lt;p&gt;( 7 Aug 2017)	Add introduction&lt;/p&gt;
 &lt;p&gt;(28 Jul 2017)	Create document&lt;/p&gt;
-&lt;hr&gt;</content:encoded><author></author></item><item><title><![CDATA[Bash declare]]></title><description><![CDATA[Read in 7 minutes Most programmers can get by without declare in bash. Good thing we aren't most programmers. The leverage you get out of…]]></description><link>https://temptemp3.github.io/bash-declare</link><guid isPermaLink="false">https://temptemp3.github.io/bash-declare</guid><category><![CDATA[bash]]></category><category><![CDATA[bash-builtins]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Read in 7 minutes &lt;/p&gt;
-&lt;p&gt;Most programmers can get by without declare in bash. Good thing we aren&apos;t most programmers. The leverage you get out of using declare and variable attributes is huge. It goes way beyond creating arrays and integer variables.&lt;/p&gt;
+&lt;hr&gt;</content:encoded><author></author></item><item><title><![CDATA[Bash declare]]></title><description><![CDATA[Most programmers can get by without knowing about declare in bash. Good thing we aren't most programmers. The leverage you get out of using…]]></description><link>https://temptemp3.github.io/bash-declare</link><guid isPermaLink="false">https://temptemp3.github.io/bash-declare</guid><category><![CDATA[bash]]></category><category><![CDATA[bash-builtins]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Most programmers can get by without knowing about declare in bash. Good thing we aren&apos;t most programmers. The leverage you get out of using declare and variable attributes is huge. It goes way beyond creating arrays and integer variables.&lt;/p&gt;
 &lt;h2 id=&quot;using-declare&quot;&gt;&lt;a href=&quot;#using-declare&quot; aria-label=&quot;using declare permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Using declare&lt;/h2&gt;
 &lt;p&gt;One thing you learn later in bash is to use certain builtin commands. Declare in bash is no exception. Here we cover how to use the builtin declare to modify the attributes of bash variables allowing you to create of arrays, list functions, integers, and much more.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt; -c &lt;span class=&quot;token string&quot;&gt;&quot;help declare&quot;&lt;/span&gt;
-declare: &lt;span class=&quot;token keyword&quot;&gt;declare&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;-aAfFgilnrtux&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;-p&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+declare: &lt;span class=&quot;token builtin class-name&quot;&gt;declare&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;-aAfFgilnrtux&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;-p&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
     Set variable values and attributes.
 
     Declare variables and give them attributes.  If no NAMEs are given,
@@ -189,10 +65,10 @@ declare: &lt;span class=&quot;token keyword&quot;&gt;declare&lt;/span&gt; &lt;sp
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;  -f        restrict action or display to &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; names and definitions
 
   -F        restrict display to &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; names only &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;plus line number and
-                &lt;span class=&quot;token function&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;file&lt;/span&gt; when debugging&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+                &lt;span class=&quot;token builtin class-name&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;file&lt;/span&gt; when debugging&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Option to list bash variable attributes:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;  -p        display the attributes and value of each NAME&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;When you need to get variable attributes in bash &lt;span class=&quot;w3-codespan&quot;&gt;declare -p variable_name&lt;/span&gt; comes in handy. The &lt;span class=&quot;w3-codespan&quot;&gt;-p&lt;/span&gt; option can be used to filter out functions definitions and function names. Additionally, the effect of the -p option is canceled out when combined with either the &lt;span class=&quot;w3-codespan&quot;&gt;-f&lt;/span&gt; option or the &lt;span class=&quot;w3-codespan&quot;&gt;-F&lt;/span&gt; option.&lt;/p&gt;
+&lt;p&gt;When you need to get variable attributes in bash &lt;code class=&quot;language-text&quot;&gt;declare -p variable_name&lt;/code&gt; comes in handy. The &lt;code class=&quot;language-text&quot;&gt;-p&lt;/code&gt; option can be used to exclude functions from output. Additionally, the effect of the -p option is canceled out when combined with either the &lt;code class=&quot;language-text&quot;&gt;-f&lt;/code&gt; option to include functions or the &lt;code class=&quot;language-text&quot;&gt;-F&lt;/code&gt; option to include only function names.&lt;/p&gt;
 &lt;p&gt;Options which set attributes:&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;-&lt;a href=&quot;declare.html#indexed_arrays&quot;&gt;a&lt;/a&gt; to make NAMEs indexed arrays (if supported)&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;-&lt;a href=&quot;declare.html#associative_arrays&quot;&gt;A&lt;/a&gt; to make NAMEs associative arrays (if supported)&lt;/span&gt;&lt;/p&gt;
@@ -566,19 +442,165 @@ declare -xf FUNCTION
 &lt;h3 id=&quot;why-would-i-declare-a-variable-without-value-in-bash&quot;&gt;&lt;a href=&quot;#why-would-i-declare-a-variable-without-value-in-bash&quot; aria-label=&quot;why would i declare a variable without value in bash permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;why would I declare a variable without value in bash?&lt;/h3&gt;
 &lt;p&gt;You may declare a variable without value to communicate that a variable may be modified from this point on or to unset a variable via assignment.&lt;/p&gt;
 &lt;p&gt;It is not necessary to declare a variable for the purpose of initialization if no assignment was made prior to appearance in script.&lt;/p&gt;
-&lt;hr&gt;</content:encoded><author></author></item><item><title><![CDATA[Bash functions]]></title><description><![CDATA[Read in 16 minutesShell functions in bash allow you to name groups of commands to be run at a later time. Once named, command groups may be…]]></description><link>https://temptemp3.github.io/bash-functions</link><guid isPermaLink="false">https://temptemp3.github.io/bash-functions</guid><category><![CDATA[bash]]></category><category><![CDATA[bash-functions]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Read in 16 minutes&lt;/p&gt;
+&lt;hr&gt;</content:encoded><author></author></item><item><title><![CDATA[Bash declare integer]]></title><description><![CDATA[In bash using declare we covered all the uses for the bash builtin command declare. Here we focus on the usage to declare for integer…]]></description><link>https://temptemp3.github.io/bash-declare-integer</link><guid isPermaLink="false">https://temptemp3.github.io/bash-declare-integer</guid><category><![CDATA[bash]]></category><category><![CDATA[bash-builtins]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;In &lt;a href=&quot;declare.html#bash-declare-integer&quot;&gt;bash using declare&lt;/a&gt; we covered all the uses for the bash builtin command declare. Here we focus on the usage to declare for integer variables in bash.&lt;/p&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;&lt;a href=&quot;#introduction&quot; aria-label=&quot;introduction permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;introduction&lt;/h2&gt;
+&lt;p&gt;All is string in bash. However, we may opt to restrict a variable to only storing whole numbers like 1 and -1. To accomplish this in bash, we turn on the integer attribute for the variable using builtins such as &lt;code class=&quot;language-text&quot;&gt;local&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;declare&lt;/code&gt;, and &lt;code class=&quot;language-text&quot;&gt;export&lt;/code&gt; as follows.&lt;/p&gt;
+&lt;p&gt;Example: declaring and assigning integer variable&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;unset&lt;/span&gt; var &lt;span class=&quot;token comment&quot;&gt;# unset test variable just in case&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;unset&lt;/span&gt; empty_var &lt;span class=&quot;token comment&quot;&gt;# unset test variable just in case&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;declare&lt;/span&gt; -i int
+&lt;span class=&quot;token assign-left variable&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${int}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 1&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;2&quot;&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${int}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 2&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;var
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${int}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 0&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;var
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${int}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 3&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;var+1
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${int}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 4&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;empty_var
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${int}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 0&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;var&quot;&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${int}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 3&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;RANDOM&quot;&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${int}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 1234&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;!-- here --&gt;
+&lt;h2 id=&quot;usage&quot;&gt;&lt;a href=&quot;#usage&quot; aria-label=&quot;usage permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;usage&lt;/h2&gt;
+&lt;p&gt;Let&apos;s skip to the good part, creating integer variables!&lt;br&gt;
+Here is how to declare an integer variable in bash. Note that &lt;span class=&quot;w3-codespan&quot;&gt;int&lt;/span&gt; is not a keyword for integer. That is the job of the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; option to the builtin declare.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;determine if a variable is an integer *&lt;/li&gt;
+&lt;li&gt;create an integer variable *&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;determine-if-a-variable-is-an-integer&quot;&gt;&lt;a href=&quot;#determine-if-a-variable-is-an-integer&quot; aria-label=&quot;determine if a variable is an integer permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;determine if a variable is an integer&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# check if a variable is an integer
+declare -p int			# declare -i int=&quot;1&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We say a variable is an integer if the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; attribute set, i.e. if &lt;span class=&quot;w3-codespan&quot;&gt;declare -p&lt;/span&gt; returns either &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; or &lt;span class=&quot;w3-codespan&quot;&gt;-ir&lt;/span&gt;. Note that in the case that the variable is found to have the &lt;span class=&quot;w3-codespan&quot;&gt;-n&lt;/span&gt; attribute set, testing the end nameref is required to determine if the variable is an integer.&lt;/p&gt;
+&lt;h3 id=&quot;create-an-integer-variable&quot;&gt;&lt;a href=&quot;#create-an-integer-variable&quot; aria-label=&quot;create an integer variable permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;create an integer variable&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;# create an integer variable and modify through assignment
+unset one			# just to be sure
+declare -i int		# int is an integer
+int=5				# int=$(( 5 ))=5
+int+=1 				# int=$(( int + 1 ))=6
+int+=int+1 			# int=$(( int + int + 1 ))=13
+int=one				# int=$(( one ))=
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now look at what happens without the integer attribute.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# result of assignment without integer attribute
+unset int			# just to be sure
+unset one			# just to be sure
+int=5				# int=5
+int+=1 				# int=${int}1=51
+int+=int+1 			# int=${int}+int+1=51int+1
+int=one				# int=one
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now you see what happens if you forget to declare a variable as an integer. Not something that you want running loose in your program.&lt;/p&gt;
+&lt;h3 id=&quot;breakdown&quot;&gt;&lt;a href=&quot;#breakdown&quot; aria-label=&quot;breakdown permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;breakdown&lt;/h3&gt;
+&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;declare -i int&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;We say that if there is a variable named int, it now has the integer attribute set. If the variable named in the declare command is not set yet, then the attribute is applied to a future variable unless &lt;span class=&quot;w3-codespan&quot;&gt;unset&lt;/span&gt;. Using &lt;span class=&quot;w3-codespan&quot;&gt;local&lt;/span&gt; instead of &lt;span class=&quot;w3-codespan&quot;&gt;declare&lt;/span&gt;, causes the attribute to only be applied in subsequent assignments in the local scope.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;int=5&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Depending on whether the variable has the integer attribute this sets the value of int to the string 5 or arithmetic expansion of 5. In the case of 5, the result yields 5 for both cases.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;int+=1&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Should increment int if integer attribute set.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;int+=int+1&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Should double int and increment if integer attribute set.&lt;/p&gt;
+&lt;h2 id=&quot;introduction-1&quot;&gt;&lt;a href=&quot;#introduction-1&quot; aria-label=&quot;introduction 1 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;introduction&lt;/h2&gt;
+&lt;p&gt;Bash variables are untyped. That is, if a value is assigned to a variable without declaring variable attributes, the value is treated like any other variable, a string. Declaring a variable with the integer attribute affects assignment and treatment in arithmetic expressions.&lt;/p&gt;
+&lt;h2 id=&quot;definitions&quot;&gt;&lt;a href=&quot;#definitions&quot; aria-label=&quot;definitions permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;definitions&lt;/h2&gt;
+&lt;p&gt;Definition of types of integer variables.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Integer variable&lt;/li&gt;
+&lt;li&gt;Read-only integer variable&lt;/li&gt;
+&lt;li&gt;Pure integer variable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;integer-variable&quot;&gt;&lt;a href=&quot;#integer-variable&quot; aria-label=&quot;integer variable permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;integer variable&lt;/h3&gt;
+&lt;p&gt;A variable with the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; attribute set.&lt;/p&gt;
+&lt;p&gt;We define an integer variable in bash as a variable with the integer attribute set. The question we ask here is, &quot;Is it valid to declare a variable with the integer attribute in combination with another attribute?&quot; This may be expanded later.&lt;/p&gt;
+&lt;h3 id=&quot;read-only-integer-variable&quot;&gt;&lt;a href=&quot;#read-only-integer-variable&quot; aria-label=&quot;read only integer variable permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Read-only integer variable&lt;/h3&gt;
+&lt;p&gt;An integer variable with the &lt;span class=&quot;w3-codespan&quot;&gt;-r&lt;/span&gt; attribute set.&lt;/p&gt;
+&lt;h3 id=&quot;pure-integer-variable&quot;&gt;&lt;a href=&quot;#pure-integer-variable&quot; aria-label=&quot;pure integer variable permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Pure integer variable&lt;/h3&gt;
+&lt;p&gt;A variable with only the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; attribute set.&lt;/p&gt;
+&lt;p&gt;We define a pure integer variable in bash as a variable with only the integer attribute set.&lt;/p&gt;
+&lt;h2 id=&quot;motivation&quot;&gt;&lt;a href=&quot;#motivation&quot; aria-label=&quot;motivation permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;motivation&lt;/h2&gt;
+&lt;p&gt;You may be wondering why you would even bother declaring integer variables in bash. After all, aren&apos;t all variable strings? Yes exactly, but using declare to add the integer attribute to a variable affects assignment.&lt;/p&gt;
+&lt;h3 id=&quot;why-declare-integers-in-bash&quot;&gt;&lt;a href=&quot;#why-declare-integers-in-bash&quot; aria-label=&quot;why declare integers in bash permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Why declare integers in bash?&lt;/h3&gt;
+&lt;p&gt;In order to understand how and why integers are declared in bash, it is helpful to look at behavior with and without using integer variables.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+## test-bash-declare-integer-1
+## - fun with integers attributes
+## version 0.0.1 - initial
+##################################################
+test-bash-declare-integer-1() {
+  ## setup
+  local lonely_integer		# one int is fine
+  local i			# for ease of use
+  declare -n i=lonely_integer 	# declare attributes
+  ## (1) do something wrong with integers
+  i=asdf			# (1) asdf as i is asdf
+  echo ${i}			# (2) asdf
+  ## (2) what if we give it the integer attribute?
+  declare -i lonely_integer	# (1) declare integer
+  i=asdf			# (2) asdf as i is 0
+  echo ${i}			# (3) 0
+  ## (3) what happened?
+  declare +i lonely_integer	# (1) revert back
+  i=$(( ${asdf} ))		# (2) what happens in (2) under (1) conditions
+  echo ${i}			# (3) 0
+  ## (4) proof: part i (without integer attribute)
+  asdf=1			# assignment for proof
+  i=$(( ${asdf} ))		# same as (3.2)
+  echo ${i}			# 1
+  ## (5) proof: part ii (with integer attribute)
+  declare -i lonely_integer	# same as (2.1)
+  i=asdf			#  asdf as i is 1
+  echo ${i}			# 1
+}
+##################################################
+if [ ${#} -eq 0 ] 
+then
+ true
+else
+ exit 1 # wrong args
+fi
+##################################################
+test-bash-declare-integer-1
+##################################################
+## generated by create-stub2.sh v0.1.1
+## on Sun, 03 Feb 2019 17:36:53 +0900
+## see &amp;lt;https://github.com/temptemp3/sh2&amp;gt;
+##################################################
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You see that adding the integer attribute forces arithmetic expressions to be evaluated on assignment.&lt;/p&gt;
+&lt;h2 id=&quot;questions&quot;&gt;&lt;a href=&quot;#questions&quot; aria-label=&quot;questions permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Questions&lt;/h2&gt;
+&lt;h3 id=&quot;how-do-i-compare-two-integers&quot;&gt;&lt;a href=&quot;#how-do-i-compare-two-integers&quot; aria-label=&quot;how do i compare two integers permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How do I compare two integers?&lt;/h3&gt;
+&lt;p&gt;Arithmetic binary operators can be used to &lt;a href=&quot;conditionals.html#arithmetic&quot;&gt;compare integers in bash&lt;/a&gt; in the form &lt;span class=&quot;w3-codespan&quot;&gt;arg1 OP arg2&lt;/span&gt;. For example, we may test if two integers are not equal as follows.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;test ! ${a} -eq ${b} # a != b
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;how-do-i-declare-an-integer-bash&quot;&gt;&lt;a href=&quot;#how-do-i-declare-an-integer-bash&quot; aria-label=&quot;how do i declare an integer bash permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How do I declare an integer bash?&lt;/h3&gt;
+&lt;p&gt;Declare integer variables using the &lt;span class=&quot;w3-codespan&quot;&gt;-i&lt;/span&gt; option.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;declare -i myint
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;how-do-i-declare-a-local-integer-in-bash&quot;&gt;&lt;a href=&quot;#how-do-i-declare-a-local-integer-in-bash&quot; aria-label=&quot;how do i declare a local integer in bash permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How do I declare a local integer in bash?&lt;/h3&gt;
+&lt;p&gt;Declare integer variables with local bindings using declare in conjunction with the local. In shortest form, the operation may be performed in a single statement consisting of local, the integer option flag, and variable name.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;local myint
+declare -i myint
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;See &lt;a href=&quot;local.html#declare-local-integer&quot;&gt;declaring a local integer&lt;/a&gt;&lt;/p&gt;</content:encoded><author></author></item><item><title><![CDATA[Bash functions]]></title><description><![CDATA[Read in 16 minutes Shell functions in bash allow you to name groups of commands to be run at a later time. Once named, command groups may be…]]></description><link>https://temptemp3.github.io/bash-functions</link><guid isPermaLink="false">https://temptemp3.github.io/bash-functions</guid><category><![CDATA[bash]]></category><category><![CDATA[bash-functions]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Read in 16 minutes&lt;/p&gt;
 &lt;p&gt;Shell functions in bash allow you to name groups of commands to be run at a later time. Once named, command groups may be executed by using the function name. Each function has its own set of positional parameters when called. Variable attributes such as local may apply within a function. &lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;function-help&quot;&gt;&lt;a href=&quot;#function-help&quot; aria-label=&quot;function help permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;function help&lt;/h2&gt;
 &lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;help function&lt;/span&gt; tells you how to create functions in bash, about positional parameters, and exit statuses, which is pretty much all that you need to know about bash functions to get started.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;help&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;
-function: &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; name &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; COMMANDS &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; or name &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; COMMANDS &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;help&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;
+function: &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function-name function&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; COMMANDS &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; or &lt;span class=&quot;token function-name function&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; COMMANDS &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
     Define shell function.
 
     Create a shell &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; named NAME.  When invoked as a simple command,
     NAME runs COMMANDs &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; the calling shell&lt;span class=&quot;token string&quot;&gt;&apos;s context.  When NAME is invoked,
     the arguments are passed to the function as &lt;span class=&quot;token variable&quot;&gt;$1&lt;/span&gt;...&lt;span class=&quot;token variable&quot;&gt;$n&lt;/span&gt;, and the function&apos;&lt;/span&gt;s
-    name is &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$FUNCNAME&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;.&lt;/span&gt;
+    name is &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$FUNCNAME&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt;
 
     Exit Status:
     Returns success unless NAME is readonly.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -620,8 +642,8 @@ function: &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; name
 &lt;h3 id=&quot;simple-functions&quot;&gt;&lt;a href=&quot;#simple-functions&quot; aria-label=&quot;simple functions permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;simple functions&lt;/h3&gt;
 &lt;p&gt;Functions are simple in bash. At least this one is. It puts a string on the screen. &lt;/p&gt;
 &lt;p&gt;Commands&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;simple-function&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
-  &lt;span class=&quot;token keyword&quot;&gt;echo&lt;/span&gt; as simple as it gets  
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;simple-&lt;span class=&quot;token function-name function&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
+  &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; as simple as it gets  
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 simple-function&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Output&lt;/p&gt;
@@ -637,26 +659,26 @@ simple-function&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Apply static analysis and fail. That is your dynamic function.&lt;/p&gt;
 &lt;p&gt;In more concrete terms, we may have real functions as follows.&lt;/p&gt;
 &lt;p&gt;A dynamic function able to call any function in the universe&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;dynamic-function&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
-  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; local function_name &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; function_name&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${1}&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;dynamic-&lt;span class=&quot;token function-name function&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;local&lt;/span&gt; function_name &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;function_name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${1}&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;token variable&quot;&gt;${function_name}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;A dynamic function able to call any descendent function in the universe&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;dynamic-function&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
-  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; local function_name &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; function_name&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${1}&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;dynamic-&lt;span class=&quot;token function-name function&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;local&lt;/span&gt; function_name &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;function_name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${1}&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;token variable&quot;&gt;${FUNCNAME}&lt;/span&gt;-&lt;span class=&quot;token variable&quot;&gt;${function_name}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;A dynamic function able to call any function of a class in the universe&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;dynamic-function&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
-  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; local function_name &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; function_name&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${1}&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;dynamic-&lt;span class=&quot;token function-name function&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;local&lt;/span&gt; function_name &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;function_name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${1}&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
   class-name-&lt;span class=&quot;token variable&quot;&gt;${function_name}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;If you are looking for dynamic function, see &lt;a href=&quot;https://github.com/temptemp3/sh2/blob/master/attr.sh&quot;&gt;attr.sh&lt;/a&gt;. get_ and set_ functions are generated on the fly whenever attr is called.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${SH2}&lt;/span&gt;/attr.sh
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${SH2}&lt;/span&gt;/attr.sh
 attr x
 attr y
 attr z
-set_x 1
+set_x &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
 set_y &lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$((&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt; get_x &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;))&lt;/span&gt;&lt;/span&gt;
 set_z &lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$((&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt; get_y &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;))&lt;/span&gt;&lt;/span&gt;
 get_x &lt;span class=&quot;token comment&quot;&gt;# 1&lt;/span&gt;
@@ -668,25 +690,25 @@ get_z &lt;span class=&quot;token comment&quot;&gt;# 3&lt;/span&gt;&lt;/code&gt;&
 &lt;span class=&quot;token comment&quot;&gt;## test-dynamic-function-second&lt;/span&gt;
 &lt;span class=&quot;token comment&quot;&gt;## version 0.0.1 - initial&lt;/span&gt;
 &lt;span class=&quot;token comment&quot;&gt;##################################################&lt;/span&gt;
-test-dynamic-function-second&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  local temp
-  temp&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt; mktemp &lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;
+test-dynamic-function-&lt;span class=&quot;token function-name function&quot;&gt;second&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token builtin class-name&quot;&gt;local&lt;/span&gt; temp
+  &lt;span class=&quot;token assign-left variable&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt; mktemp &lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;
   &lt;span class=&quot;token function&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${temp}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;EOF
 &lt;span class=&quot;token variable&quot;&gt;${function_name}&lt;/span&gt;() {
   echo \&lt;span class=&quot;token variable&quot;&gt;${FUNCNAME}&lt;/span&gt;
 }
 EOF&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${temp}&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;declare&lt;/span&gt; -pf &lt;span class=&quot;token variable&quot;&gt;${function_name}&lt;/span&gt;
+  &lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${temp}&lt;/span&gt;
+  &lt;span class=&quot;token builtin class-name&quot;&gt;declare&lt;/span&gt; -pf &lt;span class=&quot;token variable&quot;&gt;${function_name}&lt;/span&gt;
   &lt;span class=&quot;token variable&quot;&gt;${function_name}&lt;/span&gt;
   &lt;span class=&quot;token function&quot;&gt;rm&lt;/span&gt; -v &lt;span class=&quot;token variable&quot;&gt;${temp}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token comment&quot;&gt;##################################################&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${#}&lt;/span&gt; -eq 1 &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; 
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${&lt;span class=&quot;token operator&quot;&gt;#&lt;/span&gt;}&lt;/span&gt; -eq &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; 
 &lt;span class=&quot;token keyword&quot;&gt;then&lt;/span&gt;
- function_name&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${1}&lt;/span&gt;&quot;&lt;/span&gt;
+ &lt;span class=&quot;token assign-left variable&quot;&gt;function_name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${1}&lt;/span&gt;&quot;&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;
- &lt;span class=&quot;token keyword&quot;&gt;exit&lt;/span&gt; 1 &lt;span class=&quot;token comment&quot;&gt;# wrong args&lt;/span&gt;
+ &lt;span class=&quot;token builtin class-name&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# wrong args&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;fi&lt;/span&gt;
 &lt;span class=&quot;token comment&quot;&gt;##################################################&lt;/span&gt;
 test-dynamic-function-second
@@ -700,20 +722,20 @@ test-dynamic-function-second
 &lt;p&gt;In this way, we use the function as a router such that the first argument indicates a subcommand and the rest its arguments. You can see how dynamic things can get considering the number of possible subcommands is infinite, or at least until you run out of disk space.&lt;/p&gt;
 &lt;h3 id=&quot;setup-functions&quot;&gt;&lt;a href=&quot;#setup-functions&quot; aria-label=&quot;setup functions permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;setup functions&lt;/h3&gt;
 &lt;p&gt;One thing you may want to do in bash is set a variable from a function. The variable may have global scope or nearest local scope. The following example shows how a setup function would work using local scope to declare a variable.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;shopt&lt;/span&gt; -s expand_aliases
-&lt;span class=&quot;token function&quot;&gt;alias&lt;/span&gt; bind&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;shopt&lt;/span&gt; -s expand_aliases
+&lt;span class=&quot;token builtin class-name&quot;&gt;alias&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;
 {
   local account_name
   local account_type
   local account_balance
 }
 &apos;&lt;/span&gt;
-setup-acount&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  acount_name&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Joe Doe&quot;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# fictitious name&lt;/span&gt;
-  acount_acount&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;1 &lt;span class=&quot;token comment&quot;&gt;# buck&lt;/span&gt;
-  acount_type&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;savings &lt;span class=&quot;token comment&quot;&gt;# account&lt;/span&gt;
+setup-&lt;span class=&quot;token function-name function&quot;&gt;acount&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token assign-left variable&quot;&gt;acount_name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Joe Doe&quot;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# fictitious name&lt;/span&gt;
+  &lt;span class=&quot;token assign-left variable&quot;&gt;acount_acount&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# buck&lt;/span&gt;
+  &lt;span class=&quot;token assign-left variable&quot;&gt;acount_type&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;savings &lt;span class=&quot;token comment&quot;&gt;# account&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-bank&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;token function-name function&quot;&gt;bank&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   bind-account
   setup-account
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -730,57 +752,57 @@ bank&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class
 &lt;p&gt;There may be a time when you want to lazyload functions in bash. That means to only source function code when relevant.&lt;/p&gt;
 &lt;p&gt;Suppose that your big script with hundreds of lines called &lt;u&gt;foo.sh&lt;/u&gt;. It happens.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;foo.sh&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${SH2}&lt;/span&gt;/aliases/commands.sh
-foo-bar-3&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${SH2}&lt;/span&gt;/aliases/commands.sh
+foo-bar-&lt;span class=&quot;token function-name function&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
    &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-foo-bar-2&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+foo-bar-&lt;span class=&quot;token function-name function&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
    &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-foo-bar-1&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+foo-bar-&lt;span class=&quot;token function-name function&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
    &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-foo-bar&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+foo-&lt;span class=&quot;token function-name function&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   commands
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-foo&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;token function-name function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   commands
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${#}&lt;/span&gt; -eq 0 &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; 
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${&lt;span class=&quot;token operator&quot;&gt;#&lt;/span&gt;}&lt;/span&gt; -eq &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; 
 &lt;span class=&quot;token keyword&quot;&gt;then&lt;/span&gt;
  &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;
- &lt;span class=&quot;token keyword&quot;&gt;exit&lt;/span&gt; 1 &lt;span class=&quot;token comment&quot;&gt;# wrong args&lt;/span&gt;
+ &lt;span class=&quot;token builtin class-name&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# wrong args&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;fi&lt;/span&gt;
 foo&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;We want to make foo-bar and its dependents lazy load. That is unless the first argument provided by the user happens to be bar, functions beginning with foo-bar are not sourced.&lt;/p&gt;
 &lt;p&gt;First, put foo-bar functions in another file like so.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;foo-bar.sh&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;foo-bar-3&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;foo-bar-&lt;span class=&quot;token function-name function&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
    &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-foo-bar-2&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+foo-bar-&lt;span class=&quot;token function-name function&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
    &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-foo-bar-1&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+foo-bar-&lt;span class=&quot;token function-name function&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
    &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-foo-bar&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+foo-&lt;span class=&quot;token function-name function&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   commands
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;As you see I just made a copy of foo.sh and filtered out everything that isn&apos;t foo-bar.&lt;/p&gt;
 &lt;p&gt;Next, replace foo-bar functions with code to lazyload foo-bar.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;foo.sh&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${SH2}&lt;/span&gt;/aliases/commands.sh
-foo-bar&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;.&lt;/span&gt; foo-bar.sh &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${FUNCNAME}&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${@}&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; 
-foo&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${SH2}&lt;/span&gt;/aliases/commands.sh
+foo-&lt;span class=&quot;token function-name function&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt; foo-bar.sh &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${FUNCNAME}&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${@}&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; 
+&lt;span class=&quot;token function-name function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   commands
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${#}&lt;/span&gt; -eq 0 &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; 
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${&lt;span class=&quot;token operator&quot;&gt;#&lt;/span&gt;}&lt;/span&gt; -eq &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; 
 &lt;span class=&quot;token keyword&quot;&gt;then&lt;/span&gt;
  &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;
- &lt;span class=&quot;token keyword&quot;&gt;exit&lt;/span&gt; 1 &lt;span class=&quot;token comment&quot;&gt;# wrong args&lt;/span&gt;
+ &lt;span class=&quot;token builtin class-name&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# wrong args&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;fi&lt;/span&gt;
 foo&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id=&quot;export-function&quot;&gt;&lt;a href=&quot;#export-function&quot; aria-label=&quot;export function permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;export function&lt;/h3&gt;
@@ -788,46 +810,46 @@ foo&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Export functions provide a means to include functional code, functions, within another shell that is not a subshell.&lt;/p&gt;
 &lt;p&gt;Meet &lt;a href=&quot;https://github.com/temptemp3/ba.sh/blob/master/true.sh&quot;&gt;true.sh&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt; -v true.sh
-&lt;span class=&quot;token keyword&quot;&gt;declare&lt;/span&gt; -f &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt; 1&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;/dev/null &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  true&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-   &lt;span class=&quot;token function&quot;&gt;command&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;declare&lt;/span&gt; -f &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&lt;span class=&quot;token file-descriptor important&quot;&gt;1&lt;/span&gt;&gt;&lt;/span&gt;/dev/null &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function-name function&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;token builtin class-name&quot;&gt;command&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${#}&lt;/span&gt; -eq 0 &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; 
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${&lt;span class=&quot;token operator&quot;&gt;#&lt;/span&gt;}&lt;/span&gt; -eq &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; 
 &lt;span class=&quot;token keyword&quot;&gt;then&lt;/span&gt;
- &lt;span class=&quot;token function&quot;&gt;command&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+ &lt;span class=&quot;token builtin class-name&quot;&gt;command&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;
- &lt;span class=&quot;token keyword&quot;&gt;exit&lt;/span&gt; 1 &lt;span class=&quot;token comment&quot;&gt;# wrong args&lt;/span&gt;
+ &lt;span class=&quot;token builtin class-name&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# wrong args&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;fi&lt;/span&gt;
 &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;.&lt;/span&gt; true.sh &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${?}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 0&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt; true.sh &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${?}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 0&lt;/span&gt;
 &lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt; true.sh
-&lt;span class=&quot;token keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${?}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 0&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${?}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 0&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;true.sh is a simple bash script that may be changed a export function.&lt;/p&gt;
 &lt;p&gt;In our shell, we declare a function also called true.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;true&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function-name function&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;.&lt;/span&gt; true.sh &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# true&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt; true.sh &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# true&lt;/span&gt;
 &lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt; true.sh  &lt;span class=&quot;token comment&quot;&gt;# &lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;declare&lt;/span&gt; -fx &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt; -v true.sh 1&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;/dev/null 
-&lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  &lt;span class=&quot;token keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;declare&lt;/span&gt; -fx &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt; -v true.sh &lt;span class=&quot;token operator&quot;&gt;&lt;span class=&quot;token file-descriptor important&quot;&gt;1&lt;/span&gt;&gt;&lt;/span&gt;/dev/null 
+&lt;span class=&quot;token function-name function&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;declare&lt;/span&gt; -f &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt; 1&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;/dev/null &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  true&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-   &lt;span class=&quot;token function&quot;&gt;command&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;declare&lt;/span&gt; -f &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&lt;span class=&quot;token file-descriptor important&quot;&gt;1&lt;/span&gt;&gt;&lt;/span&gt;/dev/null &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function-name function&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;token builtin class-name&quot;&gt;command&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${#}&lt;/span&gt; -eq 0 &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${&lt;span class=&quot;token operator&quot;&gt;#&lt;/span&gt;}&lt;/span&gt; -eq &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;then&lt;/span&gt;
- &lt;span class=&quot;token function&quot;&gt;command&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+ &lt;span class=&quot;token builtin class-name&quot;&gt;command&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;
- &lt;span class=&quot;token keyword&quot;&gt;exit&lt;/span&gt; 1 &lt;span class=&quot;token comment&quot;&gt;# wrong args&lt;/span&gt;
+ &lt;span class=&quot;token builtin class-name&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# wrong args&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;fi&lt;/span&gt;
 &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;.&lt;/span&gt; true.sh &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# true&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt; true.sh &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# true&lt;/span&gt;
 &lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt; true.sh &lt;span class=&quot;token comment&quot;&gt;# true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;For our true to be used in true.sh as a separate shell, the export attribute needs to be added to true. This is done using &lt;span class=&quot;w3-codespan&quot;&gt;declare -xf NAME&lt;/span&gt; or another bash &lt;a href=&quot;builtins.html&quot;&gt;builtins&lt;/a&gt;. See also &lt;a href=&quot;declare.html&quot;&gt;bash declare&lt;/a&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;true() {
@@ -842,18 +864,18 @@ bash true.sh  # true
 &lt;h3 id=&quot;oop-functions&quot;&gt;&lt;a href=&quot;#oop-functions&quot; aria-label=&quot;oop functions permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;oop functions&lt;/h3&gt;
 &lt;p&gt;One thing that may be missing in bash is builtin support for object-oriented programming concepts such as parent/child relationships. However, in practice, you can get away with such relationships, at least I have.&lt;/p&gt;
 &lt;p&gt;A parent is any function that can call another function, one of its children, using the &lt;span class=&quot;w3-codespan&quot;&gt;${FUNCNAME}&lt;/span&gt; special variable. &lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;parent&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# parent function&lt;/span&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function-name function&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# parent function&lt;/span&gt;
   &lt;span class=&quot;token variable&quot;&gt;${FUNCNAME}&lt;/span&gt;-child
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-parent-child&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# child function&lt;/span&gt;
+parent-&lt;span class=&quot;token function-name function&quot;&gt;child&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# child function&lt;/span&gt;
   &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id=&quot;nested-functions&quot;&gt;&lt;a href=&quot;#nested-functions&quot; aria-label=&quot;nested functions permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;nested functions&lt;/h3&gt;
 &lt;p&gt;There are times when you need nested functions in bash such as when implementing once functions. Simply nest a function definition within another. It&apos;s that simple. Nesting functions come in handy when implementing devices such as classes for object-oriented programming.&lt;/p&gt;
 &lt;h4 id=&quot;example-nested-function&quot;&gt;&lt;a href=&quot;#example-nested-function&quot; aria-label=&quot;example nested function permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;example: nested function&lt;/h4&gt;
 &lt;p&gt;bash function in function example&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;outer&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  inner&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# nested function&lt;/span&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function-name function&quot;&gt;outer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function-name function&quot;&gt;inner&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# nested function&lt;/span&gt;
     &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
   inner
@@ -861,13 +883,13 @@ parent-child&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;sp
 &lt;h3 id=&quot;once-functions&quot;&gt;&lt;a href=&quot;#once-functions&quot; aria-label=&quot;once functions permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;once functions&lt;/h3&gt;
 &lt;p&gt;Suppose that we need a function that only runs the first time it is called, i.e. we need a once function. See how it is done in bash.&lt;/p&gt;
 &lt;p&gt;Commands&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;once&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
-  once&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function-name function&quot;&gt;once&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
+  &lt;span class=&quot;token function-name function&quot;&gt;once&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
     &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${FUNCNAME}&lt;/span&gt;
+  &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${FUNCNAME}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-test-once&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+test-&lt;span class=&quot;token function-name function&quot;&gt;once&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   once
   once
   once
