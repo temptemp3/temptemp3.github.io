@@ -74,15 +74,14 @@
 <!-- here -->
 <h2 id="usage"><a href="#usage" aria-label="usage permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>usage</h2>
 <p>Let's skip to the good part, creating integer variables!<br>
-Here is how to declare an integer variable in bash. Note that <span class="w3-codespan">int</span> is not a keyword for integer. That is the job of the <span class="w3-codespan">-i</span> option to the builtin declare.</p>
+Here is how to declare an integer variable in bash. Note that <code class="language-text">int</code> is not a keyword for integer. That is the job of the <code class="language-text">-i</code> option to the builtin declare.</p>
 <ul>
 <li>determine if a variable is an integer *</li>
 <li>create an integer variable *</li>
 </ul>
 <h3 id="determine-if-a-variable-is-an-integer"><a href="#determine-if-a-variable-is-an-integer" aria-label="determine if a variable is an integer permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>determine if a variable is an integer</h3>
-<pre><code># check if a variable is an integer
-declare -p int			# declare -i int="1"
-</code></pre>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token comment"># check if a variable is an integer</span>
+<span class="token builtin class-name">declare</span> -p int			<span class="token comment"># declare -i int="1"</span></code></pre></div>
 <p>We say a variable is an integer if the <span class="w3-codespan">-i</span> attribute set, i.e. if <span class="w3-codespan">declare -p</span> returns either <span class="w3-codespan">-i</span> or <span class="w3-codespan">-ir</span>. Note that in the case that the variable is found to have the <span class="w3-codespan">-n</span> attribute set, testing the end nameref is required to determine if the variable is an integer.</p>
 <h3 id="create-an-integer-variable"><a href="#create-an-integer-variable" aria-label="create an integer variable permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>create an integer variable</h3>
 <pre><code># create an integer variable and modify through assignment
