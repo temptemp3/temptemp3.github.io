@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[temp23]]></title><description><![CDATA[Articles written by Temptemp3]]></description><link>https://temptemp3.github.io</link><image><url>https://temptemp3.github.io/logos/logo-512.png</url><title>temp23</title><link>https://temptemp3.github.io</link></image><generator>GatsbyJS Advanced Starter</generator><lastBuildDate>Sat, 14 Mar 2020 13:24:46 GMT</lastBuildDate><atom:link href="https://temptemp3.github.io/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[Copyright © 2019. temptemp3]]></copyright><item><title><![CDATA[Enable metrics collction for an auto scaling group]]></title><description><![CDATA[You created an auto scaling group through the management console. The issue is "group metrics collection is not enabled for the following…]]></description><link>https://temptemp3.github.io/enable-metrics-collction-for-an-auto-scaling-group</link><guid isPermaLink="false">https://temptemp3.github.io/enable-metrics-collction-for-an-auto-scaling-group</guid><category><![CDATA[aws]]></category><category><![CDATA[aws-cli]]></category><category><![CDATA[aws-autoscaling]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;You created an auto scaling group through the management console. The issue is &quot;group metrics collection is not enabled for the following auto scaling groups&quot; and; you would simply like to know how to enable metric collection using the AWS CLI. Here you will a &lt;a href=&quot;#aws-cli-wrapper&quot;&gt;bash function aws-cli wrapper&lt;/a&gt; to help automate enabling metrics collection for autoscaling groups in AWS.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[temp23]]></title><description><![CDATA[Articles written by Temptemp3]]></description><link>https://temptemp3.github.io</link><image><url>https://temptemp3.github.io/logos/logo-512.png</url><title>temp23</title><link>https://temptemp3.github.io</link></image><generator>GatsbyJS Advanced Starter</generator><lastBuildDate>Mon, 22 Feb 2021 04:15:53 GMT</lastBuildDate><atom:link href="https://temptemp3.github.io/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[Copyright © 2019. temptemp3]]></copyright><item><title><![CDATA[Enable metrics collction for an auto scaling group]]></title><description><![CDATA[You created an auto scaling group through the management console. The issue is "group metrics collection is not enabled for the following…]]></description><link>https://temptemp3.github.io/enable-metrics-collction-for-an-auto-scaling-group</link><guid isPermaLink="false">https://temptemp3.github.io/enable-metrics-collction-for-an-auto-scaling-group</guid><category><![CDATA[aws]]></category><category><![CDATA[aws-cli]]></category><category><![CDATA[aws-autoscaling]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;You created an auto scaling group through the management console. The issue is &quot;group metrics collection is not enabled for the following auto scaling groups&quot; and; you would simply like to know how to enable metric collection using the AWS CLI. Here you will a &lt;a href=&quot;#aws-cli-wrapper&quot;&gt;bash function aws-cli wrapper&lt;/a&gt; to help automate enabling metrics collection for autoscaling groups in AWS.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Today in AWS, &lt;u&gt;enabling metrics collection for an auto scaling group&lt;/u&gt; was on my to-do list.
 (28 Jul 2017)&lt;/p&gt;
@@ -46,10 +46,11 @@ enable-metrics-collection &lt;br&gt;
 &lt;p&gt;(12 Jan 2018)	Update example converting original bash example code into a aws-cli wrapper bash function&lt;/p&gt;
 &lt;p&gt;( 7 Aug 2017)	Add introduction&lt;/p&gt;
 &lt;p&gt;(28 Jul 2017)	Create document&lt;/p&gt;
-&lt;hr&gt;</content:encoded><author></author></item><item><title><![CDATA[Bash declare integer]]></title><description><![CDATA[In bash using declare we covered all the uses for the bash builtin command declare. Here we focus on the usage to declare for integer…]]></description><link>https://temptemp3.github.io/bash-declare-integer</link><guid isPermaLink="false">https://temptemp3.github.io/bash-declare-integer</guid><category><![CDATA[bash]]></category><category><![CDATA[bash-builtins]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;In &lt;a href=&quot;bash-declare.html&quot;&gt;bash using declare&lt;/a&gt; we covered all the uses for the bash builtin command declare. Here we focus on the usage to declare for integer variables in bash.&lt;/p&gt;
-&lt;h2 id=&quot;introduction&quot;&gt;&lt;a href=&quot;#introduction&quot; aria-label=&quot;introduction permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;introduction&lt;/h2&gt;
+&lt;hr&gt;</content:encoded><author></author></item><item><title><![CDATA[Bash declare integer]]></title><description><![CDATA[Why declare integers? As you may know by now or have the impression that bash doesn't have a type system like programming languages such as…]]></description><link>https://temptemp3.github.io/bash-declare-integer</link><guid isPermaLink="false">https://temptemp3.github.io/bash-declare-integer</guid><category><![CDATA[bash]]></category><category><![CDATA[bash-builtins]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Why declare integers? As you may know by now or have the impression that bash doesn&apos;t have a type system like programming languages such as C which uses types for storage purposes amongs other things. In fact, bash has something else, variable attributes. Hence, there ways to make variable in bash behave as integers. &lt;/p&gt;
+&lt;p&gt;Previously in &lt;a href=&quot;bash-declare.html&quot;&gt;bash using declare&lt;/a&gt;, we covered all the uses for the bash builtin command declare. Here we focus on the usage to declare for integer variables in bash.&lt;/p&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;&lt;a href=&quot;#introduction&quot; aria-label=&quot;introduction permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;All is string in bash. However, we may opt to restrict a variable to only storing whole numbers like 1 and -1. To accomplish this in bash, we turn on the integer attribute for the variable using builtins such as &lt;code class=&quot;language-text&quot;&gt;local&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;declare&lt;/code&gt;, and &lt;code class=&quot;language-text&quot;&gt;export&lt;/code&gt; as follows.&lt;/p&gt;
-&lt;p&gt;Example: declaring and assigning integer variable&lt;/p&gt;
+&lt;h3 id=&quot;example-declaring-and-assigning-integer-variables&quot;&gt;&lt;a href=&quot;#example-declaring-and-assigning-integer-variables&quot; aria-label=&quot;example declaring and assigning integer variables permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Example: Declaring and assigning integer variables&lt;/h3&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;unset&lt;/span&gt; var &lt;span class=&quot;token comment&quot;&gt;# unset test variable just in case&lt;/span&gt;
 &lt;span class=&quot;token builtin class-name&quot;&gt;unset&lt;/span&gt; empty_var &lt;span class=&quot;token comment&quot;&gt;# unset test variable just in case&lt;/span&gt;
 &lt;span class=&quot;token builtin class-name&quot;&gt;declare&lt;/span&gt; -i int
@@ -70,8 +71,9 @@ enable-metrics-collection &lt;br&gt;
 &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${int}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 3&lt;/span&gt;
 &lt;span class=&quot;token assign-left variable&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;RANDOM&quot;&lt;/span&gt;
 &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${int}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 1234&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;As you see there are some quirks to keep in mind when using the integer attibute in bash, especially in the case when assigning an alphanumeric string not begining with zero matching an existing variable name to an integer variable. However, it is possibly to prevent undefined behavior from occurring by paying attention to scope.&lt;/p&gt;
 &lt;!-- here --&gt;
-&lt;h2 id=&quot;usage&quot;&gt;&lt;a href=&quot;#usage&quot; aria-label=&quot;usage permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;usage&lt;/h2&gt;
+&lt;h2 id=&quot;usage&quot;&gt;&lt;a href=&quot;#usage&quot; aria-label=&quot;usage permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Usage&lt;/h2&gt;
 &lt;p&gt;Let&apos;s skip to the good part, creating integer variables!&lt;br&gt;
 Here is how to declare an integer variable in bash. Note that &lt;code class=&quot;language-text&quot;&gt;int&lt;/code&gt; is not a keyword for integer. That is the job of the &lt;code class=&quot;language-text&quot;&gt;-i&lt;/code&gt; option to the builtin declare.&lt;/p&gt;
 &lt;ul&gt;
@@ -129,51 +131,50 @@ int=one				# int=one
 &lt;p&gt;You may be wondering why you would even bother declaring integer variables in bash. After all, aren&apos;t all variable strings? Yes exactly, but using declare to add the integer attribute to a variable affects assignment.&lt;/p&gt;
 &lt;h3 id=&quot;why-declare-integers-in-bash&quot;&gt;&lt;a href=&quot;#why-declare-integers-in-bash&quot; aria-label=&quot;why declare integers in bash permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Why declare integers in bash?&lt;/h3&gt;
 &lt;p&gt;To better understand how and why integers are declared in bash, it is helpful to look at behavior with and without using integer variables.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#!/bin/bash
-## test-bash-declare-integer-1
-## - fun with integers attributes
-## version 0.0.1 - initial
-##################################################
-test-bash-declare-integer-1() {
-  ## setup
-  local lonely_integer		# one int is fine
-  local i			# for ease of use
-  declare -n i=lonely_integer 	# declare attributes
-  ## (1) do something wrong with integers
-  i=asdf			# (1) asdf as i is asdf
-  echo ${i}			# (2) asdf
-  ## (2) what if we give it the integer attribute?
-  declare -i lonely_integer	# (1) declare integer
-  i=asdf			# (2) asdf as i is 0
-  echo ${i}			# (3) 0
-  ## (3) what happened?
-  declare +i lonely_integer	# (1) revert back
-  i=$(( ${asdf} ))		# (2) what happens in (2) under (1) conditions
-  echo ${i}			# (3) 0
-  ## (4) proof: part i (without integer attribute)
-  asdf=1			# assignment for proof
-  i=$(( ${asdf} ))		# same as (3.2)
-  echo ${i}			# 1
-  ## (5) proof: part ii (with integer attribute)
-  declare -i lonely_integer	# same as (2.1)
-  i=asdf			#  asdf as i is 1
-  echo ${i}			# 1
-}
-##################################################
-if [ ${#} -eq 0 ] 
-then
- true
-else
- exit 1 # wrong args
-fi
-##################################################
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;## test-bash-declare-integer-1&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;## - fun with integers attributes&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;## version 0.0.1 - initial&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;##################################################&lt;/span&gt;
+test-bash-declare-integer-&lt;span class=&quot;token function-name function&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;## setup&lt;/span&gt;
+  &lt;span class=&quot;token builtin class-name&quot;&gt;local&lt;/span&gt; lonely_integer		&lt;span class=&quot;token comment&quot;&gt;# one int is fine&lt;/span&gt;
+  &lt;span class=&quot;token builtin class-name&quot;&gt;local&lt;/span&gt; i			&lt;span class=&quot;token comment&quot;&gt;# for ease of use&lt;/span&gt;
+  &lt;span class=&quot;token builtin class-name&quot;&gt;declare&lt;/span&gt; -n &lt;span class=&quot;token assign-left variable&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;lonely_integer 	&lt;span class=&quot;token comment&quot;&gt;# declare attributes&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;## (1) do something wrong with integers&lt;/span&gt;
+  &lt;span class=&quot;token assign-left variable&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;asdf			&lt;span class=&quot;token comment&quot;&gt;# (1) asdf as i is asdf&lt;/span&gt;
+  &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${i}&lt;/span&gt;			&lt;span class=&quot;token comment&quot;&gt;# (2) asdf&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;## (2) what if we give it the integer attribute?&lt;/span&gt;
+  &lt;span class=&quot;token builtin class-name&quot;&gt;declare&lt;/span&gt; -i lonely_integer	&lt;span class=&quot;token comment&quot;&gt;# (1) declare integer&lt;/span&gt;
+  &lt;span class=&quot;token assign-left variable&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;asdf			&lt;span class=&quot;token comment&quot;&gt;# (2) asdf as i is 0&lt;/span&gt;
+  &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${i}&lt;/span&gt;			&lt;span class=&quot;token comment&quot;&gt;# (3) 0&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;## (3) what happened?&lt;/span&gt;
+  &lt;span class=&quot;token builtin class-name&quot;&gt;declare&lt;/span&gt; +i lonely_integer	&lt;span class=&quot;token comment&quot;&gt;# (1) revert back&lt;/span&gt;
+  &lt;span class=&quot;token assign-left variable&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$((&lt;/span&gt; ${asdf} &lt;span class=&quot;token variable&quot;&gt;))&lt;/span&gt;&lt;/span&gt;		&lt;span class=&quot;token comment&quot;&gt;# (2) what happens in (2) under (1) conditions&lt;/span&gt;
+  &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${i}&lt;/span&gt;			&lt;span class=&quot;token comment&quot;&gt;# (3) 0&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;## (4) proof: part i (without integer attribute)&lt;/span&gt;
+  &lt;span class=&quot;token assign-left variable&quot;&gt;asdf&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;			&lt;span class=&quot;token comment&quot;&gt;# assignment for proof&lt;/span&gt;
+  &lt;span class=&quot;token assign-left variable&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$((&lt;/span&gt; ${asdf} &lt;span class=&quot;token variable&quot;&gt;))&lt;/span&gt;&lt;/span&gt;		&lt;span class=&quot;token comment&quot;&gt;# same as (3.2)&lt;/span&gt;
+  &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${i}&lt;/span&gt;			&lt;span class=&quot;token comment&quot;&gt;# 1&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;## (5) proof: part ii (with integer attribute)&lt;/span&gt;
+  &lt;span class=&quot;token builtin class-name&quot;&gt;declare&lt;/span&gt; -i lonely_integer	&lt;span class=&quot;token comment&quot;&gt;# same as (2.1)&lt;/span&gt;
+  &lt;span class=&quot;token assign-left variable&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;asdf			&lt;span class=&quot;token comment&quot;&gt;#  asdf as i is 1&lt;/span&gt;
+  &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${i}&lt;/span&gt;			&lt;span class=&quot;token comment&quot;&gt;# 1&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;##################################################&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${&lt;span class=&quot;token operator&quot;&gt;#&lt;/span&gt;}&lt;/span&gt; -eq &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; 
+&lt;span class=&quot;token keyword&quot;&gt;then&lt;/span&gt;
+ &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;
+ &lt;span class=&quot;token builtin class-name&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# wrong args&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;fi&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;##################################################&lt;/span&gt;
 test-bash-declare-integer-1
-##################################################
-## generated by create-stub2.sh v0.1.1
-## on Sun, 03 Feb 2019 17:36:53 +0900
-## see &amp;lt;https://github.com/temptemp3/sh2&amp;gt;
-##################################################
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&quot;token comment&quot;&gt;##################################################&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;## generated by create-stub2.sh v0.1.1&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;## on Sun, 03 Feb 2019 17:36:53 +0900&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;## see &amp;amp;lt;https://github.com/temptemp3/sh2&amp;amp;gt;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;##################################################&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You see that adding the integer attribute forces arithmetic expressions to be evaluated on assignment.&lt;/p&gt;
 &lt;h2 id=&quot;questions&quot;&gt;&lt;a href=&quot;#questions&quot; aria-label=&quot;questions permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;questions&lt;/h2&gt;
 &lt;p&gt;Here are a few quesrtions related to declaring integers in bash.&lt;/p&gt;
