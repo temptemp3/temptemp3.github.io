@@ -47,7 +47,7 @@
         }
       }
     })
-  </script><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#c62828"/><link rel="apple-touch-icon" sizes="192x192" href="/logos/logo-192x192.png"/><link rel="apple-touch-icon" sizes="512x512" href="/logos/logo-512x512.png"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link as="script" rel="preload" href="/webpack-runtime-fa9b30cec4b7466a6837.js"/><link as="script" rel="preload" href="/app-ad4bcd7d4bd2129c4e18.js"/><link as="script" rel="preload" href="/styles-5d3c5840e724dd617554.js"/><link as="script" rel="preload" href="/commons-8d7627fb5456472335c0.js"/><link as="script" rel="preload" href="/component---src-templates-post-jsx-97373a9850c8f2235397.js"/><link as="fetch" rel="preload" href="/page-data/bash-declare-integer/page-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div><nav class="navbar navbar-expand-lg navbar-light bg-light"><span class="navbar-brand">temp23</span></nav><div class="pt-3 container"><div><div><h1>Bash declare integer</h1><div class="post-meta mb-3"><div class="post-tag-container"><a style="text-decoration:none" href="/tags/bash"><button>bash</button></a><a style="text-decoration:none" href="/tags/bash-builtins"><button>bash-builtins</button></a></div></div><div><ul>
+  </script><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#c62828"/><link rel="apple-touch-icon" sizes="192x192" href="/logos/logo-192x192.png"/><link rel="apple-touch-icon" sizes="512x512" href="/logos/logo-512x512.png"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link as="script" rel="preload" href="/webpack-runtime-fa9b30cec4b7466a6837.js"/><link as="script" rel="preload" href="/app-2cb35ef47b4e2dcbeead.js"/><link as="script" rel="preload" href="/styles-5d3c5840e724dd617554.js"/><link as="script" rel="preload" href="/commons-8d7627fb5456472335c0.js"/><link as="script" rel="preload" href="/component---src-templates-post-jsx-97373a9850c8f2235397.js"/><link as="fetch" rel="preload" href="/page-data/bash-declare-integer/page-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div><nav class="navbar navbar-expand-lg navbar-light bg-light"><span class="navbar-brand">temp23</span></nav><div class="pt-3 container"><div><div><h1>Bash declare integer</h1><div class="post-meta mb-3"><div class="post-tag-container"><a style="text-decoration:none" href="/tags/bash"><button>bash</button></a><a style="text-decoration:none" href="/tags/bash-builtins"><button>bash-builtins</button></a></div></div><div><ul>
 <li><a href="/bash-declare-integer/#introduction">Introduction</a></li>
 <li><a href="/bash-declare-integer/#usage">Usage</a></li>
 <li><a href="/bash-declare-integer/#definitions">definitions</a></li>
@@ -58,26 +58,67 @@
 <h2 id="introduction"><a href="#introduction" aria-label="introduction permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
 <p>All is string in bash. However, we may opt to restrict a variable to only storing whole numbers like 1 and -1. To accomplish this in bash, we turn on the integer attribute for the variable using builtins such as <code class="language-text">local</code>, <code class="language-text">declare</code>, and <code class="language-text">export</code> as follows.</p>
 <h3 id="example-declaring-and-assigning-integer-variables"><a href="#example-declaring-and-assigning-integer-variables" aria-label="example declaring and assigning integer variables permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example: Declaring and assigning integer variables</h3>
-<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">unset</span> var <span class="token comment"># unset test variable just in case</span>
-<span class="token builtin class-name">unset</span> empty_var <span class="token comment"># unset test variable just in case</span>
-<span class="token builtin class-name">declare</span> -i int
-<span class="token assign-left variable">int</span><span class="token operator">=</span><span class="token number">1</span>
-<span class="token builtin class-name">echo</span> <span class="token variable">${int}</span> <span class="token comment"># 1</span>
-<span class="token assign-left variable">int</span><span class="token operator">=</span><span class="token string">"2"</span>
-<span class="token builtin class-name">echo</span> <span class="token variable">${int}</span> <span class="token comment"># 2</span>
-<span class="token assign-left variable">int</span><span class="token operator">=</span>var
-<span class="token builtin class-name">echo</span> <span class="token variable">${int}</span> <span class="token comment"># 0</span>
-<span class="token assign-left variable">var</span><span class="token operator">=</span><span class="token number">3</span>
-<span class="token assign-left variable">int</span><span class="token operator">=</span>var
-<span class="token builtin class-name">echo</span> <span class="token variable">${int}</span> <span class="token comment"># 3</span>
-<span class="token assign-left variable">int</span><span class="token operator">=</span>var+1
-<span class="token builtin class-name">echo</span> <span class="token variable">${int}</span> <span class="token comment"># 4</span>
-<span class="token assign-left variable">int</span><span class="token operator">=</span>empty_var
-<span class="token builtin class-name">echo</span> <span class="token variable">${int}</span> <span class="token comment"># 0</span>
-<span class="token assign-left variable">int</span><span class="token operator">=</span><span class="token string">"var"</span>
-<span class="token builtin class-name">echo</span> <span class="token variable">${int}</span> <span class="token comment"># 3</span>
-<span class="token assign-left variable">int</span><span class="token operator">=</span><span class="token string">"RANDOM"</span>
-<span class="token builtin class-name">echo</span> <span class="token variable">${int}</span> <span class="token comment"># 1234</span></code></pre></div>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function-name function">_</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token builtin class-name">local</span> var
+  <span class="token builtin class-name">local</span> empty_var
+  <span class="token builtin class-name">local</span> -i int
+  <span class="token comment">## assign int value without quote</span>
+  <span class="token assign-left variable">int</span><span class="token operator">=</span><span class="token number">1</span>
+  cecho green <span class="token string">"int=1"</span>
+  cecho yellow <span class="token string">"<span class="token variable">${int}</span>"</span> <span class="token comment"># 1</span>
+  <span class="token comment">## assign int value with quote</span>
+  <span class="token assign-left variable">int</span><span class="token operator">=</span><span class="token string">"2"</span>
+  cecho green <span class="token string">"int=2"</span>
+  cecho yellow <span class="token string">"<span class="token variable">${int}</span>"</span> <span class="token comment"># 2</span>
+  <span class="token comment">## assign int value of another variable</span>
+  <span class="token assign-left variable">int</span><span class="token operator">=</span>var
+  cecho green <span class="token string">"int=var"</span>
+  cecho yellow <span class="token string">"<span class="token variable">${int}</span>"</span> <span class="token comment"># 0</span>
+  <span class="token comment">## assign other variable value to int</span>
+  <span class="token assign-left variable">var</span><span class="token operator">=</span><span class="token number">3</span>
+  cecho green <span class="token string">"var=3"</span>
+  <span class="token comment">## assign int value of another variable again</span>
+  <span class="token assign-left variable">int</span><span class="token operator">=</span>var
+  cecho green <span class="token string">"int=var"</span>
+  cecho yellow <span class="token string">"<span class="token variable">${int}</span>"</span> <span class="token comment"># 3</span>
+  <span class="token comment">## assign int value of another variable w/ increment</span>
+  <span class="token assign-left variable">int</span><span class="token operator">=</span>var+1
+  cecho green <span class="token string">"int=var+1"</span>
+  cecho yellow <span class="token string">"<span class="token variable">${int}</span>"</span> <span class="token comment"># 4</span>
+  <span class="token comment">## assign int value of another variable empty </span>
+  <span class="token assign-left variable">int</span><span class="token operator">=</span>empty_var
+  cecho green <span class="token string">"int=<span class="token entity" title="\&quot;">\"</span>empty_var<span class="token entity" title="\&quot;">\"</span>"</span>
+  cecho yellow <span class="token string">"<span class="token variable">${int}</span>"</span> <span class="token comment"># 0</span>
+  <span class="token comment">## assign int value of another variable in quotes</span>
+  <span class="token assign-left variable">int</span><span class="token operator">=</span><span class="token string">"var"</span>
+  cecho green <span class="token string">"int=<span class="token entity" title="\&quot;">\"</span>var<span class="token entity" title="\&quot;">\"</span>"</span>
+  cecho yellow <span class="token string">"<span class="token variable">${int}</span>"</span> <span class="token comment"># 3</span>
+  <span class="token comment">## assign int value of another variable random</span>
+  <span class="token assign-left variable">int</span><span class="token operator">=</span><span class="token string">"RANDOM"</span>
+  cecho green <span class="token string">"int=<span class="token entity" title="\&quot;">\"</span>RANDOM<span class="token entity" title="\&quot;">\"</span>"</span>
+  cecho yellow <span class="token string">"int: <span class="token variable">${int}</span>"</span> <span class="token comment"># maybe 1234</span>
+<span class="token punctuation">}</span>
+_</code></pre></div>
+<p>Source: <a href="https://github.com/temptemp3/beard.sh/blob/bashboy/scripts/210513-run-example-001-bash-declare-intenger-assignment.sh">210513-run-example-001-bash-declare-intenger-assignment.sh</a></p>
+<p>Here is what you would expect to see if you were to run the script as bashboy.</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">$ bashboy run:example-001-bash-declare-intenger-assignment
+<span class="token assign-left variable">int</span><span class="token operator">=</span><span class="token number">1</span> 
+<span class="token number">1</span> 
+<span class="token assign-left variable">int</span><span class="token operator">=</span><span class="token number">2</span> 
+<span class="token number">2</span> 
+<span class="token assign-left variable">int</span><span class="token operator">=</span>var 
+<span class="token number">0</span> 
+<span class="token assign-left variable">var</span><span class="token operator">=</span><span class="token number">3</span> 
+<span class="token assign-left variable">int</span><span class="token operator">=</span>var 
+<span class="token number">3</span> 
+<span class="token assign-left variable">int</span><span class="token operator">=</span>var+1 
+<span class="token number">4</span> 
+<span class="token assign-left variable">int</span><span class="token operator">=</span><span class="token string">"empty_var"</span> 
+<span class="token number">0</span> 
+<span class="token assign-left variable">int</span><span class="token operator">=</span><span class="token string">"var"</span> 
+<span class="token number">3</span> 
+<span class="token assign-left variable">int</span><span class="token operator">=</span><span class="token string">"RANDOM"</span> 
+int: <span class="token number">12839</span> </code></pre></div>
 <p>As you see there are some quirks to keep in mind when using the integer attibute in bash, especially in the case when assigning an alphanumeric string not begining with zero matching an existing variable name to an integer variable. However, it is possibly to prevent undefined behavior from occurring by paying attention to scope.</p>
 <!-- here -->
 <h2 id="usage"><a href="#usage" aria-label="usage permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h2>
@@ -224,4 +265,4 @@ test-bash-declare-integer-1
       
       
       
-      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/bash-declare-integer";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-ad4bcd7d4bd2129c4e18.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-c5f58849c2f4732d93c1.js"],"component---src-templates-post-jsx":["/component---src-templates-post-jsx-97373a9850c8f2235397.js"],"component---src-templates-tag-jsx":["/component---src-templates-tag-jsx-6d8c1bc52db3586f8801.js"],"component---src-templates-category-jsx":["/component---src-templates-category-jsx-665ddfb80bc7865c0b6e.js"],"component---src-pages-404-jsx":["/component---src-pages-404-jsx-45b21b8b7e91106b2231.js"],"component---src-pages-index-jsx":["/component---src-pages-index-jsx-d8c796c3e469b24d66a1.js"]};/*]]>*/</script><script src="/component---src-templates-post-jsx-97373a9850c8f2235397.js" async=""></script><script src="/commons-8d7627fb5456472335c0.js" async=""></script><script src="/styles-5d3c5840e724dd617554.js" async=""></script><script src="/app-ad4bcd7d4bd2129c4e18.js" async=""></script><script src="/webpack-runtime-fa9b30cec4b7466a6837.js" async=""></script></body></html>
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/bash-declare-integer";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-2cb35ef47b4e2dcbeead.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-c5f58849c2f4732d93c1.js"],"component---src-templates-post-jsx":["/component---src-templates-post-jsx-97373a9850c8f2235397.js"],"component---src-templates-tag-jsx":["/component---src-templates-tag-jsx-6d8c1bc52db3586f8801.js"],"component---src-templates-category-jsx":["/component---src-templates-category-jsx-665ddfb80bc7865c0b6e.js"],"component---src-pages-404-jsx":["/component---src-pages-404-jsx-45b21b8b7e91106b2231.js"],"component---src-pages-index-jsx":["/component---src-pages-index-jsx-d8c796c3e469b24d66a1.js"]};/*]]>*/</script><script src="/component---src-templates-post-jsx-97373a9850c8f2235397.js" async=""></script><script src="/commons-8d7627fb5456472335c0.js" async=""></script><script src="/styles-5d3c5840e724dd617554.js" async=""></script><script src="/app-2cb35ef47b4e2dcbeead.js" async=""></script><script src="/webpack-runtime-fa9b30cec4b7466a6837.js" async=""></script></body></html>
