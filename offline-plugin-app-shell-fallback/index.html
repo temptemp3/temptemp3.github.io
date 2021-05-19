@@ -1,8 +1,14 @@
-<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 2.18.17"/><title data-react-helmet="true"></title><style type="text/css">
-    .anchor {
-      float: left;
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 2.32.13"/><title data-react-helmet="true"></title><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
       padding-right: 4px;
-      margin-left: -20px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
     }
     h1 .anchor svg,
     h2 .anchor svg,
@@ -32,7 +38,9 @@
       if (hash !== '') {
         var element = document.getElementById(hash)
         if (element) {
-          var offset = element.offsetTop
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
           // Wait for the browser to finish rendering before scrolling.
           setTimeout((function() {
             window.scrollTo(0, offset - 0)
@@ -40,7 +48,7 @@
         }
       }
     })
-  </script><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#c62828"/><link rel="apple-touch-icon" sizes="192x192" href="/logos/logo-192x192.png"/><link rel="apple-touch-icon" sizes="512x512" href="/logos/logo-512x512.png"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link as="script" rel="preload" href="/webpack-runtime-fa9b30cec4b7466a6837.js"/><link as="script" rel="preload" href="/commons-8d7627fb5456472335c0.js"/><link as="script" rel="preload" href="/app-8639055308dd2fefe792.js"/><link as="script" rel="preload" href="/component---node-modules-gatsby-plugin-offline-app-shell-js-c5f58849c2f4732d93c1.js"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"></div></div><script>
+  </script><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#c62828"/><link rel="apple-touch-icon" sizes="192x192" href="/logos/logo-192x192.png"/><link rel="apple-touch-icon" sizes="512x512" href="/logos/logo-512x512.png"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link as="script" rel="preload" href="/webpack-runtime-4bf29a57f736a30874d0.js"/><link as="script" rel="preload" href="/framework-6c3ead24af170cdcb87c.js"/><link as="script" rel="preload" href="/app-48c099eceb650697aa1a.js"/><link as="script" rel="preload" href="/component---node-modules-gatsby-plugin-offline-app-shell-js-0f40d706ebc58d78c1f6.js"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
   
   
   if(true) {
@@ -56,4 +64,4 @@
       
       
       
-      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/offline-plugin-app-shell-fallback/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-8639055308dd2fefe792.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-c5f58849c2f4732d93c1.js"],"component---src-templates-post-jsx":["/component---src-templates-post-jsx-97373a9850c8f2235397.js"],"component---src-templates-tag-jsx":["/component---src-templates-tag-jsx-6d8c1bc52db3586f8801.js"],"component---src-templates-category-jsx":["/component---src-templates-category-jsx-665ddfb80bc7865c0b6e.js"],"component---src-pages-404-jsx":["/component---src-pages-404-jsx-45b21b8b7e91106b2231.js"],"component---src-pages-index-jsx":["/component---src-pages-index-jsx-d8c796c3e469b24d66a1.js"]};/*]]>*/</script><script src="/component---node-modules-gatsby-plugin-offline-app-shell-js-c5f58849c2f4732d93c1.js" async=""></script><script src="/app-8639055308dd2fefe792.js" async=""></script><script src="/commons-8d7627fb5456472335c0.js" async=""></script><script src="/webpack-runtime-fa9b30cec4b7466a6837.js" async=""></script></body></html>
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/offline-plugin-app-shell-fallback/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-1710eb3daa040b8ff904.js"],"app":["/app-48c099eceb650697aa1a.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-0f40d706ebc58d78c1f6.js"],"component---src-pages-404-jsx":["/component---src-pages-404-jsx-bc1d0bb7cb0db547911f.js"],"component---src-pages-index-jsx":["/component---src-pages-index-jsx-1bbbb21ecf958c34b899.js"],"component---src-templates-category-jsx":["/component---src-templates-category-jsx-d0cd6f25b4148cfb234b.js"],"component---src-templates-post-jsx":["/component---src-templates-post-jsx-16fcdde25cc9154181e2.js"],"component---src-templates-tag-jsx":["/component---src-templates-tag-jsx-0b89bf7aa3166e1aaf6c.js"]};/*]]>*/</script><script src="/polyfill-1710eb3daa040b8ff904.js" nomodule=""></script><script src="/component---node-modules-gatsby-plugin-offline-app-shell-js-0f40d706ebc58d78c1f6.js" async=""></script><script src="/app-48c099eceb650697aa1a.js" async=""></script><script src="/framework-6c3ead24af170cdcb87c.js" async=""></script><script src="/webpack-runtime-4bf29a57f736a30874d0.js" async=""></script></body></html>
