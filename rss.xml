@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[temp23]]></title><description><![CDATA[Articles written by Temptemp3]]></description><link>https://temptemp3.github.io</link><image><url>https://temptemp3.github.io/logos/logo-512.png</url><title>temp23</title><link>https://temptemp3.github.io</link></image><generator>GatsbyJS Advanced Starter</generator><lastBuildDate>Fri, 21 May 2021 00:12:05 GMT</lastBuildDate><atom:link href="https://temptemp3.github.io/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[Copyright © 2019. temptemp3]]></copyright><item><title><![CDATA[Bash declare integer]]></title><description><![CDATA[Why declare integers? As you know, bash is not like most programming languages. One thing that makes it different is its type system; Unlike…]]></description><link>https://temptemp3.github.io/bash-declare-integer</link><guid isPermaLink="false">https://temptemp3.github.io/bash-declare-integer</guid><category><![CDATA[bash]]></category><category><![CDATA[bash-builtins]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Why declare integers? As you know, bash is not like most programming languages. One thing that makes it different is its type system; Unlike static and dynamic typed languages, it allows you to switch type-specific behaviors on/off through variable attributes. Hence, you would declare an integer in bash to make the variable behave more like an integer.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[temp23]]></title><description><![CDATA[Articles written by Temptemp3]]></description><link>https://temptemp3.github.io</link><image><url>https://temptemp3.github.io/logos/logo-512.png</url><title>temp23</title><link>https://temptemp3.github.io</link></image><generator>GatsbyJS Advanced Starter</generator><lastBuildDate>Fri, 21 May 2021 00:14:27 GMT</lastBuildDate><atom:link href="https://temptemp3.github.io/rss.xml" rel="self" type="application/rss+xml"/><copyright><![CDATA[Copyright © 2019. temptemp3]]></copyright><item><title><![CDATA[Bash declare integer]]></title><description><![CDATA[Why declare integers? As you know, bash is not like most programming languages. One thing that makes it different is its type system; Unlike…]]></description><link>https://temptemp3.github.io/bash-declare-integer</link><guid isPermaLink="false">https://temptemp3.github.io/bash-declare-integer</guid><category><![CDATA[bash]]></category><category><![CDATA[bash-builtins]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Why declare integers? As you know, bash is not like most programming languages. One thing that makes it different is its type system; Unlike static and dynamic typed languages, it allows you to switch type-specific behaviors on/off through variable attributes. Hence, you would declare an integer in bash to make the variable behave more like an integer.&lt;/p&gt;
 &lt;p&gt;Previously in &lt;a href=&quot;bash-declare.html&quot;&gt;bash using declare&lt;/a&gt;, we covered all the uses for the bash builtin command declare. Here we focus on the usage for specifying integer variables in bash.&lt;/p&gt;
 &lt;h2 id=&quot;declaring-integer-variables-in-bash&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#declaring-integer-variables-in-bash&quot; aria-label=&quot;declaring integer variables in bash permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Declaring integer variables in bash&lt;/h2&gt;
 &lt;p&gt;As they say, &lt;em&gt;All is string&lt;/em&gt; in bash. However, if we hope to escape from characters and strings to use numbers, we may opt to restrict a variable to storing integers like 1 and -1. And in the case that the integer does not know what to do with the value it is being assigned, assign it to 0. To accomplish this in bash, we turn on the integer attribute for the variable using builtins &lt;code class=&quot;language-text&quot;&gt;declare&lt;/code&gt; builtin combined with &lt;code class=&quot;language-text&quot;&gt;-i&lt;/code&gt;. Makes sense, right? We can also use &lt;code class=&quot;language-text&quot;&gt;local&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;export&lt;/code&gt; in place of declare if we needed.&lt;/p&gt;
@@ -34,7 +34,7 @@ _&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   cecho yellow &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${int}&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# 0&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 _&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&quot;example-assigning-int-value-a-string-matching-a-variable-name-with-side-effects&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#example-assigning-int-value-a-string-matching-a-variable-name-with-side-effects&quot; aria-label=&quot;example assigning int value a string matching a variable name with side effects permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Example: Assigning int value a string matching a variable name with side effects&lt;/h3&gt;
+&lt;h3 id=&quot;example-assigning-int-variable-name-with-side-effects&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#example-assigning-int-variable-name-with-side-effects&quot; aria-label=&quot;example assigning int variable name with side effects permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Example: Assigning int variable name with side effects&lt;/h3&gt;
 &lt;p&gt;In the last examples, we assigned in the name of a varaible and saw what happened. Now let&apos;s introduce side effects.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function-name function&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;token builtin class-name&quot;&gt;local&lt;/span&gt; var
@@ -268,451 +268,7 @@ test-bash-declare-integer-1
 &lt;span class=&quot;token builtin class-name&quot;&gt;declare&lt;/span&gt; -i myint&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;or (2), local binding with integer attribute set&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;local&lt;/span&gt; -i myint&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Either way works.&lt;/p&gt;</content:encoded><author></author></item><item><title><![CDATA[Bash declare]]></title><description><![CDATA[Most programmers can get by without knowing about declare in bash. Good thing we aren't most programmers. The leverage you get out of using…]]></description><link>https://temptemp3.github.io/bash-declare</link><guid isPermaLink="false">https://temptemp3.github.io/bash-declare</guid><category><![CDATA[bash]]></category><category><![CDATA[bash-builtins]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Most programmers can get by without knowing about declare in bash. Good thing we aren&apos;t most programmers. The leverage you get out of using declare and variable attributes is huge. It goes way beyond creating arrays and integer variables.&lt;/p&gt;
-&lt;h2 id=&quot;using-declare&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#using-declare&quot; aria-label=&quot;using declare permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Using declare&lt;/h2&gt;
-&lt;p&gt;One thing you learn later in bash is to use certain builtin commands. Declare in bash is no exception. Here we cover how to use the builtin declare to modify the attributes of bash variables allowing you to create of arrays, list functions, integers, and much more.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt; -c &lt;span class=&quot;token string&quot;&gt;&quot;help declare&quot;&lt;/span&gt;
-declare: &lt;span class=&quot;token builtin class-name&quot;&gt;declare&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;-aAfFgilnrtux&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;-p&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
-    Set variable values and attributes.
-
-    Declare variables and give them attributes.  If no NAMEs are given,
-    display the attributes and values of all variables.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Options:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;Declare takes &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;-aAfFgilnrtux&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;-p&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; as options. 
-
-&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;-aAfFgilnrtux&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; affects attribute assignment.
-
-&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;-p&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; affects display of attributes&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Options for functions:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;  -f        restrict action or display to &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; names and definitions
-
-  -F        restrict display to &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; names only &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;plus line number and
-                &lt;span class=&quot;token builtin class-name&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;file&lt;/span&gt; when debugging&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Option to list bash variable attributes:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;  -p        display the attributes and value of each NAME&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;When you need to get variable attributes in bash &lt;code class=&quot;language-text&quot;&gt;declare -p variable_name&lt;/code&gt; comes in handy. The &lt;code class=&quot;language-text&quot;&gt;-p&lt;/code&gt; option can be used to exclude functions from output. Additionally, the effect of the -p option is canceled out when combined with either the &lt;code class=&quot;language-text&quot;&gt;-f&lt;/code&gt; option to include functions or the &lt;code class=&quot;language-text&quot;&gt;-F&lt;/code&gt; option to include only function names.&lt;/p&gt;
-&lt;p&gt;Options which set attributes:&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;-&lt;a href=&quot;declare.html#indexed_arrays&quot;&gt;a&lt;/a&gt; to make NAMEs indexed arrays (if supported)&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;-&lt;a href=&quot;declare.html#associative_arrays&quot;&gt;A&lt;/a&gt; to make NAMEs associative arrays (if supported)&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;-&lt;a href=&quot;declare.html#integers&quot;&gt;i&lt;/a&gt; to make NAMEs have the &apos;integer&apos; attribute&lt;/span&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;  -g        create global variables when used in a shell function; otherwise
-            ignored
-
-  -l        to convert NAMEs to lower case on assignment
-
-  -n        make NAME a reference to the variable named by its value
-
-  -r        to make NAMEs readonly
-
-  -t        to make NAMEs have the `trace&amp;#39; attribute
-
-  -u        to convert NAMEs to upper case on assignment
-
-  -x        to make NAMEs export&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;pre&gt;&lt;code&gt;Using `+&apos; instead of `-&apos; turns off the given attribute.
-
-    Variables with the integer attribute have arithmetic evaluation (see
-    the `let&apos; command) performed when the variable is assigned a value.
-
-    When used in a function, `declare&apos; makes NAMEs local, as with the `local&apos;
-    command.  The `-g&apos; option suppresses this behavior.
-
-    Exit Status:
-    Returns success unless an invalid option is supplied or a variable
-    assignment error occurs.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The &lt;u&gt;bash builtin&lt;/u&gt; command &lt;u&gt;declare&lt;/u&gt; provides access to variable attributes within the scope of a bash program. &lt;/p&gt;
-&lt;p&gt;Here is a list of ways declare may be used. &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;declare an arrays &lt;/li&gt;
-&lt;li&gt;&lt;a data-scroll href=&quot;#namerefs&quot;&gt;declare namerefs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;dump variables&lt;/li&gt;
-&lt;li&gt;test functions&lt;/li&gt;
-&lt;li&gt;give variable attributes&lt;/li&gt;
-&lt;li&gt;remove variable attributes&lt;/li&gt;
-&lt;li&gt;list attributes&lt;/li&gt;
-&lt;li&gt;make variable read-only&lt;/li&gt;
-&lt;li&gt;make variable an integer&lt;/li&gt;
-&lt;li&gt;make variable cast into lowercase on assignment&lt;/li&gt;
-&lt;li&gt;make variable cast into uppercase on assignment&lt;/li&gt;
-&lt;li&gt;make variable or function available in subshells&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;to-declare-an-array&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-declare-an-array&quot; aria-label=&quot;to declare an array permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to declare an array&lt;/h2&gt;
-&lt;p&gt;declaring arrays in bash&lt;/p&gt;
-&lt;p&gt;&lt;a name=&quot;indexed_arrays&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;indexed-arrays&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#indexed-arrays&quot; aria-label=&quot;indexed arrays permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;indexed arrays&lt;/h3&gt;
-&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare -a&lt;/code&gt; in bash&lt;/p&gt;
-&lt;p&gt;The &lt;code class=&quot;w3-codespan&quot;&gt;-a&lt;/code&gt; option adds the indexed array attribute to the variable name provided to the declare command.&lt;/p&gt;
-&lt;h4 id=&quot;declare-indexed-array-variable&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#declare-indexed-array-variable&quot; aria-label=&quot;declare indexed array variable permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;declare indexed array variable&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;#
-# declare an array
-#
-declare -a VARIABLE 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&quot;set-indexed-array-key-value&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#set-indexed-array-key-value&quot; aria-label=&quot;set indexed array key value permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;set indexed array key value&lt;/h4&gt;
-&lt;p&gt;Array key values may be set on initialization or afterwords. Indices inherit the integer attribute inside square brackets (&quot;&lt;code class=&quot;w3-codespan&quot;&gt;[]&lt;/code&gt;&quot;). Using &lt;code class=&quot;w3-codespan&quot;&gt;declare -p&lt;/code&gt; on an indexed array will list all array keys along with their corresponding assigned values.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#
-# declare an array and set key values
-#
-declare -a arr=(1) # arr[0]=1
-arr[1]=$(( arr[0] + 1 ))
-echo ${arr[0]} # 1
-echo ${arr[1]} # 2
-for i in {1..10}
-do
- arr[i]=$(( arr[i-1] + arr[i-2] ))
-done
-echo ${arr[i]} # 199
-declare -p arr
-## expect
-#declare -a arr=([0]=&quot;1&quot; [1]=&quot;3&quot; [2]=&quot;4&quot; [3]=&quot;7&quot; [4]=&quot;11&quot; [5]=&quot;18&quot; [6]=&quot;29&quot; [7]=&quot;47&quot; [8]=&quot;76&quot; [9]=&quot;123&quot; [10]=&quot;199&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;a name=&quot;associative_arrays&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;associative-arrays-hashes-map-dictionary-or-collection-of-keyvalue-pairs&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#associative-arrays-hashes-map-dictionary-or-collection-of-keyvalue-pairs&quot; aria-label=&quot;associative arrays hashes map dictionary or collection of keyvalue pairs permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;associative arrays, hashes, map, dictionary, or collection of (key,value) pairs&lt;/h3&gt;
-&lt;p&gt;Associative arrays hold key value pairs also called hashes. Unlike indexed arrays, their indices are not limited to integer values. That is, associative array keys may be any string. &lt;/p&gt;
-&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare -A&lt;/code&gt; in bash&lt;/p&gt;
-&lt;p&gt;The &lt;code class=&quot;w3-codespan&quot;&gt;-A&lt;/code&gt; option adds the associative array attribute to the variable name provided to the declare command. Note that declaring an associative array within a function will force local scope. To declare scope outside and use in a function omit the associative array declaration command line.&lt;/p&gt;
-&lt;h4 id=&quot;declare-associative-array&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#declare-associative-array&quot; aria-label=&quot;declare associative array permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;declare associative array&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;#
-# declare an associative arrays
-#
-declare -A VARIABLE 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&quot;local-associative-array&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#local-associative-array&quot; aria-label=&quot;local associative array permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;local associative array&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;foobar() { # foo w/ bar
-  echo -n ${FUNCNAME}:
-  ## note that local is not required in the case of declare -A
-  declare -A arr
-  arr[&quot;key&quot;]=value2
-  bar
-}
-rab() { # declares arr local
-  echo -n ${FUNCNAME}:
-  local arr
-  declare -p arr
-}
-bar() { # may inherit global arr
-  echo -n ${FUNCNAME}:
-  declare -p arr
-}
-foo() { # declare arr local to function
-  echo -n ${FUNCNAME}:
-  ## note that local is not required in the case of declare -A
-  declare -A arr
-  arr[&quot;key&quot;]=value2
-  declare -p arr
-}
-{ echo -n : ; declare -p arr 2&gt;/dev/null || echo no variable named arr 1&gt;&amp;2 ; }
-foo
-{ echo -n : ; declare -p arr 2&gt;/dev/null || echo no variable named arr 1&gt;&amp;2 ; }
-( declare -A arr ; arr[&quot;key&quot;]=value ; declare -p arr ; )
-{ echo -n : ; declare -p arr 2&gt;/dev/null || echo no variable named arr 1&gt;&amp;2 ; }
-{ declare -A arr ; arr[&quot;key&quot;]=value ; declare -p arr ; }
-{ echo -n : ; declare -p arr 2&gt;/dev/null || echo no variable named arr 1&gt;&amp;2 ; }
-foo
-{ echo -n : ; declare -p arr 2&gt;/dev/null || echo no variable named arr 1&gt;&amp;2 ; }
-( declare -A arr ; arr[&quot;key&quot;]=value3 ; declare -p arr ; )
-{ echo -n : ; declare -p arr 2&gt;/dev/null || echo no variable named arr 1&gt;&amp;2 ; }
-bar
-{ echo -n : ; declare -p arr 2&gt;/dev/null || echo no variable named arr 1&gt;&amp;2 ; }
-rab
-{ echo -n : ; declare -p arr 2&gt;/dev/null || echo no variable named arr 1&gt;&amp;2 ; }
-foobar
-{ echo -n : ; declare -p arr 2&gt;/dev/null || echo no variable named arr 1&gt;&amp;2 ; }
-## expect
-#:no variable named arr
-#foo:declare -A arr=([key]=&quot;value2&quot; )
-#:no variable named arr
-#declare -A arr=([key]=&quot;value&quot; )
-#:no variable named arr
-#declare -A arr=([key]=&quot;value&quot; )
-#:declare -A arr=([key]=&quot;value&quot; )
-#foo:declare -A arr=([key]=&quot;value2&quot; )
-#:declare -A arr=([key]=&quot;value&quot; )
-#declare -A arr=([key]=&quot;value3&quot; )
-#:declare -A arr=([key]=&quot;value&quot; )
-#bar:declare -A arr=([key]=&quot;value&quot; )
-#:declare -A arr=([key]=&quot;value&quot; )
-#rab:declare -- arr
-#:declare -A arr=([key]=&quot;value&quot; )
-#foobar:bar:declare -A arr=([key]=&quot;value2&quot; )
-#:declare -A arr=([key]=&quot;value&quot; )
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&quot;associative-arrays-in-the-wild&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#associative-arrays-in-the-wild&quot; aria-label=&quot;associative arrays in the wild permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;associative arrays in the wild&lt;/h4&gt;
-&lt;p&gt;Associative array variable example using array to store document meta name value pairs&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;declare -A document
-...
-get-document-meta() {
- local document_meta
- local document_meta_name
- local document_meta_value
- document_meta=$(
-  cat ${file} \
-  | grep \
-  -e &apos;&lt;[!]--\s\+[a-z-]\+:[a-z,]\+\s\+--&gt;&apos; --only-matching \
-  | sed -e &apos;s/\(.*\)/\1/&apos; \
-  -e &apos;s/&lt;!--\s\+//g&apos; \
-  -e &apos;s/\s\+--&gt;//g&apos; 
- )
- test ! &quot;${document_meta}&quot; || {
-  document_meta_name=$( 
-   echo &quot;${document_meta}&quot; | cut -f1 -d:
-  )
-  document_meta_value=$(
-   echo &quot;${document_meta}&quot; | cut -f2 -d:
-  )
-  document[&quot;${document_meta_name}&quot;]=&quot;${document_meta_value}&quot; 
- }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;source: &lt;a href=&quot;https://github.com/temptemp3/sh2-u2-theme-default/blob/master/include.sh&quot;&gt;sh2-u2-theme-default/include.sh&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a id=&quot;namerefs&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;to-declare-a-variable-to-be-a-reference-to-another-variable&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-declare-a-variable-to-be-a-reference-to-another-variable&quot; aria-label=&quot;to declare a variable to be a reference to another variable permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to declare a variable to be a reference to another variable&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare -n&lt;/code&gt; allows you to declare namerefs in bash. That is, we can use it to a name to be used reference another name.&lt;/p&gt;
-&lt;p&gt;The &lt;code class=&quot;w3-codespan&quot;&gt;-n&lt;/code&gt; option adds the nameref attribute to the name provided to the declare command.&lt;/p&gt;
-&lt;p&gt;Basic usage&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#
-# declare nameref
-#
-declare -n VARIABLE 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Nameref variable example&lt;/p&gt;
-&lt;p&gt;Source&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#!/bin/bash
-## test-declare-nameref
-## version 0.0.1 - initial
-##################################################
-test-declare-nameref() {
-  declare -n X=x
-  declare -i x
-  echo setting x to 1 ...
-  x=1
-  echo x: ${x}
-  echo X: ${X}
-  echo incrementing x 9 times
-  _() { x+=1 ; }
-  for i in {1..9} ; do _ ; done
-  echo x: ${x}
-  echo X: ${X}
-  echo unsetting X ...
-  unset X
-  echo x: ${x}
-  echo X: ${X}
-}
-##################################################
-if [ ${#} -eq 0 ] 
-then
- true
-else
- exit 1 # wrong args
-fi
-##################################################
-test-declare-nameref
-##################################################
-## generated by create-stub2.sh v0.1.2
-## on Mon, 22 Jul 2019 20:31:35 +0900
-## see &amp;lt;https://github.com/temptemp3/sh2&amp;gt;
-##################################################
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Commands&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;bash test-declare-nameref.sh
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Ouput&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;setting x to 1 ...
-x: 1
-X: 1
-incrementing x 9 times
-x: 10
-X: 10
-unsetting X ...
-x:
-X:
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;to-dump-variables&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-dump-variables&quot; aria-label=&quot;to dump variables permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to dump variables&lt;/h2&gt;
-&lt;p&gt;Using declare by itself may be used to dump variable names and functions along with their value and definitions, respectfully.&lt;/p&gt;
-&lt;p&gt;Declare command example&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;declare
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;to-test-a-function&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-test-a-function&quot; aria-label=&quot;to test a function permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to test a function&lt;/h2&gt;
-&lt;p&gt;The declare command may be used to test if a function has been declared and is usable within the scope of the bash program.&lt;/p&gt;
-&lt;p&gt;Function test examples&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#
-# return name and definition of function if declared
-#
-declare -f ${function_name} 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;#
-# returns name only of function if declared
-#
-declare -F ${function_name} 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;to-give-a-variable-attributes&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-give-a-variable-attributes&quot; aria-label=&quot;to give a variable attributes permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to give a variable attributes&lt;/h2&gt;
-&lt;p&gt;Attribute variable example&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#
-# give variable attribute x
-#
-declare -X VARIABLE 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;to-remove-variable-attributes&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-remove-variable-attributes&quot; aria-label=&quot;to remove variable attributes permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to remove variable attributes&lt;/h2&gt;
-&lt;p&gt;Use &apos;+&apos; instead of &apos;-&apos;.&lt;/p&gt;
-&lt;p&gt;Variable attribute removal example&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#
-# remove attribute x from variable
-#
-declare +X VARIABLE 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Attribute removal behavior may vary for array and readonly variables.&lt;/p&gt;
-&lt;h2 id=&quot;to-list-attributes&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-list-attributes&quot; aria-label=&quot;to list attributes permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to list attributes&lt;/h2&gt;
-&lt;p&gt;List all variables in addition to their attributes.&lt;/p&gt;
-&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare -p&lt;/code&gt; in bash&lt;/p&gt;
-&lt;p&gt;Print variables and attributes in bash using the &lt;code class=&quot;w3-codespan&quot;&gt;-p&lt;/code&gt; option displays the attributes of the name provided to the declare command. Variables may include an assigned value.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;declare -p 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;to-declare-a-variable-without-attributes&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-declare-a-variable-without-attributes&quot; aria-label=&quot;to declare a variable without attributes permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to declare a variable without attributes&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare&lt;/code&gt; in bash without attributes&lt;/p&gt;
-&lt;p&gt;The declare command may be used without specifying attributes resulting in an assignment.&lt;/p&gt;
-&lt;p&gt;Declare variable example&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#
-# declare variable without attribute
-#
-declare VARIABLE[=VALUE] 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;equvalent to&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#
-# declare variable 
-#
-VARIABLE=[VALUE] 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;to-declare-a-readonly-variable&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-declare-a-readonly-variable&quot; aria-label=&quot;to declare a readonly variable permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to declare a readonly variable&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare -r&lt;/code&gt; in bash&lt;/p&gt;
-&lt;p&gt;Declare read-only variable in bash using the &lt;code class=&quot;w3-codespan&quot;&gt;-r&lt;/code&gt; option adds the read-only attribute to the variable name provided to the declare command such that the variable may not be reassigned.&lt;/p&gt;
-&lt;p&gt;Read-only variable example&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#
-# declare readonly
-#
-declare -r VARIABLE 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;a name=&quot;bash-declare-integer&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;integers&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;to-declare-a-variable-to-be-treated-as-an-integer&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-declare-a-variable-to-be-treated-as-an-integer&quot; aria-label=&quot;to declare a variable to be treated as an integer permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to declare a variable to be treated as an integer&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare -i&lt;/code&gt; in bash&lt;/p&gt;
-&lt;p&gt;Declare integer variables in bash using the &lt;code class=&quot;w3-codespan&quot;&gt;-i&lt;/code&gt; option adds the integer attribute to the variable name provided to the declare command such that the variable is to treated as an integer.&lt;/p&gt;
-&lt;p&gt;Integer variable example&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#
-# declare integer
-#
-declare -i VARIABLE 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;See also&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;declare-integer.html&quot;&gt;bash declare integer&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;to-declare-a-variable-to-be-case-insensitive-or-lowercase&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-declare-a-variable-to-be-case-insensitive-or-lowercase&quot; aria-label=&quot;to declare a variable to be case insensitive or lowercase permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to declare a variable to be case-insensitive, or lowercase&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare -l&lt;/code&gt; in bash&lt;/p&gt;
-&lt;p&gt;Declare lowercase variables in bash using the &lt;code class=&quot;w3-codespan&quot;&gt;-l&lt;/code&gt; option adds the lowercase attribute to the variable name provided to the declare command such that any value is converted to lowercase on assignment.&lt;/p&gt;
-&lt;p&gt;Lower variable example&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#
-# declare lower
-#
-declare -l VARIABLE 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;to-declare-a-variable-to-be-uppercase&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-declare-a-variable-to-be-uppercase&quot; aria-label=&quot;to declare a variable to be uppercase permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to declare a variable to be uppercase&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare -u&lt;/code&gt; in bash&lt;/p&gt;
-&lt;p&gt;Declare uppercase variables in bash using the &lt;code class=&quot;w3-codespan&quot;&gt;-u&lt;/code&gt; option adds the uppercase attribute to the variable name provided to the declare command such that any value is converted to uppercase on assignment.&lt;/p&gt;
-&lt;p&gt;Upper variable example&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#
-# declare upper
-#
-declare -u VARIABLE 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;to-export-variables-or-functions-to-subshells&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-export-variables-or-functions-to-subshells&quot; aria-label=&quot;to export variables or functions to subshells permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to export variables or functions to subshells&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare -x&lt;/code&gt; in bash&lt;/p&gt;
-&lt;p&gt;Export variables and functions in bash using the &lt;code class=&quot;w3-codespan&quot;&gt;-x&lt;/code&gt; option adds the export attribute to the variable or function name provided to the declare command.&lt;/p&gt;
-&lt;h3 id=&quot;export-variable-to-subshells&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#export-variable-to-subshells&quot; aria-label=&quot;export variable to subshells permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;export variable to subshells&lt;/h3&gt;
-&lt;p&gt;Export variable example&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#
-# declare export variable
-#
-declare -x VARIABLE 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;export-function-to-subshells&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#export-function-to-subshells&quot; aria-label=&quot;export function to subshells permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;export function to subshells&lt;/h3&gt;
-&lt;p&gt;Export function example&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#
-# declare export function
-#
-declare -xf FUNCTION
-&lt;/code&gt;&lt;/pre&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;commands-similar-to-declare&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#commands-similar-to-declare&quot; aria-label=&quot;commands similar to declare permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;commands similar to declare&lt;/h2&gt;
-&lt;p&gt;In addition, to declare, the following commands allow modification of bash variable attributes.&lt;/p&gt;
-&lt;h3 id=&quot;local&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#local&quot; aria-label=&quot;local permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;local&lt;/h3&gt;
-&lt;p&gt;Same as declare but with local bindings for functions&lt;/p&gt;
-&lt;p&gt;See &lt;a href=&quot;local.html&quot;&gt;bash using local&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;typeset&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#typeset&quot; aria-label=&quot;typeset permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;typeset&lt;/h3&gt;
-&lt;p&gt;Synonym for declare. That can be used interchangeably. May be used for compatibility with ksh or other POSIX complaint shell; however, set of option available may differ.&lt;/p&gt;
-&lt;h3 id=&quot;unset&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#unset&quot; aria-label=&quot;unset permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;unset&lt;/h3&gt;
-&lt;p&gt;Remove variable from list of declared variables. Does not apply to indexed and associative arrays. Can be used on functions. Some options similar to declare, local, and typeset.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;questions&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#questions&quot; aria-label=&quot;questions permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;questions&lt;/h2&gt;
-&lt;p&gt;Questions and answers regarding declare in bash.&lt;/p&gt;
-&lt;h3 id=&quot;why-declare&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#why-declare&quot; aria-label=&quot;why declare permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;why declare?&lt;/h3&gt;
-&lt;p&gt;Typing. Declare allows you to apply or take away attributes to variables in bash similar to how types or assigned in statically typed programming languages. For example, you may want to make it so a variable may not be reassigned a new value. This can be accomplished using the bash builtin command declare. &lt;/p&gt;
-&lt;h3 id=&quot;declare-or-typeset&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#declare-or-typeset&quot; aria-label=&quot;declare or typeset permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;declare or typeset?&lt;/h3&gt;
-&lt;p&gt;Either is fine. However, I personally don&apos;t use typeset. Although it doesn&apos;t hurt to know what it is at least or in case you have to migrate to ksh for some reason.&lt;/p&gt;
-&lt;h3 id=&quot;do-i-need-declare-to-assign-a-value-to-a-variable&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#do-i-need-declare-to-assign-a-value-to-a-variable&quot; aria-label=&quot;do i need declare to assign a value to a variable permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;do I need declare to assign a value to a variable?&lt;/h3&gt;
-&lt;p&gt;No. For most cases, you do not need declare to assign values to a variable. However, there may be side effects of declaring variable attributes after assignment. In that case, it would be advantageous to declare attributes before or on assignment in a single statement assigning value to a variable. &lt;/p&gt;
-&lt;h3 id=&quot;why-would-i-declare-a-variable-without-value-in-bash&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#why-would-i-declare-a-variable-without-value-in-bash&quot; aria-label=&quot;why would i declare a variable without value in bash permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;why would I declare a variable without value in bash?&lt;/h3&gt;
-&lt;p&gt;You may declare a variable without value to communicate that a variable may be modified from this point on or to unset a variable via assignment.&lt;/p&gt;
-&lt;p&gt;It is not necessary to declare a variable for the purpose of initialization if no assignment was made prior to appearance in script.&lt;/p&gt;
-&lt;hr&gt;</content:encoded><author></author></item><item><title><![CDATA[Enable metrics collction for an auto scaling group]]></title><description><![CDATA[You created an auto scaling group through the management console. The issue is "group metrics collection is not enabled for the following…]]></description><link>https://temptemp3.github.io/enable-metrics-collction-for-an-auto-scaling-group</link><guid isPermaLink="false">https://temptemp3.github.io/enable-metrics-collction-for-an-auto-scaling-group</guid><category><![CDATA[aws]]></category><category><![CDATA[aws-cli]]></category><category><![CDATA[aws-autoscaling]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;You created an auto scaling group through the management console. The issue is &quot;group metrics collection is not enabled for the following auto scaling groups&quot; and; you would simply like to know how to enable metric collection using the AWS CLI. Here you will a &lt;a href=&quot;#aws-cli-wrapper&quot;&gt;bash function aws-cli wrapper&lt;/a&gt; to help automate enabling metrics collection for autoscaling groups in AWS.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Today in AWS, &lt;u&gt;enabling metrics collection for an auto scaling group&lt;/u&gt; was on my to-do list.
-(28 Jul 2017)&lt;/p&gt;
-&lt;p&gt;This page dedicated to the task of enabling auto scaling metrics collection.&lt;/p&gt;
-&lt;h2 id=&quot;introduction&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#introduction&quot; aria-label=&quot;introduction permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;As you may know by know, group metrics collection in AWS is not enabled by default for auto scaling groups. Why?  &lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Metrics collection is not free;  &lt;/li&gt;
-&lt;li&gt;In most cases, autoscaling metrics collection is not need. However, if you would like to track your autoscaling capacity over time, you need to enable auto scaling metrics collection, which can be done using the aws-cli. At the time of creating this document, there was no place to click in the management console, leaving the aws-cli the only way to enable metrics collection for an auto scaling group.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;enable-auto-scaling-metrics-collection-shortcut&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#enable-auto-scaling-metrics-collection-shortcut&quot; aria-label=&quot;enable auto scaling metrics collection shortcut permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Enable auto scaling metrics collection shortcut&lt;/h2&gt;
-&lt;p&gt;If you are really in a hurry to enable auto scaling metrics collection in AWS that you are currently working on, here is the &lt;a href=&quot;#aws-cli-example&quot;&gt;aws-cli&lt;/a&gt; shortcut you need. &lt;/p&gt;
-&lt;h2 id=&quot;enable-auto-scaling-metrics-collection-guide&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#enable-auto-scaling-metrics-collection-guide&quot; aria-label=&quot;enable auto scaling metrics collection guide permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Enable auto scaling metrics collection guide&lt;/h2&gt;
-&lt;p&gt;If you&apos;ve ever picked up where you left off, in the middle of a test, or are in your free tier period, you will find out or be reminded that metrics collection is not enabled by default. &lt;em&gt;So, what do you do?&lt;/em&gt;&lt;/p&gt;
-&lt;!-- write about how to enable auto scaling group metrics collection --&gt;
-&lt;p&gt;&lt;strong&gt;Why enable auto scaling metrics collection?&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Metrics collection is used by scaling policies to achieve autoscaling.&lt;/p&gt;
-&lt;p&gt;Auto scaling groups are created without enabled metrics by default. Auto scaling group metrics collection may be enabled manually via command line through the aws-cli.&lt;/p&gt;
-&lt;h2 id=&quot;aws-cli&quot;&gt;AWS CLI&lt;/h2&gt;
-&lt;h3 id=&quot;aws-autoscaling-enable-metrics-collection&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#aws-autoscaling-enable-metrics-collection&quot; aria-label=&quot;aws autoscaling enable metrics collection permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;aws autoscaling enable-metrics-collection&lt;/h3&gt;
-&lt;h4 id=&quot;required-options&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#required-options&quot; aria-label=&quot;required options permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;required options&lt;/h4&gt;
-&lt;p&gt;The following options are required by the &apos;enable-metrics-collection&apos; command of the &apos;aws autoscaling&apos; command namespace.&lt;/p&gt;
-&lt;h5 id=&quot;--auto-scaling-group-name&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#--auto-scaling-group-name&quot; aria-label=&quot;  auto scaling group name permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;--auto-scaling-group-name&lt;/h5&gt;
-&lt;p&gt;The name or ARN of the auto scaling group is required.&lt;/p&gt;
-&lt;!-- link to arn --&gt;
-&lt;h5 id=&quot;--granularity&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#--granularity&quot; aria-label=&quot;  granularity permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;--granularity&lt;/h5&gt;
-&lt;p&gt;Despite the only valid value being &quot;1Minute&quot;, granularity is required.&lt;/p&gt;
-&lt;h4 id=&quot;aws-cli-example&quot;&gt;example&lt;/h4&gt;
-&lt;p&gt;&lt;a name=&quot;enable-metrics-collection&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h5 id=&quot;bash-function&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#bash-function&quot; aria-label=&quot;bash function permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;bash function&lt;/h5&gt;
-&lt;h6 id=&quot;aws-cli-wrapper&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#aws-cli-wrapper&quot; aria-label=&quot;aws cli wrapper permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;aws-cli wrapper&lt;/h6&gt;
-&lt;p&gt;&lt;code&gt;&lt;pre&gt;
-enable-metrics-collection() { { local auto_scaling_group_name ; auto_scaling_group_name=&quot;${1}&quot; ; }
-local granularity
-granularity=&quot;1Minute&quot;
-aws &lt;br&gt;
-autoscaling &lt;br&gt;
-enable-metrics-collection &lt;br&gt;
---auto-scaling-group-name &quot;${auto_scaling_group_name}&quot; &lt;br&gt;
---granularity &quot;${granularity}&quot;
-}&lt;/p&gt;
-&lt;/pre&gt;&lt;/code&gt;
-&lt;h2 id=&quot;changelog&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#changelog&quot; aria-label=&quot;changelog permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Changelog&lt;/h2&gt;
-&lt;p&gt;(3 Feb 2019)	Minor revision&lt;/p&gt;
-&lt;p&gt;(12 Jan 2018)	Update example converting original bash example code into a aws-cli wrapper bash function&lt;/p&gt;
-&lt;p&gt;( 7 Aug 2017)	Add introduction&lt;/p&gt;
-&lt;p&gt;(28 Jul 2017)	Create document&lt;/p&gt;
-&lt;hr&gt;</content:encoded><author></author></item><item><title><![CDATA[Bash functions]]></title><description><![CDATA[Read in 16 minutes Shell functions in bash allow you to name groups of commands to be run at a later time. Once named, command groups may be…]]></description><link>https://temptemp3.github.io/bash-functions</link><guid isPermaLink="false">https://temptemp3.github.io/bash-functions</guid><category><![CDATA[bash]]></category><category><![CDATA[bash-functions]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Read in 16 minutes&lt;/p&gt;
+&lt;p&gt;Either way works.&lt;/p&gt;</content:encoded><author></author></item><item><title><![CDATA[Bash functions]]></title><description><![CDATA[Read in 16 minutes Shell functions in bash allow you to name groups of commands to be run at a later time. Once named, command groups may be…]]></description><link>https://temptemp3.github.io/bash-functions</link><guid isPermaLink="false">https://temptemp3.github.io/bash-functions</guid><category><![CDATA[bash]]></category><category><![CDATA[bash-functions]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Read in 16 minutes&lt;/p&gt;
 &lt;p&gt;Shell functions in bash allow you to name groups of commands to be run at a later time. Once named, command groups may be executed by using the function name. Each function has its own set of positional parameters when called. Variable attributes such as local may apply within a function. &lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;function-help&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#function-help&quot; aria-label=&quot;function help permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;function help&lt;/h2&gt;
@@ -1552,6 +1108,450 @@ test-associative-arrays
 &lt;p&gt;Source: &lt;a href=&quot;https://github.com/temptemp3/ba.sh/blob/master/test-associative-arrays.sh&quot;&gt;test-associative-arrays.sh&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&quot;indexed-arrays&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#indexed-arrays&quot; aria-label=&quot;indexed arrays permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;indexed arrays&lt;/h4&gt;
 &lt;p&gt;It is possible to return an indexed array from a shell function. Sanitizing the string representation of the array before instantiation is recommended. See the example showing how to return from functions above.&lt;/p&gt;
+&lt;hr&gt;</content:encoded><author></author></item><item><title><![CDATA[Bash declare]]></title><description><![CDATA[Most programmers can get by without knowing about declare in bash. Good thing we aren't most programmers. The leverage you get out of using…]]></description><link>https://temptemp3.github.io/bash-declare</link><guid isPermaLink="false">https://temptemp3.github.io/bash-declare</guid><category><![CDATA[bash]]></category><category><![CDATA[bash-builtins]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Most programmers can get by without knowing about declare in bash. Good thing we aren&apos;t most programmers. The leverage you get out of using declare and variable attributes is huge. It goes way beyond creating arrays and integer variables.&lt;/p&gt;
+&lt;h2 id=&quot;using-declare&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#using-declare&quot; aria-label=&quot;using declare permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Using declare&lt;/h2&gt;
+&lt;p&gt;One thing you learn later in bash is to use certain builtin commands. Declare in bash is no exception. Here we cover how to use the builtin declare to modify the attributes of bash variables allowing you to create of arrays, list functions, integers, and much more.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt; -c &lt;span class=&quot;token string&quot;&gt;&quot;help declare&quot;&lt;/span&gt;
+declare: &lt;span class=&quot;token builtin class-name&quot;&gt;declare&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;-aAfFgilnrtux&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;-p&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+    Set variable values and attributes.
+
+    Declare variables and give them attributes.  If no NAMEs are given,
+    display the attributes and values of all variables.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Options:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;Declare takes &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;-aAfFgilnrtux&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;-p&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; as options. 
+
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;-aAfFgilnrtux&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; affects attribute assignment.
+
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;-p&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; affects display of attributes&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Options for functions:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;  -f        restrict action or display to &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; names and definitions
+
+  -F        restrict display to &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; names only &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;plus line number and
+                &lt;span class=&quot;token builtin class-name&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;file&lt;/span&gt; when debugging&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Option to list bash variable attributes:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;  -p        display the attributes and value of each NAME&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When you need to get variable attributes in bash &lt;code class=&quot;language-text&quot;&gt;declare -p variable_name&lt;/code&gt; comes in handy. The &lt;code class=&quot;language-text&quot;&gt;-p&lt;/code&gt; option can be used to exclude functions from output. Additionally, the effect of the -p option is canceled out when combined with either the &lt;code class=&quot;language-text&quot;&gt;-f&lt;/code&gt; option to include functions or the &lt;code class=&quot;language-text&quot;&gt;-F&lt;/code&gt; option to include only function names.&lt;/p&gt;
+&lt;p&gt;Options which set attributes:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;-&lt;a href=&quot;declare.html#indexed_arrays&quot;&gt;a&lt;/a&gt; to make NAMEs indexed arrays (if supported)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;-&lt;a href=&quot;declare.html#associative_arrays&quot;&gt;A&lt;/a&gt; to make NAMEs associative arrays (if supported)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;w3-codespan&quot;&gt;-&lt;a href=&quot;declare.html#integers&quot;&gt;i&lt;/a&gt; to make NAMEs have the &apos;integer&apos; attribute&lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;  -g        create global variables when used in a shell function; otherwise
+            ignored
+
+  -l        to convert NAMEs to lower case on assignment
+
+  -n        make NAME a reference to the variable named by its value
+
+  -r        to make NAMEs readonly
+
+  -t        to make NAMEs have the `trace&amp;#39; attribute
+
+  -u        to convert NAMEs to upper case on assignment
+
+  -x        to make NAMEs export&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;Using `+&apos; instead of `-&apos; turns off the given attribute.
+
+    Variables with the integer attribute have arithmetic evaluation (see
+    the `let&apos; command) performed when the variable is assigned a value.
+
+    When used in a function, `declare&apos; makes NAMEs local, as with the `local&apos;
+    command.  The `-g&apos; option suppresses this behavior.
+
+    Exit Status:
+    Returns success unless an invalid option is supplied or a variable
+    assignment error occurs.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;u&gt;bash builtin&lt;/u&gt; command &lt;u&gt;declare&lt;/u&gt; provides access to variable attributes within the scope of a bash program. &lt;/p&gt;
+&lt;p&gt;Here is a list of ways declare may be used. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;declare an arrays &lt;/li&gt;
+&lt;li&gt;&lt;a data-scroll href=&quot;#namerefs&quot;&gt;declare namerefs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;dump variables&lt;/li&gt;
+&lt;li&gt;test functions&lt;/li&gt;
+&lt;li&gt;give variable attributes&lt;/li&gt;
+&lt;li&gt;remove variable attributes&lt;/li&gt;
+&lt;li&gt;list attributes&lt;/li&gt;
+&lt;li&gt;make variable read-only&lt;/li&gt;
+&lt;li&gt;make variable an integer&lt;/li&gt;
+&lt;li&gt;make variable cast into lowercase on assignment&lt;/li&gt;
+&lt;li&gt;make variable cast into uppercase on assignment&lt;/li&gt;
+&lt;li&gt;make variable or function available in subshells&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;to-declare-an-array&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-declare-an-array&quot; aria-label=&quot;to declare an array permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to declare an array&lt;/h2&gt;
+&lt;p&gt;declaring arrays in bash&lt;/p&gt;
+&lt;p&gt;&lt;a name=&quot;indexed_arrays&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;indexed-arrays&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#indexed-arrays&quot; aria-label=&quot;indexed arrays permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;indexed arrays&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare -a&lt;/code&gt; in bash&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;w3-codespan&quot;&gt;-a&lt;/code&gt; option adds the indexed array attribute to the variable name provided to the declare command.&lt;/p&gt;
+&lt;h4 id=&quot;declare-indexed-array-variable&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#declare-indexed-array-variable&quot; aria-label=&quot;declare indexed array variable permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;declare indexed array variable&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;#
+# declare an array
+#
+declare -a VARIABLE 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;set-indexed-array-key-value&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#set-indexed-array-key-value&quot; aria-label=&quot;set indexed array key value permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;set indexed array key value&lt;/h4&gt;
+&lt;p&gt;Array key values may be set on initialization or afterwords. Indices inherit the integer attribute inside square brackets (&quot;&lt;code class=&quot;w3-codespan&quot;&gt;[]&lt;/code&gt;&quot;). Using &lt;code class=&quot;w3-codespan&quot;&gt;declare -p&lt;/code&gt; on an indexed array will list all array keys along with their corresponding assigned values.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#
+# declare an array and set key values
+#
+declare -a arr=(1) # arr[0]=1
+arr[1]=$(( arr[0] + 1 ))
+echo ${arr[0]} # 1
+echo ${arr[1]} # 2
+for i in {1..10}
+do
+ arr[i]=$(( arr[i-1] + arr[i-2] ))
+done
+echo ${arr[i]} # 199
+declare -p arr
+## expect
+#declare -a arr=([0]=&quot;1&quot; [1]=&quot;3&quot; [2]=&quot;4&quot; [3]=&quot;7&quot; [4]=&quot;11&quot; [5]=&quot;18&quot; [6]=&quot;29&quot; [7]=&quot;47&quot; [8]=&quot;76&quot; [9]=&quot;123&quot; [10]=&quot;199&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a name=&quot;associative_arrays&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;associative-arrays-hashes-map-dictionary-or-collection-of-keyvalue-pairs&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#associative-arrays-hashes-map-dictionary-or-collection-of-keyvalue-pairs&quot; aria-label=&quot;associative arrays hashes map dictionary or collection of keyvalue pairs permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;associative arrays, hashes, map, dictionary, or collection of (key,value) pairs&lt;/h3&gt;
+&lt;p&gt;Associative arrays hold key value pairs also called hashes. Unlike indexed arrays, their indices are not limited to integer values. That is, associative array keys may be any string. &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare -A&lt;/code&gt; in bash&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;w3-codespan&quot;&gt;-A&lt;/code&gt; option adds the associative array attribute to the variable name provided to the declare command. Note that declaring an associative array within a function will force local scope. To declare scope outside and use in a function omit the associative array declaration command line.&lt;/p&gt;
+&lt;h4 id=&quot;declare-associative-array&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#declare-associative-array&quot; aria-label=&quot;declare associative array permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;declare associative array&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;#
+# declare an associative arrays
+#
+declare -A VARIABLE 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;local-associative-array&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#local-associative-array&quot; aria-label=&quot;local associative array permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;local associative array&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;foobar() { # foo w/ bar
+  echo -n ${FUNCNAME}:
+  ## note that local is not required in the case of declare -A
+  declare -A arr
+  arr[&quot;key&quot;]=value2
+  bar
+}
+rab() { # declares arr local
+  echo -n ${FUNCNAME}:
+  local arr
+  declare -p arr
+}
+bar() { # may inherit global arr
+  echo -n ${FUNCNAME}:
+  declare -p arr
+}
+foo() { # declare arr local to function
+  echo -n ${FUNCNAME}:
+  ## note that local is not required in the case of declare -A
+  declare -A arr
+  arr[&quot;key&quot;]=value2
+  declare -p arr
+}
+{ echo -n : ; declare -p arr 2&gt;/dev/null || echo no variable named arr 1&gt;&amp;2 ; }
+foo
+{ echo -n : ; declare -p arr 2&gt;/dev/null || echo no variable named arr 1&gt;&amp;2 ; }
+( declare -A arr ; arr[&quot;key&quot;]=value ; declare -p arr ; )
+{ echo -n : ; declare -p arr 2&gt;/dev/null || echo no variable named arr 1&gt;&amp;2 ; }
+{ declare -A arr ; arr[&quot;key&quot;]=value ; declare -p arr ; }
+{ echo -n : ; declare -p arr 2&gt;/dev/null || echo no variable named arr 1&gt;&amp;2 ; }
+foo
+{ echo -n : ; declare -p arr 2&gt;/dev/null || echo no variable named arr 1&gt;&amp;2 ; }
+( declare -A arr ; arr[&quot;key&quot;]=value3 ; declare -p arr ; )
+{ echo -n : ; declare -p arr 2&gt;/dev/null || echo no variable named arr 1&gt;&amp;2 ; }
+bar
+{ echo -n : ; declare -p arr 2&gt;/dev/null || echo no variable named arr 1&gt;&amp;2 ; }
+rab
+{ echo -n : ; declare -p arr 2&gt;/dev/null || echo no variable named arr 1&gt;&amp;2 ; }
+foobar
+{ echo -n : ; declare -p arr 2&gt;/dev/null || echo no variable named arr 1&gt;&amp;2 ; }
+## expect
+#:no variable named arr
+#foo:declare -A arr=([key]=&quot;value2&quot; )
+#:no variable named arr
+#declare -A arr=([key]=&quot;value&quot; )
+#:no variable named arr
+#declare -A arr=([key]=&quot;value&quot; )
+#:declare -A arr=([key]=&quot;value&quot; )
+#foo:declare -A arr=([key]=&quot;value2&quot; )
+#:declare -A arr=([key]=&quot;value&quot; )
+#declare -A arr=([key]=&quot;value3&quot; )
+#:declare -A arr=([key]=&quot;value&quot; )
+#bar:declare -A arr=([key]=&quot;value&quot; )
+#:declare -A arr=([key]=&quot;value&quot; )
+#rab:declare -- arr
+#:declare -A arr=([key]=&quot;value&quot; )
+#foobar:bar:declare -A arr=([key]=&quot;value2&quot; )
+#:declare -A arr=([key]=&quot;value&quot; )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;associative-arrays-in-the-wild&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#associative-arrays-in-the-wild&quot; aria-label=&quot;associative arrays in the wild permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;associative arrays in the wild&lt;/h4&gt;
+&lt;p&gt;Associative array variable example using array to store document meta name value pairs&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;declare -A document
+...
+get-document-meta() {
+ local document_meta
+ local document_meta_name
+ local document_meta_value
+ document_meta=$(
+  cat ${file} \
+  | grep \
+  -e &apos;&lt;[!]--\s\+[a-z-]\+:[a-z,]\+\s\+--&gt;&apos; --only-matching \
+  | sed -e &apos;s/\(.*\)/\1/&apos; \
+  -e &apos;s/&lt;!--\s\+//g&apos; \
+  -e &apos;s/\s\+--&gt;//g&apos; 
+ )
+ test ! &quot;${document_meta}&quot; || {
+  document_meta_name=$( 
+   echo &quot;${document_meta}&quot; | cut -f1 -d:
+  )
+  document_meta_value=$(
+   echo &quot;${document_meta}&quot; | cut -f2 -d:
+  )
+  document[&quot;${document_meta_name}&quot;]=&quot;${document_meta_value}&quot; 
+ }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;source: &lt;a href=&quot;https://github.com/temptemp3/sh2-u2-theme-default/blob/master/include.sh&quot;&gt;sh2-u2-theme-default/include.sh&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a id=&quot;namerefs&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;to-declare-a-variable-to-be-a-reference-to-another-variable&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-declare-a-variable-to-be-a-reference-to-another-variable&quot; aria-label=&quot;to declare a variable to be a reference to another variable permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to declare a variable to be a reference to another variable&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare -n&lt;/code&gt; allows you to declare namerefs in bash. That is, we can use it to a name to be used reference another name.&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;w3-codespan&quot;&gt;-n&lt;/code&gt; option adds the nameref attribute to the name provided to the declare command.&lt;/p&gt;
+&lt;p&gt;Basic usage&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#
+# declare nameref
+#
+declare -n VARIABLE 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nameref variable example&lt;/p&gt;
+&lt;p&gt;Source&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+## test-declare-nameref
+## version 0.0.1 - initial
+##################################################
+test-declare-nameref() {
+  declare -n X=x
+  declare -i x
+  echo setting x to 1 ...
+  x=1
+  echo x: ${x}
+  echo X: ${X}
+  echo incrementing x 9 times
+  _() { x+=1 ; }
+  for i in {1..9} ; do _ ; done
+  echo x: ${x}
+  echo X: ${X}
+  echo unsetting X ...
+  unset X
+  echo x: ${x}
+  echo X: ${X}
+}
+##################################################
+if [ ${#} -eq 0 ] 
+then
+ true
+else
+ exit 1 # wrong args
+fi
+##################################################
+test-declare-nameref
+##################################################
+## generated by create-stub2.sh v0.1.2
+## on Mon, 22 Jul 2019 20:31:35 +0900
+## see &amp;lt;https://github.com/temptemp3/sh2&amp;gt;
+##################################################
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Commands&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;bash test-declare-nameref.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ouput&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;setting x to 1 ...
+x: 1
+X: 1
+incrementing x 9 times
+x: 10
+X: 10
+unsetting X ...
+x:
+X:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;to-dump-variables&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-dump-variables&quot; aria-label=&quot;to dump variables permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to dump variables&lt;/h2&gt;
+&lt;p&gt;Using declare by itself may be used to dump variable names and functions along with their value and definitions, respectfully.&lt;/p&gt;
+&lt;p&gt;Declare command example&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;declare
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;to-test-a-function&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-test-a-function&quot; aria-label=&quot;to test a function permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to test a function&lt;/h2&gt;
+&lt;p&gt;The declare command may be used to test if a function has been declared and is usable within the scope of the bash program.&lt;/p&gt;
+&lt;p&gt;Function test examples&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#
+# return name and definition of function if declared
+#
+declare -f ${function_name} 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;#
+# returns name only of function if declared
+#
+declare -F ${function_name} 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;to-give-a-variable-attributes&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-give-a-variable-attributes&quot; aria-label=&quot;to give a variable attributes permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to give a variable attributes&lt;/h2&gt;
+&lt;p&gt;Attribute variable example&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#
+# give variable attribute x
+#
+declare -X VARIABLE 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;to-remove-variable-attributes&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-remove-variable-attributes&quot; aria-label=&quot;to remove variable attributes permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to remove variable attributes&lt;/h2&gt;
+&lt;p&gt;Use &apos;+&apos; instead of &apos;-&apos;.&lt;/p&gt;
+&lt;p&gt;Variable attribute removal example&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#
+# remove attribute x from variable
+#
+declare +X VARIABLE 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Attribute removal behavior may vary for array and readonly variables.&lt;/p&gt;
+&lt;h2 id=&quot;to-list-attributes&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-list-attributes&quot; aria-label=&quot;to list attributes permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to list attributes&lt;/h2&gt;
+&lt;p&gt;List all variables in addition to their attributes.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare -p&lt;/code&gt; in bash&lt;/p&gt;
+&lt;p&gt;Print variables and attributes in bash using the &lt;code class=&quot;w3-codespan&quot;&gt;-p&lt;/code&gt; option displays the attributes of the name provided to the declare command. Variables may include an assigned value.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;declare -p 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;to-declare-a-variable-without-attributes&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-declare-a-variable-without-attributes&quot; aria-label=&quot;to declare a variable without attributes permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to declare a variable without attributes&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare&lt;/code&gt; in bash without attributes&lt;/p&gt;
+&lt;p&gt;The declare command may be used without specifying attributes resulting in an assignment.&lt;/p&gt;
+&lt;p&gt;Declare variable example&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#
+# declare variable without attribute
+#
+declare VARIABLE[=VALUE] 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;equvalent to&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#
+# declare variable 
+#
+VARIABLE=[VALUE] 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;to-declare-a-readonly-variable&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-declare-a-readonly-variable&quot; aria-label=&quot;to declare a readonly variable permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to declare a readonly variable&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare -r&lt;/code&gt; in bash&lt;/p&gt;
+&lt;p&gt;Declare read-only variable in bash using the &lt;code class=&quot;w3-codespan&quot;&gt;-r&lt;/code&gt; option adds the read-only attribute to the variable name provided to the declare command such that the variable may not be reassigned.&lt;/p&gt;
+&lt;p&gt;Read-only variable example&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#
+# declare readonly
+#
+declare -r VARIABLE 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a name=&quot;bash-declare-integer&quot;&gt;&lt;/a&gt;
+&lt;a name=&quot;integers&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;to-declare-a-variable-to-be-treated-as-an-integer&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-declare-a-variable-to-be-treated-as-an-integer&quot; aria-label=&quot;to declare a variable to be treated as an integer permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to declare a variable to be treated as an integer&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare -i&lt;/code&gt; in bash&lt;/p&gt;
+&lt;p&gt;Declare integer variables in bash using the &lt;code class=&quot;w3-codespan&quot;&gt;-i&lt;/code&gt; option adds the integer attribute to the variable name provided to the declare command such that the variable is to treated as an integer.&lt;/p&gt;
+&lt;p&gt;Integer variable example&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#
+# declare integer
+#
+declare -i VARIABLE 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;See also&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;declare-integer.html&quot;&gt;bash declare integer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;to-declare-a-variable-to-be-case-insensitive-or-lowercase&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-declare-a-variable-to-be-case-insensitive-or-lowercase&quot; aria-label=&quot;to declare a variable to be case insensitive or lowercase permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to declare a variable to be case-insensitive, or lowercase&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare -l&lt;/code&gt; in bash&lt;/p&gt;
+&lt;p&gt;Declare lowercase variables in bash using the &lt;code class=&quot;w3-codespan&quot;&gt;-l&lt;/code&gt; option adds the lowercase attribute to the variable name provided to the declare command such that any value is converted to lowercase on assignment.&lt;/p&gt;
+&lt;p&gt;Lower variable example&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#
+# declare lower
+#
+declare -l VARIABLE 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;to-declare-a-variable-to-be-uppercase&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-declare-a-variable-to-be-uppercase&quot; aria-label=&quot;to declare a variable to be uppercase permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to declare a variable to be uppercase&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare -u&lt;/code&gt; in bash&lt;/p&gt;
+&lt;p&gt;Declare uppercase variables in bash using the &lt;code class=&quot;w3-codespan&quot;&gt;-u&lt;/code&gt; option adds the uppercase attribute to the variable name provided to the declare command such that any value is converted to uppercase on assignment.&lt;/p&gt;
+&lt;p&gt;Upper variable example&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#
+# declare upper
+#
+declare -u VARIABLE 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;to-export-variables-or-functions-to-subshells&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#to-export-variables-or-functions-to-subshells&quot; aria-label=&quot;to export variables or functions to subshells permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;to export variables or functions to subshells&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;w3-codespan&quot;&gt;declare -x&lt;/code&gt; in bash&lt;/p&gt;
+&lt;p&gt;Export variables and functions in bash using the &lt;code class=&quot;w3-codespan&quot;&gt;-x&lt;/code&gt; option adds the export attribute to the variable or function name provided to the declare command.&lt;/p&gt;
+&lt;h3 id=&quot;export-variable-to-subshells&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#export-variable-to-subshells&quot; aria-label=&quot;export variable to subshells permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;export variable to subshells&lt;/h3&gt;
+&lt;p&gt;Export variable example&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#
+# declare export variable
+#
+declare -x VARIABLE 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;export-function-to-subshells&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#export-function-to-subshells&quot; aria-label=&quot;export function to subshells permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;export function to subshells&lt;/h3&gt;
+&lt;p&gt;Export function example&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#
+# declare export function
+#
+declare -xf FUNCTION
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;commands-similar-to-declare&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#commands-similar-to-declare&quot; aria-label=&quot;commands similar to declare permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;commands similar to declare&lt;/h2&gt;
+&lt;p&gt;In addition, to declare, the following commands allow modification of bash variable attributes.&lt;/p&gt;
+&lt;h3 id=&quot;local&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#local&quot; aria-label=&quot;local permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;local&lt;/h3&gt;
+&lt;p&gt;Same as declare but with local bindings for functions&lt;/p&gt;
+&lt;p&gt;See &lt;a href=&quot;local.html&quot;&gt;bash using local&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;typeset&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#typeset&quot; aria-label=&quot;typeset permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;typeset&lt;/h3&gt;
+&lt;p&gt;Synonym for declare. That can be used interchangeably. May be used for compatibility with ksh or other POSIX complaint shell; however, set of option available may differ.&lt;/p&gt;
+&lt;h3 id=&quot;unset&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#unset&quot; aria-label=&quot;unset permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;unset&lt;/h3&gt;
+&lt;p&gt;Remove variable from list of declared variables. Does not apply to indexed and associative arrays. Can be used on functions. Some options similar to declare, local, and typeset.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;questions&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#questions&quot; aria-label=&quot;questions permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;questions&lt;/h2&gt;
+&lt;p&gt;Questions and answers regarding declare in bash.&lt;/p&gt;
+&lt;h3 id=&quot;why-declare&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#why-declare&quot; aria-label=&quot;why declare permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;why declare?&lt;/h3&gt;
+&lt;p&gt;Typing. Declare allows you to apply or take away attributes to variables in bash similar to how types or assigned in statically typed programming languages. For example, you may want to make it so a variable may not be reassigned a new value. This can be accomplished using the bash builtin command declare. &lt;/p&gt;
+&lt;h3 id=&quot;declare-or-typeset&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#declare-or-typeset&quot; aria-label=&quot;declare or typeset permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;declare or typeset?&lt;/h3&gt;
+&lt;p&gt;Either is fine. However, I personally don&apos;t use typeset. Although it doesn&apos;t hurt to know what it is at least or in case you have to migrate to ksh for some reason.&lt;/p&gt;
+&lt;h3 id=&quot;do-i-need-declare-to-assign-a-value-to-a-variable&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#do-i-need-declare-to-assign-a-value-to-a-variable&quot; aria-label=&quot;do i need declare to assign a value to a variable permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;do I need declare to assign a value to a variable?&lt;/h3&gt;
+&lt;p&gt;No. For most cases, you do not need declare to assign values to a variable. However, there may be side effects of declaring variable attributes after assignment. In that case, it would be advantageous to declare attributes before or on assignment in a single statement assigning value to a variable. &lt;/p&gt;
+&lt;h3 id=&quot;why-would-i-declare-a-variable-without-value-in-bash&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#why-would-i-declare-a-variable-without-value-in-bash&quot; aria-label=&quot;why would i declare a variable without value in bash permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;why would I declare a variable without value in bash?&lt;/h3&gt;
+&lt;p&gt;You may declare a variable without value to communicate that a variable may be modified from this point on or to unset a variable via assignment.&lt;/p&gt;
+&lt;p&gt;It is not necessary to declare a variable for the purpose of initialization if no assignment was made prior to appearance in script.&lt;/p&gt;
+&lt;hr&gt;</content:encoded><author></author></item><item><title><![CDATA[Enable metrics collction for an auto scaling group]]></title><description><![CDATA[You created an auto scaling group through the management console. The issue is "group metrics collection is not enabled for the following…]]></description><link>https://temptemp3.github.io/enable-metrics-collction-for-an-auto-scaling-group</link><guid isPermaLink="false">https://temptemp3.github.io/enable-metrics-collction-for-an-auto-scaling-group</guid><category><![CDATA[aws]]></category><category><![CDATA[aws-cli]]></category><category><![CDATA[aws-autoscaling]]></category><pubDate>Wed, 19 Sep 2029 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;You created an auto scaling group through the management console. The issue is &quot;group metrics collection is not enabled for the following auto scaling groups&quot; and; you would simply like to know how to enable metric collection using the AWS CLI. Here you will a &lt;a href=&quot;#aws-cli-wrapper&quot;&gt;bash function aws-cli wrapper&lt;/a&gt; to help automate enabling metrics collection for autoscaling groups in AWS.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Today in AWS, &lt;u&gt;enabling metrics collection for an auto scaling group&lt;/u&gt; was on my to-do list.
+(28 Jul 2017)&lt;/p&gt;
+&lt;p&gt;This page dedicated to the task of enabling auto scaling metrics collection.&lt;/p&gt;
+&lt;h2 id=&quot;introduction&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#introduction&quot; aria-label=&quot;introduction permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;As you may know by know, group metrics collection in AWS is not enabled by default for auto scaling groups. Why?  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Metrics collection is not free;  &lt;/li&gt;
+&lt;li&gt;In most cases, autoscaling metrics collection is not need. However, if you would like to track your autoscaling capacity over time, you need to enable auto scaling metrics collection, which can be done using the aws-cli. At the time of creating this document, there was no place to click in the management console, leaving the aws-cli the only way to enable metrics collection for an auto scaling group.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;enable-auto-scaling-metrics-collection-shortcut&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#enable-auto-scaling-metrics-collection-shortcut&quot; aria-label=&quot;enable auto scaling metrics collection shortcut permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Enable auto scaling metrics collection shortcut&lt;/h2&gt;
+&lt;p&gt;If you are really in a hurry to enable auto scaling metrics collection in AWS that you are currently working on, here is the &lt;a href=&quot;#aws-cli-example&quot;&gt;aws-cli&lt;/a&gt; shortcut you need. &lt;/p&gt;
+&lt;h2 id=&quot;enable-auto-scaling-metrics-collection-guide&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#enable-auto-scaling-metrics-collection-guide&quot; aria-label=&quot;enable auto scaling metrics collection guide permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Enable auto scaling metrics collection guide&lt;/h2&gt;
+&lt;p&gt;If you&apos;ve ever picked up where you left off, in the middle of a test, or are in your free tier period, you will find out or be reminded that metrics collection is not enabled by default. &lt;em&gt;So, what do you do?&lt;/em&gt;&lt;/p&gt;
+&lt;!-- write about how to enable auto scaling group metrics collection --&gt;
+&lt;p&gt;&lt;strong&gt;Why enable auto scaling metrics collection?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Metrics collection is used by scaling policies to achieve autoscaling.&lt;/p&gt;
+&lt;p&gt;Auto scaling groups are created without enabled metrics by default. Auto scaling group metrics collection may be enabled manually via command line through the aws-cli.&lt;/p&gt;
+&lt;h2 id=&quot;aws-cli&quot;&gt;AWS CLI&lt;/h2&gt;
+&lt;h3 id=&quot;aws-autoscaling-enable-metrics-collection&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#aws-autoscaling-enable-metrics-collection&quot; aria-label=&quot;aws autoscaling enable metrics collection permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;aws autoscaling enable-metrics-collection&lt;/h3&gt;
+&lt;h4 id=&quot;required-options&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#required-options&quot; aria-label=&quot;required options permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;required options&lt;/h4&gt;
+&lt;p&gt;The following options are required by the &apos;enable-metrics-collection&apos; command of the &apos;aws autoscaling&apos; command namespace.&lt;/p&gt;
+&lt;h5 id=&quot;--auto-scaling-group-name&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#--auto-scaling-group-name&quot; aria-label=&quot;  auto scaling group name permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;--auto-scaling-group-name&lt;/h5&gt;
+&lt;p&gt;The name or ARN of the auto scaling group is required.&lt;/p&gt;
+&lt;!-- link to arn --&gt;
+&lt;h5 id=&quot;--granularity&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#--granularity&quot; aria-label=&quot;  granularity permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;--granularity&lt;/h5&gt;
+&lt;p&gt;Despite the only valid value being &quot;1Minute&quot;, granularity is required.&lt;/p&gt;
+&lt;h4 id=&quot;aws-cli-example&quot;&gt;example&lt;/h4&gt;
+&lt;p&gt;&lt;a name=&quot;enable-metrics-collection&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h5 id=&quot;bash-function&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#bash-function&quot; aria-label=&quot;bash function permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;bash function&lt;/h5&gt;
+&lt;h6 id=&quot;aws-cli-wrapper&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#aws-cli-wrapper&quot; aria-label=&quot;aws cli wrapper permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;aws-cli wrapper&lt;/h6&gt;
+&lt;p&gt;&lt;code&gt;&lt;pre&gt;
+enable-metrics-collection() { { local auto_scaling_group_name ; auto_scaling_group_name=&quot;${1}&quot; ; }
+local granularity
+granularity=&quot;1Minute&quot;
+aws &lt;br&gt;
+autoscaling &lt;br&gt;
+enable-metrics-collection &lt;br&gt;
+--auto-scaling-group-name &quot;${auto_scaling_group_name}&quot; &lt;br&gt;
+--granularity &quot;${granularity}&quot;
+}&lt;/p&gt;
+&lt;/pre&gt;&lt;/code&gt;
+&lt;h2 id=&quot;changelog&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#changelog&quot; aria-label=&quot;changelog permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Changelog&lt;/h2&gt;
+&lt;p&gt;(3 Feb 2019)	Minor revision&lt;/p&gt;
+&lt;p&gt;(12 Jan 2018)	Update example converting original bash example code into a aws-cli wrapper bash function&lt;/p&gt;
+&lt;p&gt;( 7 Aug 2017)	Add introduction&lt;/p&gt;
+&lt;p&gt;(28 Jul 2017)	Create document&lt;/p&gt;
 &lt;hr&gt;</content:encoded><author></author></item><item><title><![CDATA[Headless Wordpress]]></title><description><![CDATA[As a side project, I worked with Gatsby, sourcing wordpress to create Self::starter, keeping a log of all the things I ended up adding as…]]></description><link>https://temptemp3.github.io/headless-wordpress</link><guid isPermaLink="false">https://temptemp3.github.io/headless-wordpress</guid><category><![CDATA[gatsbyjs]]></category><category><![CDATA[wordpress]]></category><category><![CDATA[project]]></category><pubDate>Tue, 19 Dec 2023 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;As a side project, I worked with Gatsby, sourcing wordpress to create &lt;a href=&quot;https://temptemp3.github.io/hdlesswp/&quot;&gt;Self::starter&lt;/a&gt;, keeping a log of all the things I ended up adding as the bare essentials for any headless Wordpress starter. &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Help creating a headless wordpress site&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Need help creating a headless wordpress site? If you are interested, drop me a line. Let&apos;s make it happen.&lt;/p&gt;</content:encoded><author></author></item><item><title><![CDATA[Bash pattern matching]]></title><description><![CDATA[Late in 2019, I started writing an article on the subject bash pattern matching. Later in the following year, it was published on 13 Mar…]]></description><link>https://temptemp3.github.io/bash-pattern-matching</link><guid isPermaLink="false">https://temptemp3.github.io/bash-pattern-matching</guid><category><![CDATA[bash]]></category><pubDate>Tue, 19 Mar 2013 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Late in 2019, I started writing an article on the subject &lt;a href=&quot;https://linuxhint.com/bash_pattern_matching/&quot;&gt;bash pattern matching&lt;/a&gt;. Later in the following year, it was published on 13 Mar 2020. Now, I am creating a page for the record with hopes to expand on previous work and answer any questions if need be.&lt;/p&gt;</content:encoded><author></author></item><item><title><![CDATA[Conversational AI]]></title><description><![CDATA[In 2019, I was involved in 2 projects to create chatbots using the collaborative platform SAP Conversational AI. Unfortunately, the work was…]]></description><link>https://temptemp3.github.io/conversational-ai</link><guid isPermaLink="false">https://temptemp3.github.io/conversational-ai</guid><category><![CDATA[ai]]></category><category><![CDATA[conversatational ai]]></category><category><![CDATA[sap conversatational ai]]></category><category><![CDATA[chatbots]]></category><category><![CDATA[python]]></category><pubDate>Sun, 19 Jan 2003 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;In 2019, I was involved in 2 projects to create chatbots using the collaborative platform SAP Conversational AI. Unfortunately, the work was taken to the shed and never seen again. &lt;/p&gt;
